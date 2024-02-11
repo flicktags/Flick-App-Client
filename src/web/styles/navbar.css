@@ -1,0 +1,35 @@
+.container {
+  background-color: white; 
+}
+
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(4,157,204,1);
+  padding: 10px;
+  border-bottom-left-radius: 30px; 
+  border-bottom-right-radius: 30px;
+  height: 100%;
+}
+
+p {
+  
+  word-wrap: break-word; /* allow long words to break and wrap onto the next line */
+  overflow-wrap: break-word; /* for non-standard browsers that support a different version of the word-wrap property */
+}
+
+.logo {
+  width: 50px;
+  height: 45px;
+
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.title {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  
+}

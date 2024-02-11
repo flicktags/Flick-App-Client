@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'MyFont';
+    src: url('../assets/fonts/carosblack.otf') format('otf'),
+    url('../assets/fonts/caroslight.otf') format('otf'),
+    url('../assets/fonts/carosmedium.otf') format('otf'),
+    url('../assets/fonts/carosmedium.otf') format('otf');
+    /* Add additional font properties if needed (e.g., font-weight, font-style) */
+    font-family: 'MygoogleFont';
+    src:url('../assets/fonts/Nunito-BlackItalic.ttf') format('ttf');
+  }
+  
