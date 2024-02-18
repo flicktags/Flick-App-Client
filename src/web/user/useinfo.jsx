@@ -85,7 +85,7 @@ useEffect(() => {
 </div>
     );
   }
- (fetchedData?.selectedCatgBtnOptionValue === 'Business' || fetchedData?.selectedCatgBtnOptionValue === 'business') {
+ if(fetchedData?.selectedCatgBtnOptionValue === 'Business' || fetchedData?.selectedCatgBtnOptionValue === 'business') {
     return (
       <div>
         <div className='overlay'>
