@@ -85,7 +85,7 @@ useEffect(() => {
 </div>
     );
   }
-  if (fetchedData?.selectedCatgBtnOptionValue=='business') {
+ (fetchedData?.selectedCatgBtnOptionValue === 'Business' || fetchedData?.selectedCatgBtnOptionValue === 'business') {
     return (
       <div>
         <div className='overlay'>
@@ -105,7 +105,7 @@ useEffect(() => {
           <div>
             <div>
               {userData?.socialMedia
-                .filter((socialMedia) => socialMedia.category=='Bussiness'&& socialMedia.isActive==true)
+                .filter((socialMedia) => socialMedia.category=='Business'&& socialMedia.isActive==true)
                 .map((socialMedia) => (
                   <SocialMediaContact
                     key={socialMedia._id}
