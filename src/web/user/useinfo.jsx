@@ -12,19 +12,21 @@ const UserInfo = () => {
   const tokens =userData?.deviceToken ;
   localStorage.setItem('tokens', JSON.stringify(tokens));
 const userid=window.location.pathname.slice(1)
-  useEffect(() => {
-    if (!userid) {
-      alert('User ID is empty');
-      return;
-    }
-    // Fetch user data when component mounts
-    saveDataTodefault(userid);
-    
-    fetchUserData();
-  
-    
-   
-  }, []);
+useEffect(() => {
+  if (!userid) {
+    alert('User ID is empty');
+    return;
+  }
+
+  const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+  const fetchDataWithDelay = async () => {
+    await delay(1000); 
+    fetchUserData(); 
+  };
+  saveDataTodefault(userid);
+  fetchDataWithDelay();
+}, []);
+
 
   const fetchUserData = async () => {
     
