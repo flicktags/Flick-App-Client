@@ -11,8 +11,8 @@ async function fetchData(userid) {
         throw new Error('There was a problem with the fetch operation: ' + error.message);
     }
 }
-async function saveDataTodefault(userid) {
-
+async function saveDataTodefault({userid,value}) {
+console.log("===",value);
     try {
       const response = await fetch(`https://flickapp.vercel.app/user/updatesharebycategoreyoption/${userid}`, {
         method: 'PUT',
@@ -22,7 +22,7 @@ async function saveDataTodefault(userid) {
         },
         body: JSON.stringify({
             selectedCatgBtnOptionValue:"default",
-            isChoosedCatgBtnOptions:false,
+            isChoosedCatgBtnOptions:value,
 
         }),
       });
@@ -38,4 +38,3 @@ async function saveDataTodefault(userid) {
   }
   
 export  {fetchData,saveDataTodefault};
-
