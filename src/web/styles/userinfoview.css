@@ -139,7 +139,19 @@ p {
   align-items: center; 
   height: 100vh; 
 }
-
+.auto_cancel{
+  display: flex;
+flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh;
+}
+.cancel_data{
+  font-size: large;
+  color: black;
+  word-wrap: break-word;
+  text-align: 'center';
+}
 /* Justify text */
 .canceltext {
   text-align: justify;
