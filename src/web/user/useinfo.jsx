@@ -81,7 +81,7 @@ const UserInfo = () => {
       while (!newData || newData?.selectedCatgBtnOptionValue === 'default') {
         newData = await fetchData(userid);
         setFetchedData(newData);
-        await new Promise(resolve => setTimeout(resolve, 6000));
+        await new Promise(resolve => setTimeout(resolve, 60000));
       }
     } catch (error) {
       console.error('Error fetching category data:', error);
