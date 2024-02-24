@@ -89,6 +89,7 @@ p {
   align-items: center;
   margin-top: 10px;
   flex-direction: row;
+  margin-bottom: 15px;
 }
 
 .contacstscontainer {
