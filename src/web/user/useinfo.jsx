@@ -67,7 +67,7 @@ const UserInfo = () => {
     };
 
     const startTimer = () => {
-      timer = setTimeout(handleTimeout, 60000);
+      timer = setTimeout(handleTimeout, 10000);
     };
 
     const stopTimer = () => {
@@ -81,7 +81,7 @@ const UserInfo = () => {
       while (!newData || newData?.selectedCatgBtnOptionValue === 'default') {
         newData = await fetchData(userid);
         setFetchedData(newData);
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise(resolve => setTimeout(resolve, 6000));
       }
     } catch (error) {
       console.error('Error fetching category data:', error);
@@ -239,7 +239,7 @@ const UserInfo = () => {
     }, 500);
     return null;
   }
-  if (userData && userData.isLost === true) {
+  if (userData && userData.isEnabledLostMode === true) {
     setTimeout(() => {
       alert(userData.lostMassege);
     }, 500);
