@@ -67,7 +67,7 @@ const UserInfo = () => {
     };
 
     const startTimer = () => {
-      timer = setTimeout(handleTimeout, 10000);
+      timer = setTimeout(handleTimeout, 60000);
     };
 
     const stopTimer = () => {
