@@ -259,8 +259,8 @@ const UserInfo = () => {
         const response = await axios.post('https://fcm.googleapis.com/fcm/send', {
           to: token,
           notification: {
-            title: "Please select Social Media Handles",
-            body: "Please select Social Media Handles",
+            title: "Your Flick Digital Card has been Tapped.",
+            body: "Kindly choose a category you want to share.",
           },
         }, {
           headers: {
