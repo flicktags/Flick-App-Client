@@ -25,7 +25,7 @@ const UserInfo = () => {
       await delay(1000);
       fetchUserData();
     };
-    saveDataTodefault({ userid, value:true });
+    saveDataTodefault({ userid, value:false });
     fetchDataWithDelay();
   }, []);
 
