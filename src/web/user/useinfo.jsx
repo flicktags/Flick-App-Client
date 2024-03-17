@@ -20,15 +20,18 @@ const UserInfo = () => {
       return;
     }
 
-    const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-    const fetchDataWithDelay = async () => {
-      await delay(1000);
+    
+     
       fetchUserData();
-    };
-    saveDataTodefault({ userid, value:false });
-    fetchDataWithDelay();
+   
+    // saveDataTodefault({ userid, value:false });
+    // fetchDataWithDelay();
   }, []);
-
+  const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+  const fetchDataWithDelay = async () => {
+    await delay(1000);
+    fetchCategoryData();
+  };
 
   const fetchUserData = async () => {
 
@@ -39,8 +42,10 @@ const UserInfo = () => {
       setUserData(data.data);
       if (data.data.isSHareByCatgOn == true) {
         // If user is shareable by category, start fetching category data
-
-        fetchCategoryData();
+         
+    saveDataTodefault({ userid, value:false });
+        // fetchCategoryData();
+        fetchDataWithDelay();
       }
     } catch (error) {
       console.error('Error fetching user details:', error);
@@ -52,14 +57,13 @@ const UserInfo = () => {
     let newData = null;
     let timer;
     const timers = setTimeout(() => {
-      console.log('Fetching user details')
       sendNotificationToUser(userData?.deviceToken);
 
     }, 1000);
     const handleTimeout = () => {
 
       if (newData?.selectedCatgBtnOptionValue === 'default') {
-        const value = false;
+        const value = true;
         saveDataTodefault({ userid, value });
         setCancel(true);
       }
