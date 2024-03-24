@@ -269,7 +269,7 @@ const UserInfo = () => {
         }, {
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer AAAA3T3WtjY:APA91bFEkTNtpWPbxSe7x-sgQjusAirIBm0bqDqrAYMmJOIybEDtq0wVmVUDxOCKkyMk96G58AQ3cno3j_iUUzNe2GKuvKB8OlzA9tT0nFzkQgiyOHFqSSBb79wy0dYcjGpBPEvCTaen`,
+            'Authorization': `Bearer AAAAtv0TDgY:APA91bHbsmbrbDpSXx2qDJauc2-EiZ-l1AwJAZw36b9A0m7BG_NccAguillBAc9J308ykeC66HlqIiXYesmo505oXQFeT7x1GnDDO6mZIdhunL7SlqnJG_lyLuQ25zHzX_rzrkgETb1o`,
           },
         });
 
