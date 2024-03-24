@@ -121,7 +121,7 @@ const UserInfo = () => {
     );
   }
   if (fetchedData?.selectedCatgBtnOptionValue === 'Business' || fetchedData?.selectedCatgBtnOptionValue === 'business') {
-    console.log('============================================================')
+
     return (
       <div>
         <div className='overlay'>
