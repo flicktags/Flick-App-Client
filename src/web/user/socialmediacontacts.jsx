@@ -48,6 +48,7 @@ import icon45 from '../assets/icons/HuaweiAppLink.png';
 import icon46 from '../assets/icons/GoogleReview.png';
 import icon47 from '../assets/icons/play store.png';
 import icon48 from '../assets/icons/Address.png';
+import icon49 from '../assets/icons/outlook.png';
 
 const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, socialMediaDirectMode, socialMediaName }) => {
     const [linkOpened, setLinkOpened] = useState(false);
@@ -100,6 +101,7 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
         'Google Review': icon46,
         'Play Store': icon47,
         'Address': icon48,
+        'Outlook':icon49,
         
     };
 
@@ -125,6 +127,8 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
       ? `https://wa.me/${socialMedialink}`
   
       : socialMediaType === 'Email'
+      ? `mailto:${socialMedialink}`
+      : socialMediaType === 'Outlook'
       ? `mailto:${socialMedialink}`
       : socialMediaType === 'Phone'
       ? `tel:${socialMedialink}` 
