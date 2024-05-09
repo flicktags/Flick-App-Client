@@ -6,7 +6,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(4,157,204,1);
+  /* background-color: rgba(4,157,204,1); */
+  background-color: red;
   padding: 10px;
   border-bottom-left-radius: 30px; 
   border-bottom-right-radius: 30px;
