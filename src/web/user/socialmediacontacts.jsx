@@ -49,6 +49,9 @@ import icon46 from '../assets/icons/GoogleReview.png';
 import icon47 from '../assets/icons/play store.png';
 import icon48 from '../assets/icons/Address.png';
 import icon49 from '../assets/icons/outlook.png';
+import icon50 from '../assets/icons/offer.png';
+import icon51 from '../assets/icons/whatsappbusiness.png';
+
 
 const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, socialMediaDirectMode, socialMediaName }) => {
     const [linkOpened, setLinkOpened] = useState(false);
@@ -102,6 +105,8 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
         'Play Store': icon47,
         'Address': icon48,
         'Outlook':icon49,
+        'Offers':icon50,
+        'Whatsapp Business':icon51,
         
     };
 
