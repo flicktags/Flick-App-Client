@@ -130,7 +130,8 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
   href={
     socialMediaType === 'WhatsApp' 
       ? `https://wa.me/${socialMedialink}`
-  
+      : socialMediaType === 'Whatsapp Business' 
+      ? `https://wa.me/${socialMedialink}`
       : socialMediaType === 'Email'
       ? `mailto:${socialMedialink}`
       : socialMediaType === 'Outlook'
