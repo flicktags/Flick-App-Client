@@ -265,6 +265,7 @@ const UserInfo = () => {
           notification: {
             title: "Your Flick Digital Card has been Tapped.",
             body: "Kindly choose a category you want to share.",
+            sound: "default"
           },
         }, {
           headers: {
