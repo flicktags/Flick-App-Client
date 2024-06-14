@@ -5,6 +5,7 @@ import SocialMediaContact from './socialmediacontacts';
 import { fetchData } from '../../services/issharebycategorey';
 import { saveDataTodefault } from '../../services/issharebycategorey';
 import { GridLoader } from 'react-spinners';
+import SaveContact from './save-contact';
 const UserInfo = () => {
   const [userData, setUserData] = useState(null);
   const [fetchedData, setFetchedData] = useState(null);
@@ -285,6 +286,7 @@ const UserInfo = () => {
 
   if (userData?.isSHareByCatgOn == false) {
     return (
+     
       <div>
         <div className='overlay'>
           <div className='modal'>
@@ -297,6 +299,7 @@ const UserInfo = () => {
               <p className='profession'>{userData?.profession}</p>
               <p>{userData?.organization}</p>
             </div>
+            <SaveContact/>
           </div>
         </div>
         <div>

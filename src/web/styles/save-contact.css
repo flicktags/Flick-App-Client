@@ -1,0 +1,25 @@
+/* SaveContact.css */
+.save-contact-button {
+    background-color: purple;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .save-contact-button:hover {
+    background-color: darkorchid;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .save-contact-button {
+      width: 100%;
+      font-size: 14px;
+      padding: 12px 0;
+    }
+  }
+  
