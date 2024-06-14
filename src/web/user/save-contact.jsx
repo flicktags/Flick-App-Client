@@ -15,13 +15,14 @@ export default function SaveContact() {
       "website": "httjkasfhfaj" // assuming UserID is defined
     };
 
-    if (navigator.contacts) {
-      navigator.contacts.add(contactData);
-    } else {
-      // fallback for devices that don't support navigator.contacts
-      const url = `tel://?name=${contactData.name}&email=${contactData.email}&phone=${contactData.phone}&organization=${contactData.organization}&profession=${contactData.profession}&website=${contactData.website}`;
-      navigate(url);
-    }
+    // if (navigator.contacts) {
+    //   navigator.contacts.add(contactData);
+    // } else {
+    //   // fallback for devices that don't support navigator.contacts
+    //   const url = `tel://?name=${contactData.name}&email=${contactData.email}&phone=${contactData.phone}&organization=${contactData.organization}&profession=${contactData.profession}&website=${contactData.website}`;
+    //   navigate(url);
+    // }
+    window.location.href = `tel:9230308888`;
   };
 
   return (
