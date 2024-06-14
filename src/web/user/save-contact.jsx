@@ -1,48 +1,22 @@
+
 import React from 'react';
-import '../styles/save-contact.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function SaveContact() {
+  const navigate = useNavigate();
+
   const handleSaveContact = () => {
     const contactData = {
-      name: "Shabir Ahmed Isa",
-      email: "shabirhassani1@gmail.com",
-      phone: "36499889",
-      organization: "Flick Technologies",
-      profession: "Founder & CEO",
-      website: "http://www.dummy.com"
+      "name": "Shabir Ahmed Isa",
+      "email": "shabirhassani1@gmail.com",
+      "phone": "36499889",
+      "organization": "Flick Technologies",
+      "profession": "Founder & CEO",
+      "website": "httjkasfhfaj" // assuming UserID is defined
     };
 
-    // Create vCard data
-    const vCardData = `
-BEGIN:VCARD
-VERSION:3.0
-FN:${contactData.name}
-EMAIL:${contactData.email}
-TEL:${contactData.phone}
-ORG:${contactData.organization}
-TITLE:${contactData.profession}
-URL:${contactData.website}
-END:VCARD
-    `;
-
-    // Create a blob from the vCard data
-    const blob = new Blob([vCardData], { type: 'text/vcard' });
-    const url = window.URL.createObjectURL(blob);
-
-    // Create a link element
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'contact.vcf';
-
-    // Append the link to the body
-    document.body.appendChild(a);
-
-    // Programmatically click the link to trigger the download
-    a.click();
-
-    // Clean up by removing the link
-    document.body.removeChild(a);
-    window.URL.revokeObjectURL(url);
+   
+    window.location.href = `tel:new`;
   };
 
   return (
