@@ -37,10 +37,32 @@ END:VCARD
     window.URL.revokeObjectURL(url);
   };
 
+  const handleAndroidSaveContact = () => {
+    const intentUri = `intent://contacts?action=add&name=Shabir Ahmed Isa&email=shabirhassani1@gmail.com&phone=36499889&company=Flick Technologies&job=Founder & CEO#Intent;scheme=mailto;end`;
+    window.location.href = intentUri;
+  };
+
+  const handleIOSSaveContact = () => {
+    handleSaveContact(); // Using vCard method
+  };
+
+  const handleSaveContactButton = () => {
+    const isAndroid = /Android/i.test(navigator.userAgent);
+    const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (isAndroid) {
+      handleAndroidSaveContact();
+    } else if (isIOS) {
+      handleIOSSaveContact();
+    } else {
+      alert('This function is only available on mobile devices.');
+    }
+  };
+
   return (
     <div>
       <h1>Save Contact</h1>
-      <button className="save-contact-button" onClick={handleSaveContact}>Save Contact</button>
+      <button className="save-contact-button" onClick={handleSaveContactButton}>Save Contact</button>
     </div>
   );
 }
