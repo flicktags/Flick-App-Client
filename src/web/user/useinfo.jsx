@@ -150,6 +150,7 @@ const UserInfo = () => {
                     socialMediaName={socialMedia.socialMediaName}
                     socialMedialink={socialMedia.socialMediaLink}
                     userDirectMode={userData.directMode}
+                    userPdf={socialMedia?.userPdf}
                     socialMediaDirectMode={socialMedia.socialMediaDirectMode}
                     cat={socialMedia.category}
                   />
@@ -188,6 +189,7 @@ const UserInfo = () => {
                     socialMediaType={socialMedia.socialMediaType}
                     socialMediaName={socialMedia.socialMediaName}
                     socialMedialink={socialMedia.socialMediaLink}
+                    userPdf={socialMedia?.userPdf}
                     userDirectMode={userData.directMode}
                     socialMediaDirectMode={socialMedia.socialMediaDirectMode}
                     cat={socialMedia.category}
@@ -227,6 +229,7 @@ const UserInfo = () => {
                     socialMediaName={socialMedia.socialMediaName}
                     socialMedialink={socialMedia.socialMediaLink}
                     userDirectMode={userData.directMode}
+                    userPdf={socialMedia?.userPdf}
                     socialMediaDirectMode={socialMedia.socialMediaDirectMode}
                     cat={socialMedia.category}
                   />
@@ -299,7 +302,9 @@ const UserInfo = () => {
               <p className='profession'>{userData?.profession}</p>
               <p>{userData?.organization}</p>
             </div>
+            <div className='save-contact-section'>
             <SaveContact/>
+            </div>
           </div>
         </div>
         <div>
@@ -314,6 +319,7 @@ const UserInfo = () => {
                     socialMediaName={socialMedia.socialMediaName}
                     socialMedialink={socialMedia.socialMediaLink}
                     userDirectMode={userData.directMode}
+                    userPdf={socialMedia?.userPdf}
                     socialMediaDirectMode={socialMedia.socialMediaDirectMode}
                     cat={socialMedia.category}
                   />

@@ -51,12 +51,14 @@ import icon48 from '../assets/icons/Address.png';
 import icon49 from '../assets/icons/outlook.png';
 import icon50 from '../assets/icons/offer.png';
 import icon51 from '../assets/icons/whatsappbusiness.png';
-
-
-const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, socialMediaDirectMode, socialMediaName }) => {
+import icon52 from '../assets/icons/resume.png';
+import icon53 from '../assets/icons/portfolio.png';
+const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, socialMediaDirectMode, socialMediaName,userPdf }) => {
+    console.log(socialMediaType,'===',socialMediaName);
     const [linkOpened, setLinkOpened] = useState(false);
     const socialMediaIcons = {
         'Facebook': icon,
+        'facebook': icon,
         'YouTube': icon2,
         'Yelp': icon3,
         'X': icon4,
@@ -71,7 +73,9 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
         'Spotify': icon13,
         'SoundCloud': icon14,
         'Snapchat': icon15,
+        'snapchat': icon15,
         'LinkedIn': icon16,
+        'linkedin': icon16,
         'Instagram': icon17,
         'Tripadvisor': icon18,
         'SoundCloud': icon19,
@@ -107,16 +111,21 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
         'Outlook':icon49,
         'Offers':icon50,
         'Whatsapp Business':icon51,
+        'Resume': icon52,
         
     };
 
-    const handleClick = () => {
+    const handleClick = (e) => {
+        e.preventDefault();
         if (!linkOpened) {
             setLinkOpened(true);
-            if (socialMediaType === 'WhatsApp') {
+            if (socialMediaType === 'Resume' && userPdf !==null ) {
+              
+                window.open(userPdf, '_blank');
+            } else if (socialMediaType === 'WhatsApp' || socialMediaType === 'Whatsapp Business') {
                 window.location.href = `https://wa.me/${socialMedialink}`;
             } else {
-                window.location.href = `${socialMedialink}`;
+                window.open(socialMedialink, '_blank');
             }
         }
     };
@@ -127,23 +136,21 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
     } else if (!userDirectMode) {
         return (
             <a
-  href={
-    socialMediaType === 'WhatsApp' 
-      ? `https://wa.me/${socialMedialink}`
-      : socialMediaType === 'Whatsapp Business' 
-      ? `https://wa.me/${socialMedialink}`
-      : socialMediaType === 'Email'
-      ? `mailto:${socialMedialink}`
-      : socialMediaType === 'Outlook'
-      ? `mailto:${socialMedialink}`
-      : socialMediaType === 'Phone'
-      ? `tel:${socialMedialink}` 
-      : socialMedialink.startsWith('tel:')
-      ? socialMedialink 
-      : `${socialMedialink}` 
-  }
-  onClick={handleClick}
->
+            href={
+                socialMediaType === 'WhatsApp' || socialMediaType === 'Whatsapp Business'
+                ? `https://wa.me/${socialMedialink}`
+                : socialMediaType === 'Email' || socialMediaType === 'Outlook'
+                ? `mailto:${socialMedialink}`
+                : socialMediaType === 'Phone' || socialMedialink.startsWith('tel:')
+                ? `tel:${socialMedialink}`
+                : socialMediaType === 'Resume'
+                ? userPdf
+                : socialMedialink
+            }
+            target={socialMediaType === 'Resume' ? "_blank" : "_self"}
+            rel={socialMediaType === 'Resume' ? "noopener noreferrer" : undefined}
+            onClick={handleClick}
+        >
                 <div className='contactsoverly'>
                     <div className='contacstscontainer'>
                         <div>

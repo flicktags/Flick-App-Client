@@ -1,6 +1,7 @@
-
+import { AiFillAlert } from "react-icons/ai";
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../styles/save-contact.css';
 
 export default function SaveContact() {
   const navigate = useNavigate();
@@ -15,14 +16,21 @@ export default function SaveContact() {
       "website": "httjkasfhfaj" // assuming UserID is defined
     };
 
-   
     window.location.href = `tel:new`;
   };
-
+const handleShareContact=()=>{
+alert('Share Contact')
+};
   return (
-    <div>
-      <h1>Save Contact</h1>
-      <button className="save-contact-button" onClick={handleSaveContact}>Save Contact</button>
+    <div className="main-container">
+      <div className="content-row">
+        <button className="save-contact-button" onClick={handleSaveContact}>Save Contact</button>
+        <div className="image-container">
+        <button className="image-button" onClick={handleShareContact}>
+          <img src={require('../assets/new-user.png')} className="share-contact-image" alt="User"/>
+        </button>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,25 +1,61 @@
-/* SaveContact.css */
 .save-contact-button {
-    background-color: purple;
-    color: white;
-    border: none;
-    border-radius: 15px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  background-color: purple;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+.content-row {
+  display: flex;
+  align-items: center;
+}
+
+.image-container {
+  margin-left: 10px;
+}
+.image-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.save-contact-button:hover {
+  background-color: darkorchid;
+}
+
+.share-contact-image {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .save-contact-button {
+    width: 100%;
+    font-size: 14px;
+    padding: 12px 0;
   }
   
-  .save-contact-button:hover {
-    background-color: darkorchid;
+  .content-row {
+    flex-direction: column;
+    align-items: center;
   }
-  
-  /* Responsive Design */
-  @media (max-width: 600px) {
-    .save-contact-button {
-      width: 100%;
-      font-size: 14px;
-      padding: 12px 0;
-    }
+
+  .image-container {
+    margin-left: 0;
+    margin-top: 10px;
   }
-  
+}
