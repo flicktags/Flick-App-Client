@@ -16,7 +16,21 @@ export default function SaveContact() {
       "website": "httjkasfhfaj" // assuming UserID is defined
     };
 
-    window.location.href = `tel:new`;
+    // Construct the URL for the new contact page
+  const newContactUrl = `tel:?name=${encodeURIComponent(
+    contactData.name
+  )}&email=${encodeURIComponent(contactData.email)}&phone=${encodeURIComponent(
+    contactData.phone
+  )}&organization=${encodeURIComponent(
+    contactData.organization
+  )}&profession=${encodeURIComponent(contactData.profession)}&website=${encodeURIComponent(
+    contactData.website
+  )}`;
+
+  // Navigate to the new contact page
+  window.location.href = newContactUrl;
+};
+    // window.location.href = `tel:new`;
   };
 const handleShareContact=()=>{
 alert('Share Contact')
