@@ -123,9 +123,8 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
         e.preventDefault();
         if (!linkOpened) {
             setLinkOpened(true);
-            if (socialMediaType === 'Resume' && userPdf !==null ) {  
-                // window.open(userPdf, '_blank');
-                Linking.openURL(fileUrl);
+            if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offer' && userPdf !==null ) {  
+                window.open(userPdf, '_blank');
             } else if (socialMediaType === 'WhatsApp' || socialMediaType === 'Whatsapp Business') {
                 window.location.href = `https://wa.me/${socialMedialink}`;
             } else {
