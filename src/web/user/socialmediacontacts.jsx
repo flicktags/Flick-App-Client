@@ -53,6 +53,8 @@ import icon50 from '../assets/icons/offer.png';
 import icon51 from '../assets/icons/whatsappbusiness.png';
 import icon52 from '../assets/icons/resume.png';
 import icon53 from '../assets/icons/portfolio.png';
+import icon54 from '../assets/icons/printing.png';
+
 const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, socialMediaDirectMode, socialMediaName,userPdf }) => {
     console.log(socialMediaType,'===',socialMediaName);
     const [linkOpened, setLinkOpened] = useState(false);
@@ -112,6 +114,8 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
         'Offers':icon50,
         'Whatsapp Business':icon51,
         'Resume': icon52,
+        'Portfolio': icon53,
+        'Catalogue': icon54,
         
     };
 
