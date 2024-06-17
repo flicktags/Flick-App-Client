@@ -16,17 +16,17 @@ export default function SaveContact() {
       "website": "httjkasfhfaj" // assuming UserID is defined
     };
 
-   const newContact = {
-    name: {
-      givenName: contactData.name.split(" ")[0],
-      familyName: contactData.name.split(" ")[1],
-    },
-    emails: [{ type: "work", value: contactData.email }],
-    phoneNumbers: [{ type: "work", value: contactData.phone }],
-    organization: contactData.organization,
-    title: contactData.profession,
-    url: contactData.website,
-  };
+  //  const newContact = {
+  //   name: {
+  //     givenName: contactData.name.split(" ")[0],
+  //     familyName: contactData.name.split(" ")[1],
+  //   },
+  //   emails: [{ type: "work", value: contactData.email }],
+  //   phoneNumbers: [{ type: "work", value: contactData.phone }],
+  //   organization: contactData.organization,
+  //   title: contactData.profession,
+  //   url: contactData.website,
+  // };
 
   
     window.location.href = `tel:new`;
