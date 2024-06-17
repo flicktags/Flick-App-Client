@@ -16,17 +16,55 @@ export default function SaveContact() {
       "website": "httjkasfhfaj" // assuming UserID is defined
     };
 
-   const newContact = {
-    name: {
-      givenName: contactData.name.split(" ")[0],
-      familyName: contactData.name.split(" ")[1],
-    },
-    emails: [{ type: "work", value: contactData.email }],
-    phoneNumbers: [{ type: "work", value: contactData.phone }],
-    organization: contactData.organization,
-    title: contactData.profession,
-    url: contactData.website,
-  };
+    const handleSaveContact = () => {
+      // Create a new contact object
+      const newContact = {
+        name: {
+          givenName: "Shabir",
+          familyName: "Isa"
+        },
+        emails: [
+          {
+            type: "work",
+            value: contactData.email
+          }
+        ],
+        phoneNumbers: [
+          {
+            type: "work",
+            value: contactData.phone
+          }
+        ],
+        organizations: [
+          {
+            name: contactData.organization,
+            title: contactData.profession
+          }
+        ],
+        websites: [
+          {
+            type: "work",
+            value: contactData.website
+          }
+        ]
+      };
+  
+      // Check if the navigator.contacts API is available
+      if (typeof navigator.contacts !== 'undefined' && navigator.contacts !== null && typeof navigator.contacts.create === 'function') {
+        navigator.contacts.create(newContact)
+          .then((contact) => {
+            return contact.save();
+          })
+          .then(() => {
+            console.log("Contact saved successfully!");
+          })
+          .catch((error) => {
+            console.error("Error saving contact:", error);
+          });
+      } else {
+        console.error("navigator.contacts API not supported");
+      }
+    };
 
   
     // window.location.href = `tel:new`;
