@@ -28,23 +28,8 @@ export default function SaveContact() {
     url: contactData.website,
   };
 
-  // Open the native contact app with the new contact data
-  if (navigator.contacts) {
-    navigator.contacts.create(newContact).then((contact) => {
-      contact.save().then(
-        () => {
-          console.log("Contact saved successfully!");
-        },
-        (error) => {
-          console.error("Error saving contact:", error);
-        }
-      );
-    });
-  } else {
-    console.error("navigator.contacts API not supported");
-  }
-};
-    // window.location.href = `tel:new`;
+  
+    window.location.href = `tel:new`;
   };
 const handleShareContact=()=>{
 alert('Share Contact')
