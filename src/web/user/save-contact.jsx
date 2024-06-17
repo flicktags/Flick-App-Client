@@ -16,19 +16,33 @@ export default function SaveContact() {
       "website": "httjkasfhfaj" // assuming UserID is defined
     };
 
-    // Construct the URL for the new contact page
-  const newContactUrl = `tel:?name=${encodeURIComponent(
-    contactData.name
-  )}&email=${encodeURIComponent(contactData.email)}&phone=${encodeURIComponent(
-    contactData.phone
-  )}&organization=${encodeURIComponent(
-    contactData.organization
-  )}&profession=${encodeURIComponent(contactData.profession)}&website=${encodeURIComponent(
-    contactData.website
-  )}`;
+   const newContact = {
+    name: {
+      givenName: contactData.name.split(" ")[0],
+      familyName: contactData.name.split(" ")[1],
+    },
+    emails: [{ type: "work", value: contactData.email }],
+    phoneNumbers: [{ type: "work", value: contactData.phone }],
+    organization: contactData.organization,
+    title: contactData.profession,
+    url: contactData.website,
+  };
 
-  // Navigate to the new contact page
-  window.location.href = newContactUrl;
+  // Open the native contact app with the new contact data
+  if (navigator.contacts) {
+    navigator.contacts.create(newContact).then((contact) => {
+      contact.save().then(
+        () => {
+          console.log("Contact saved successfully!");
+        },
+        (error) => {
+          console.error("Error saving contact:", error);
+        }
+      );
+    });
+  } else {
+    console.error("navigator.contacts API not supported");
+  }
 };
     // window.location.href = `tel:new`;
   };
