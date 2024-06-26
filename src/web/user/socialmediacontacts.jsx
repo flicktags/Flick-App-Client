@@ -125,7 +125,7 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
             setLinkOpened(true);
             if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offer' && userPdf !==null ) {  
                 window.open(userPdf, '_blank');
-              
+                
             } else if (socialMediaType === 'WhatsApp' || socialMediaType === 'Whatsapp Business') {
                 window.location.href = `https://wa.me/${socialMedialink}`;
             } else if(socialMediaType === 'Phone'){
