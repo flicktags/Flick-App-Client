@@ -124,7 +124,8 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
         if (!linkOpened) {
             setLinkOpened(true);
             if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offer' && userPdf !==null ) {  
-                window.open(userPdf, '_blank');
+                // window.open(userPdf, '_blank');
+                window.location.href=userPdf;
             } else if (socialMediaType === 'WhatsApp' || socialMediaType === 'Whatsapp Business') {
                 window.location.href = `https://wa.me/${socialMedialink}`;
             } else if(socialMediaType === 'Phone'){
