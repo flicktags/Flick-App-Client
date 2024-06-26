@@ -134,7 +134,7 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
                 // Create a hidden anchor element to initiate the download
                 const link = document.createElement('a');
                 link.href = userPdf;
-                link.target = '_blank'; // Open in a new tab
+                // link.target = '_blank'; // Open in a new tab
               
                 // Check if the browser supports the download attribute
                 if ('download' in link) {
