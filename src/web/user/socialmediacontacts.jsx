@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import '../styles/userinfoview.css';
 import icon from '../assets/icons/facebook.png';
 import icon2 from '../assets/icons/youtube.png';
@@ -56,8 +56,9 @@ import icon53 from '../assets/icons/portfolio.png';
 import icon54 from '../assets/icons/printing.png';
 
 const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, socialMediaDirectMode, socialMediaName,userPdf }) => {
-    
     const [linkOpened, setLinkOpened] = useState(false);
+  
+
     const socialMediaIcons = {
         'Facebook': icon,
         'facebook': icon,
@@ -122,8 +123,8 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
     const handleClick = (e) => {
         e.preventDefault();
         if (!linkOpened) {
-            setLinkOpened(true);
-            if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offer' && userPdf !==null ) {  
+            setLinkOpened(false);
+            if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offer' || socialMediaType === 'Food Menu' && userPdf !==null ) {  
                 const pdf=userPdf
                 const trimmedUserPdf = userPdf.replace(/\.pdf$/, '');
                 window.open(`${trimmedUserPdf}`, '_blank');
