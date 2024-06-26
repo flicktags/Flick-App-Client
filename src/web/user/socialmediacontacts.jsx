@@ -123,10 +123,50 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
         e.preventDefault();
         if (!linkOpened) {
             setLinkOpened(true);
-            if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offer' && userPdf !==null ) {  
-                window.open(userPdf, '_blank');
+            // if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offer' && userPdf !==null ) {  
+            //     window.open(userPdf, '_blank');
                 
-            } else if (socialMediaType === 'WhatsApp' || socialMediaType === 'Whatsapp Business') {
+            // }
+            if (
+                (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offer') &&
+                userPdf !== null
+              ) {
+                // Create a hidden anchor element to initiate the download
+                const link = document.createElement('a');
+                link.href = userPdf;
+                link.target = '_blank'; // Open in a new tab
+              
+                // Try to open the PDF directly
+                try {
+                  const newTab = window.open(userPdf, '_blank');
+                  if (newTab) {
+                    newTab.focus();
+                  } else {
+                    // If window.open fails, append the link to the body and trigger a click
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                  }
+                } catch (error) {
+                  console.error('Error opening PDF:', error);
+              
+                  // Fallback to downloading the PDF as a Blob
+                  fetch(userPdf)
+                    .then(response => response.blob())
+                    .then(blob => {
+                      const blobUrl = URL.createObjectURL(blob);
+                      link.href = blobUrl;
+                      link.download = userPdf.split('/').pop(); // Use the filename from the URL
+                      document.body.appendChild(link);
+                      link.click();
+                      document.body.removeChild(link);
+                      URL.revokeObjectURL(blobUrl); // Clean up the blob URL
+                    })
+                    .catch(fetchError => console.error('Error fetching PDF:', fetchError));
+                }
+              }
+              
+             else if (socialMediaType === 'WhatsApp' || socialMediaType === 'Whatsapp Business') {
                 window.location.href = `https://wa.me/${socialMedialink}`;
             } else if(socialMediaType === 'Phone'){
                 window.open(`tel:${socialMedialink}`)
