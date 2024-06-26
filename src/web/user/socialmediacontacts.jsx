@@ -56,7 +56,7 @@ import icon53 from '../assets/icons/portfolio.png';
 import icon54 from '../assets/icons/printing.png';
 
 const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, socialMediaDirectMode, socialMediaName,userPdf }) => {
-    const userpdf=toString(userPdf);
+    
     const [linkOpened, setLinkOpened] = useState(false);
     const socialMediaIcons = {
         'Facebook': icon,
@@ -124,7 +124,7 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
         if (!linkOpened) {
             setLinkOpened(true);
             if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offer' && userPdf !==null ) {  
-                window.open(userpdf, '_blank');
+                window.open(`${userPdf}`, '_blank');
                 
             }
              else if (socialMediaType === 'WhatsApp' || socialMediaType === 'Whatsapp Business') {
