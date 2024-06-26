@@ -123,10 +123,48 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
         e.preventDefault();
         if (!linkOpened) {
             setLinkOpened(true);
-            if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offer' && userPdf !==null ) {  
-                window.open(userPdf, '_blank');
+            // if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offer' && userPdf !==null ) {  
+            //     window.open(userPdf, '_blank');
                 
-            }
+            // }
+            if (
+                (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offer') &&
+                userPdf !== null
+              ) {
+                const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+              
+                if (isMobile) {
+                  // Mobile browsers handling
+                  const userConfirmed = window.confirm("Click OK to open the PDF or Cancel to download it.");
+              
+                  if (userConfirmed) {
+                    // User chose to open the PDF
+                    window.open(userPdf, '_blank');
+                  } else {
+                    // User chose to download the PDF
+                    const link = document.createElement('a');
+                    link.href = userPdf;
+                    link.download = userPdf.split('/').pop();
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                  }
+                } else {
+                  // Desktop browsers handling
+                  const link = document.createElement('a');
+                  link.href = userPdf;
+                  link.target = '_blank';
+              
+                  if ('download' in link) {
+                    link.download = userPdf.split('/').pop(); // Use the filename from the URL
+                  }
+              
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }
+              }
+              
              else if (socialMediaType === 'WhatsApp' || socialMediaType === 'Whatsapp Business') {
                 window.location.href = `https://wa.me/${socialMedialink}`;
             } else if(socialMediaType === 'Phone'){
