@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useRef,useEffect } from "react";
 import '../styles/userinfoview.css';
 import icon from '../assets/icons/facebook.png';
 import icon2 from '../assets/icons/youtube.png';
@@ -55,9 +55,16 @@ import icon52 from '../assets/icons/resume.png';
 import icon53 from '../assets/icons/portfolio.png';
 import icon54 from '../assets/icons/printing.png';
 
-const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, socialMediaDirectMode, socialMediaName,userPdf }) => {
-//   const userPdf=userPdf;
+const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, socialMediaDirectMode, socialMediaName, userPdf }) => {
     const [linkOpened, setLinkOpened] = useState(false);
+    const userPdfRef = useRef(null);
+
+    useEffect(() => {
+        if (userPdf) {
+            userPdfRef.current = encodeURI(userPdf); // Encode the URL
+        }
+    }, [userPdf]);
+
     const socialMediaIcons = {
         'Facebook': icon,
         'facebook': icon,
@@ -123,54 +130,40 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
         e.preventDefault();
         if (!linkOpened) {
             setLinkOpened(true);
-            // if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offer' && userPdf !==null ) {  
-            //     window.open(userPdf, '_blank');
-                
-            // }
+            const encodedUserPdf = userPdfRef.current;
             if (
                 (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offer') &&
-                userPdf !== null
-              ) {
+                encodedUserPdf !== null
+            ) {
                 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-              
                 if (isMobile) {
-                  // Mobile browsers handling
-                  const userConfirmed = window.confirm("Click OK to open the PDF or Cancel to download it.");
-              
-                  if (userConfirmed) {
-                    // User chose to open the PDF
-                    window.open(userPdf, '_blank');
-                  } else {
-                    // User chose to download the PDF
+                    const userConfirmed = window.confirm("Click OK to open the PDF or Cancel to download it.");
+                    if (userConfirmed) {
+                        window.open(encodedUserPdf, '_blank');
+                    } else {
+                        const link = document.createElement('a');
+                        link.href = encodedUserPdf;
+                        link.download = encodedUserPdf.split('/').pop();
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                    }
+                } else {
                     const link = document.createElement('a');
-                    link.href = userPdf;
-                    link.download = userPdf.split('/').pop();
+                    link.href = encodedUserPdf;
+                    link.target = '_blank';
+                    if ('download' in link) {
+                        link.download = encodedUserPdf.split('/').pop();
+                    }
                     document.body.appendChild(link);
                     link.click();
                     document.body.removeChild(link);
-                  }
-                } else {
-                  // Desktop browsers handling
-                  const link = document.createElement('a');
-                  link.href = userPdf;
-                  link.target = '_blank';
-              
-                  if ('download' in link) {
-                    link.download = userPdf.split('/').pop(); // Use the filename from the URL
-                  }
-              
-                  document.body.appendChild(link);
-                  link.click();
-                  document.body.removeChild(link);
                 }
-              }
-              
-             else if (socialMediaType === 'WhatsApp' || socialMediaType === 'Whatsapp Business') {
+            } else if (socialMediaType === 'WhatsApp' || socialMediaType === 'Whatsapp Business') {
                 window.location.href = `https://wa.me/${socialMedialink}`;
-            } else if(socialMediaType === 'Phone'){
-                window.open(`tel:${socialMedialink}`)
-               }
-            else {
+            } else if (socialMediaType === 'Phone') {
+                window.open(`tel:${socialMedialink}`);
+            } else {
                 window.open(socialMedialink, '_blank');
             }
         }
