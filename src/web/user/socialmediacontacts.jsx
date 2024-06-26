@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState } from "react";
 import '../styles/userinfoview.css';
 import icon from '../assets/icons/facebook.png';
 import icon2 from '../assets/icons/youtube.png';
@@ -125,7 +125,7 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
         if (!linkOpened) {
             setLinkOpened(false);
             if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offer' || socialMediaType === 'Food Menu' && userPdf !==null ) {  
-                const pdf=userPdf
+                
                 const trimmedUserPdf = userPdf.replace(/\.pdf$/, '');
                 window.open(`${trimmedUserPdf}`, '_blank');
                 

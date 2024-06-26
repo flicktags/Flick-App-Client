@@ -9,7 +9,7 @@ export default function SaveContact() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSaveContact = () => {
-    window.location.href = `tel:new`;
+    window.location.href = 'tel:new?name=John+Doe&phone=+1234567890';
   };
 
   const handleShareContact = () => {
