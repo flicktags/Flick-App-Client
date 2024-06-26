@@ -9,7 +9,28 @@ export default function SaveContact() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSaveContact = () => {
-    window.location.href = 'tel:new?name=John+Doe&phone=+1234567890';
+    const contactData = {
+      name: 'John Doe', // Replace with actual data
+      tel: '+1234567890', // Replace with actual data
+      email: 'johndoe@example.com', // Replace with actual data (optional)
+    };
+
+    const vcard = new vCard();
+    vcard.addName(contactData.name);
+    vcard.addTel(contactData.tel);
+    vcard.addEmail(contactData.email); // Add email if needed
+
+    const blob = new Blob([vcard.toString()], { type: 'text/vcard' });
+    const url = window.URL.createObjectURL(blob);
+
+    const downloadLink = document.createElement('a');
+    downloadLink.href = url;
+    downloadLink.download = 'contact.vcf';
+    downloadLink.style.display = 'none';
+    document.body.appendChild(downloadLink);
+
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
   };
 
   const handleShareContact = () => {
