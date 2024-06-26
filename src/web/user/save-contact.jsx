@@ -8,29 +8,23 @@ export default function SaveContact() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleSaveContact = () => {
-    const contactData = {
-      name: 'John Doe', // Replace with actual data
-      tel: '+1234567890', // Replace with actual data
-      email: 'johndoe@example.com', // Replace with actual data (optional)
+  const handleSaveContact = async () => {
+    const contactDetails = {
+      title: 'Contact',
+      text: 'Name: John Doe\nPhone: +1234567890',
+      url: ''
     };
 
-    const vcard = new vCard();
-    vcard.addName(contactData.name);
-    vcard.addTel(contactData.tel);
-    vcard.addEmail(contactData.email); // Add email if needed
-
-    const blob = new Blob([vcard.toString()], { type: 'text/vcard' });
-    const url = window.URL.createObjectURL(blob);
-
-    const downloadLink = document.createElement('a');
-    downloadLink.href = url;
-    downloadLink.download = 'contact.vcf';
-    downloadLink.style.display = 'none';
-    document.body.appendChild(downloadLink);
-
-    downloadLink.click();
-    document.body.removeChild(downloadLink);
+    if (navigator.canShare && navigator.canShare(contactDetails)) {
+      try {
+        await navigator.share(contactDetails);
+      } catch (error) {
+        console.error('Error sharing contact', error);
+      }
+    } else {
+      // Fallback for browsers that do not support the Web Share API
+      alert('Web Share API is not supported in your browser. Please use the contact app manually.');
+    }
   };
 
   const handleShareContact = () => {
