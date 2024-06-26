@@ -136,34 +136,30 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
                 link.href = userPdf;
                 link.target = '_blank'; // Open in a new tab
               
-                // Try to open the PDF directly
-                try {
-                  const newTab = window.open(userPdf, '_blank');
-                  if (newTab) {
-                    newTab.focus();
-                  } else {
-                    // If window.open fails, append the link to the body and trigger a click
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                  }
-                } catch (error) {
-                  console.error('Error opening PDF:', error);
-              
-                  // Fallback to downloading the PDF as a Blob
-                  fetch(userPdf)
-                    .then(response => response.blob())
-                    .then(blob => {
-                      const blobUrl = URL.createObjectURL(blob);
-                      link.href = blobUrl;
-                      link.download = userPdf.split('/').pop(); // Use the filename from the URL
-                      document.body.appendChild(link);
-                      link.click();
-                      document.body.removeChild(link);
-                      URL.revokeObjectURL(blobUrl); // Clean up the blob URL
-                    })
-                    .catch(fetchError => console.error('Error fetching PDF:', fetchError));
+                // Check if the browser supports the download attribute
+                if ('download' in link) {
+                  link.download = userPdf.split('/').pop(); // Use the filename from the URL
                 }
+              
+                // Append the link to the body and trigger a click
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              
+                // Fallback to Blob download if the above method fails
+                fetch(userPdf)
+                  .then(response => response.blob())
+                  .then(blob => {
+                    const blobUrl = URL.createObjectURL(blob);
+                    const downloadLink = document.createElement('a');
+                    downloadLink.href = blobUrl;
+                    downloadLink.download = userPdf.split('/').pop();
+                    document.body.appendChild(downloadLink);
+                    downloadLink.click();
+                    document.body.removeChild(downloadLink);
+                    URL.revokeObjectURL(blobUrl); // Clean up the blob URL
+                  })
+                  .catch(fetchError => console.error('Error fetching PDF:', fetchError));
               }
               
              else if (socialMediaType === 'WhatsApp' || socialMediaType === 'Whatsapp Business') {
