@@ -14,7 +14,8 @@ const UserInfo = () => {
   const [value, setValue] = useState(true);
   const tokens = userData?.deviceToken;
   localStorage.setItem('tokens', JSON.stringify(tokens));
-  const userid = window.location.pathname.slice(1)
+  const userid = window.location.pathname.slice(1);
+  localStorage.setItem('userid', userid);
   useEffect(() => {
     if (!userid) {
       alert('User ID is empty');

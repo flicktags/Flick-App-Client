@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/share-contact-modal.css';
-
+import { saveShareContact } from '../../services/user-conntact-sharinng';
 const ShareContactModal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
     email: '',
@@ -19,11 +19,30 @@ const ShareContactModal = ({ isOpen, onClose }) => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert('Form submitted with data: ' + JSON.stringify(formData));
+  
+    const userId = localStorage.getItem('userid');
+    if (userId) {
+      const dataWithUserid = { ...formData, userId };
+      try {
+        const response = await saveShareContact(dataWithUserid);
+        if (response.message === "Information Save Success") {
+          alert('Contact saved');
+        } else {
+          alert("Network Error");
+        }
+      } catch (error) {
+        console.error("Error saving contact:", error);
+        alert("Network Error");
+      }
+    } else {
+      alert('User ID not found in local storage.');
+    }
+  
     onClose();
   };
+  
 
   if (!isOpen) return null;
 
@@ -33,7 +52,7 @@ const ShareContactModal = ({ isOpen, onClose }) => {
         <div className="modal-header">Share Contact</div>
         <form className="modal-body" onSubmit={handleSubmit}>
           <input
-            type="email"
+            type="email"  
             name="email"
             placeholder="Email"
             value={formData.email}

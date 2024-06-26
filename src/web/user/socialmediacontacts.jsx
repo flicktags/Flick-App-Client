@@ -56,7 +56,7 @@ import icon53 from '../assets/icons/portfolio.png';
 import icon54 from '../assets/icons/printing.png';
 
 const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, socialMediaDirectMode, socialMediaName,userPdf }) => {
-    console.log(socialMediaType,'===',socialMediaName);
+
     const [linkOpened, setLinkOpened] = useState(false);
     const socialMediaIcons = {
         'Facebook': icon,
@@ -67,7 +67,7 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
         'WhatsApp': icon5,
         'WeChat': icon6,
         'Website': icon7,
-        'Viber': icon8,
+        'Viber': icon8, 
         'Twitter': icon9,
         'Venmo': icon10,
         'Tumblr': icon11,
