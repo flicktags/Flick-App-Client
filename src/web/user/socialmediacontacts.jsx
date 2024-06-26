@@ -1,4 +1,4 @@
-import React, { useState,useRef,useEffect } from "react";
+import React, { useState } from "react";
 import '../styles/userinfoview.css';
 import icon from '../assets/icons/facebook.png';
 import icon2 from '../assets/icons/youtube.png';
@@ -55,16 +55,9 @@ import icon52 from '../assets/icons/resume.png';
 import icon53 from '../assets/icons/portfolio.png';
 import icon54 from '../assets/icons/printing.png';
 
-const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, socialMediaDirectMode, socialMediaName, userPdf }) => {
+const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, socialMediaDirectMode, socialMediaName }) => {
+    const userPdf="https://res.cloudinary.com/diwspe6yi/image/upload/v1719308577/flick-app-userpdf/lp91jc1u4q9zxtc7a1ab.pdf"
     const [linkOpened, setLinkOpened] = useState(false);
-    const userPdfRef = useRef(null);
-
-    useEffect(() => {
-        if (userPdf) {
-            userPdfRef.current = encodeURI(userPdf); // Encode the URL
-        }
-    }, [userPdf]);
-
     const socialMediaIcons = {
         'Facebook': icon,
         'facebook': icon,
@@ -130,40 +123,16 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
         e.preventDefault();
         if (!linkOpened) {
             setLinkOpened(true);
-            const encodedUserPdf = userPdfRef.current;
-            if (
-                (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offer') &&
-                encodedUserPdf !== null
-            ) {
-                const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-                if (isMobile) {
-                    const userConfirmed = window.confirm("Click OK to open the PDF or Cancel to download it.");
-                    if (userConfirmed) {
-                        window.open(encodedUserPdf, '_blank');
-                    } else {
-                        const link = document.createElement('a');
-                        link.href = encodedUserPdf;
-                        link.download = encodedUserPdf.split('/').pop();
-                        document.body.appendChild(link);
-                        link.click();
-                        document.body.removeChild(link);
-                    }
-                } else {
-                    const link = document.createElement('a');
-                    link.href = encodedUserPdf;
-                    link.target = '_blank';
-                    if ('download' in link) {
-                        link.download = encodedUserPdf.split('/').pop();
-                    }
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                }
-            } else if (socialMediaType === 'WhatsApp' || socialMediaType === 'Whatsapp Business') {
+            if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offer' && userPdf !==null ) {  
+                window.open(userPdf, '_blank');
+                
+            }
+             else if (socialMediaType === 'WhatsApp' || socialMediaType === 'Whatsapp Business') {
                 window.location.href = `https://wa.me/${socialMedialink}`;
-            } else if (socialMediaType === 'Phone') {
-                window.open(`tel:${socialMedialink}`);
-            } else {
+            } else if(socialMediaType === 'Phone'){
+                window.open(`tel:${socialMedialink}`)
+               }
+            else {
                 window.open(socialMedialink, '_blank');
             }
         }
