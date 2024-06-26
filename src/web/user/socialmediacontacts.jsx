@@ -124,7 +124,9 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
         if (!linkOpened) {
             setLinkOpened(true);
             if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offer' && userPdf !==null ) {  
-                window.open(`${userPdf}`, '_blank');
+                const pdf=userPdf
+                const trimmedUserPdf = userPdf.replace(/\.pdf$/, '');
+                window.open(`${trimmedUserPdf}`, '_blank');
                 
             }
              else if (socialMediaType === 'WhatsApp' || socialMediaType === 'Whatsapp Business') {
