@@ -147,19 +147,19 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
     } else if (!userDirectMode) {
         return (
             <a
-            // href={
-            //     socialMediaType === 'WhatsApp' || socialMediaType === 'Whatsapp Business'
-            //     ? `https://wa.me/${socialMedialink}`
-            //     : socialMediaType === 'Email' || socialMediaType === 'Outlook'
-            //     ? `mailto:${socialMedialink}`
-            //     : socialMediaType === 'Phone' || socialMedialink.startsWith('tel:')
-            //     ? `tel:${socialMedialink}`
-            //     : socialMediaType === 'Resume'
-            //     ? userPdf
-            //     : socialMedialink
-            // }
-            // target={socialMediaType === 'Resume' ? "_blank" : "_self"}
-            // rel={socialMediaType === 'Resume' ? "noopener noreferrer" : undefined}
+            href={
+                socialMediaType === 'WhatsApp' || socialMediaType === 'Whatsapp Business'
+                ? `https://wa.me/${socialMedialink}`
+                : socialMediaType === 'Email' || socialMediaType === 'Outlook'
+                ? `mailto:${socialMedialink}`
+                : socialMediaType === 'Phone' || socialMedialink.startsWith('tel:')
+                ? `tel:${socialMedialink}`
+                : socialMediaType === 'Resume'
+                ? userPdf
+                : socialMedialink
+            }
+            target={socialMediaType === 'Resume' ? "_blank" : "_self"}
+            rel={socialMediaType === 'Resume' ? "noopener noreferrer" : undefined}
             onClick={handleClick}
         >
                 <div className='contactsoverly'>
