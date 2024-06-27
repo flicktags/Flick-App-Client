@@ -55,9 +55,9 @@ import icon52 from '../assets/icons/resume.png';
 import icon53 from '../assets/icons/portfolio.png';
 import icon54 from '../assets/icons/printing.png';
 
-const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, socialMediaDirectMode, socialMediaName }) => {
+const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, socialMediaDirectMode, socialMediaName,userPdf }) => {
     const [linkOpened, setLinkOpened] = useState(false);
-    const userPdf="https://res.cloudinary.com/diwspe6yi/image/upload/v1719418834/flick-app-userpdf/lm7z1gkeaq3fcapkpjuz"
+   
 
     const socialMediaIcons = {
         'Facebook': icon,
