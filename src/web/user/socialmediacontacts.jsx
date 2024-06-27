@@ -121,9 +121,9 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
     };
 
     const handleClick = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         if (!linkOpened) {
-            setLinkOpened(false);
+            setLinkOpened(true);
             if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offer' || socialMediaType === 'Food Menu' && userPdf !==null ) {  
                 
                 const trimmedUserPdf = userPdf.replace(/\.pdf$/, '');
@@ -136,7 +136,7 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
                 window.open(`tel:${socialMedialink}`)
                }
             else {
-                window.open(socialMedialink, '_blank');
+                window.location.href = `${socialMedialink}`;
             }
         }
     };
