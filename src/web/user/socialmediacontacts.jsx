@@ -154,7 +154,7 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
                 ? `mailto:${socialMedialink}`
                 : socialMediaType === 'Phone' || socialMedialink.startsWith('tel:')
                 ? `tel:${socialMedialink}`
-                : socialMediaType === 'Resume'
+                : socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offer' || socialMediaType === 'Food Menu' && userPdf !==null 
                 ? userPdf
                 : socialMedialink
             }
