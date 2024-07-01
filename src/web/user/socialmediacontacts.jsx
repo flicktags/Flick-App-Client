@@ -324,9 +324,10 @@ import icon54 from '../assets/icons/printing.png';
 
 const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, socialMediaDirectMode, socialMediaName, userPDF}) => {
     const [linkOpened, setLinkOpened] = useState(false);
-      const userPdf=userPDF
+     const [userPdf,setPdf]=useState("");
       useEffect(() => {
         console.log('User PDF Updated:', userPDF);
+        setPdf(userPDF);
     }, [userPDF]);
     const socialMediaIcons = {
         'Facebook': icon,
