@@ -20,7 +20,8 @@ export default function SaveContact(userData) {
     phoneNumber: userData?.userData?.phone,
     email: userData?.userData?.email,
     organization: userData?.userData?.organization,
-    website: `https://www.flicktagsonline.com/${userId}` 
+    website: `https://www.flicktagsonline.com/${userId}`, // Include user id in website URL
+    profession: userData?.userData?.profession // Add profession field
   };
 
   console.log(contact);
@@ -34,7 +35,8 @@ N:${contact.lastName};${contact.firstName};;;
 TEL;TYPE=CELL:${contact.phoneNumber}
 EMAIL:${contact.email}
 ORG:${contact.organization}
-URL:${contact.website}  
+URL:${contact.website}  // Add website to vCard
+ROLE:${contact.profession}  // Add profession to vCard
 END:VCARD
     `.trim();
   }
