@@ -400,8 +400,7 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
                 console.log("Opening PDF Link:", trimmedUserPdf);
                 alert('Opening PDF Link:', trimmedUserPdf,"o");
                 if (!userDirectMode) {
-                    const newWindow = window.open(trimmedUserPdf, '_blank');
-                    if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+                   
                         // If the window did not open, fallback to download
                         console.log("Fallback to download");
                         const link = document.createElement('a');
@@ -410,7 +409,7 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
                         document.body.appendChild(link);
                         link.click();
                         document.body.removeChild(link);
-                    }
+                    
                 } else {
                     window.location.href = trimmedUserPdf;
                 }
