@@ -20,13 +20,17 @@ export default function SaveContact(userData) {
     phoneNumber: userData?.userData?.phone,
     email: userData?.userData?.email,
     organization: userData?.userData?.organization,
-    website: `https://www.flicktagsonline.com/${userId}`, 
+    website: `https://www.flicktagsonline.com/${userId}`,
     profession: userData?.userData?.profession,
+    title: userData?.userData?.profession, // Add title field
+    company: userData?.userData?.company // Add company field
   };
 
   console.log(contact);
 
   function jsonToVCard(contact) {
+    const encodedUrl = encodeURIComponent(contact.website);
+
     return `
 BEGIN:VCARD
 VERSION:3.0
@@ -35,7 +39,9 @@ N:${contact.lastName};${contact.firstName};;;
 TEL;TYPE=CELL:${contact.phoneNumber}
 EMAIL:${contact.email}
 ORG:${contact.organization}
-URL:${contact.website}  
+URL:${encodedUrl}
+TITLE:${contact.title}
+ORG:${contact.company}
 ROLE:${contact.profession}  
 END:VCARD
     `.trim();
