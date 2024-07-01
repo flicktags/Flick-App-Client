@@ -7,7 +7,7 @@ import ShareContactModal from './share-contact';
 export default function SaveContact(userData) {
   const [userId, setUserId] = useState('');
   const navigate = useNavigate();
-
+   console.log(userData?.userData?.subscriptionType);
   useEffect(() => {
     // Fetch user id from localStorage
     const userIdFromStorage = localStorage.getItem('userid');
@@ -26,7 +26,7 @@ export default function SaveContact(userData) {
     
   };
 
-  console.log(contact);
+
 
   function jsonToVCard(contact) {
 
@@ -77,13 +77,17 @@ END:VCARD
     <div className="main-container">
       <div className="content-row">
         <button className="save-contact-button" onClick={handleSaveContact}>Save Contact</button>
-        <div className="image-container">
-          <button className="image-button" onClick={handleShareContact}>
-            <img src={newUserImage} className="share-contact-image" alt="User" />
-          </button>
-        </div>
+        {userData?.userData?.subscriptionType === 'pro' && (
+          <div className="image-container">
+            <button className="image-button" onClick={handleShareContact}>
+              <img src={newUserImage} className="share-contact-image" alt="User" />
+            </button>
+          </div>
+        )}
       </div>
-      <ShareContactModal isOpen={isModalOpen} onClose={handleCloseModal} />
+     
+        <ShareContactModal isOpen={isModalOpen} onClose={handleCloseModal} />
+    
     </div>
   );
 }
