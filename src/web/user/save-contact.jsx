@@ -29,7 +29,6 @@ export default function SaveContact(userData) {
   console.log(contact);
 
   function jsonToVCard(contact) {
-    const encodedUrl = encodeURIComponent(contact.website);
 
     return `
 BEGIN:VCARD
@@ -39,7 +38,7 @@ N:${contact.lastName};${contact.firstName};;;
 TEL;TYPE=CELL:${contact.phoneNumber}
 EMAIL:${contact.email}
 ORG:${contact.organization}
-URL:${encodedUrl}
+URL:${contact.website}
 TITLE:${contact.title}
 ORG:${contact.company}
 ROLE:${contact.profession}  
