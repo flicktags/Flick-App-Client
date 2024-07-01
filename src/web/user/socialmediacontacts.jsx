@@ -322,10 +322,12 @@ import icon52 from '../assets/icons/resume.png';
 import icon53 from '../assets/icons/portfolio.png';
 import icon54 from '../assets/icons/printing.png';
 
-const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, socialMediaDirectMode, socialMediaName }) => {
+const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, socialMediaDirectMode, socialMediaName,userPdf }) => {
     const [linkOpened, setLinkOpened] = useState(false);
 
-    const userPdf = "https://www.google.com/"
+
+  
+
     const socialMediaIcons = {
         'Facebook': icon,
         'facebook': icon,
@@ -387,28 +389,35 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
 
     };
     const handleClick = (e) => {
-        // e.preventDefault();
+        e.preventDefault();
+        console.log("Chlla 1", userPdf);
         if (!linkOpened) {
+            console.log("Chlla 2");
             setLinkOpened(true);
-            if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offer' || socialMediaType === 'Food Menu' && userPdf !== null) {
-
-                const trimmedUserPdf = userPdf;
+            if ((['Resume', 'Catalogue', 'Portfolio', 'Offer', 'Food Menu'].includes(socialMediaType)) && userPdf !== null) {
+                console.log("Chlla 3", userPdf);
+                const trimmedUserPdf = userPdf.replace(/\.pdf$/, '');
                 if (!userDirectMode) {
-
-                    window.open(trimmedUserPdf, '_blank');
+                    const newWindow = window.open(trimmedUserPdf, '_blank');
+                    if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+                        // If the window did not open, fallback to download
+                        console.log("Chlla 4 - Fallback to download");
+                        const link = document.createElement('a');
+                        link.href = trimmedUserPdf;
+                        link.download = trimmedUserPdf.split('/').pop();
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                    }
                 } else {
-
                     window.location.href = trimmedUserPdf;
                 }
-
-            }
-            else if (socialMediaType === 'WhatsApp' || socialMediaType === 'Whatsapp Business') {
+            } else if (['WhatsApp', 'Whatsapp Business'].includes(socialMediaType)) {
                 window.location.href = `https://wa.me/${socialMedialink}`;
             } else if (socialMediaType === 'Phone') {
-                window.open(`tel:${socialMedialink}`)
-            }
-            else {
-                window.location.href = `${socialMedialink}`;
+                window.open(`tel:${socialMedialink}`);
+            } else {
+                window.location.href = socialMedialink;
             }
         }
     };
