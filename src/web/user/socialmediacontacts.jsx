@@ -265,7 +265,7 @@
 // // export default SocialMediaContact;
 
 
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import '../styles/userinfoview.css';
 import icon from '../assets/icons/facebook.png';
 import icon2 from '../assets/icons/youtube.png';
@@ -325,6 +325,9 @@ import icon54 from '../assets/icons/printing.png';
 const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, socialMediaDirectMode, socialMediaName, userPDF}) => {
     const [linkOpened, setLinkOpened] = useState(false);
       const userPdf=userPDF
+      useEffect(() => {
+        console.log('User PDF Updated:', userPDF);
+    }, [userPDF]);
     const socialMediaIcons = {
         'Facebook': icon,
         'facebook': icon,
