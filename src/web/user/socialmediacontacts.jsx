@@ -322,9 +322,9 @@ import icon52 from '../assets/icons/resume.png';
 import icon53 from '../assets/icons/portfolio.png';
 import icon54 from '../assets/icons/printing.png';
 
-const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, socialMediaDirectMode, socialMediaName, }) => {
+const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, socialMediaDirectMode, socialMediaName, userPDF}) => {
     const [linkOpened, setLinkOpened] = useState(false);
-      const userPdf="https://res.cloudinary.com/diwspe6yi/image/upload/v1719600518/flick-app-userpdf/mvkslbor82pj50rring7"
+      const userPdf=userPDF
     const socialMediaIcons = {
         'Facebook': icon,
         'facebook': icon,
@@ -388,7 +388,7 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
     const handleClick = (e) => {
         // e.preventDefault();
         if (!linkOpened) {
-            setLinkOpened(true);
+            // setLinkOpened(true);
             if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offer' || socialMediaType === 'Food Menu' && userPdf !== null) {
 
                 const trimmedUserPdf = userPdf.replace(/\.pdf$/, '');

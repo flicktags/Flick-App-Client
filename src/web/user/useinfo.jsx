@@ -320,7 +320,7 @@ const UserInfo = () => {
                     socialMediaName={socialMedia.socialMediaName}
                     socialMedialink={socialMedia.socialMediaLink}
                     userDirectMode={userData.directMode}
-                    userPdf={socialMedia?.userPdf}
+                    userPDF={socialMedia?.userPdf}
                     socialMediaDirectMode={socialMedia.socialMediaDirectMode}
                     cat={socialMedia.category}
                   />
