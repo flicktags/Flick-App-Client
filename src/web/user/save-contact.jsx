@@ -21,9 +21,9 @@ export default function SaveContact(userData) {
     email: userData?.userData?.email,
     organization: userData?.userData?.organization,
     website: `https://www.flicktagsonline.com/${userId}`,
-    profession: userData?.userData?.profession,
-    title: userData?.userData?.profession, // Add title field
-    company: userData?.userData?.company // Add company field
+    company: userData?.userData?.organization ,
+    title: userData?.userData?.profession,
+    
   };
 
   console.log(contact);
