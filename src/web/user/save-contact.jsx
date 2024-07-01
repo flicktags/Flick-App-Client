@@ -8,6 +8,7 @@ export default function SaveContact( userData) {
 
 const contact = {
   firstName: userData?.userData?.name,
+  lastName: "  ",
   phoneNumber: userData?.userData?.phone,
   email: userData?.userData?.email,
   organization: userData?.userData?.organization,
