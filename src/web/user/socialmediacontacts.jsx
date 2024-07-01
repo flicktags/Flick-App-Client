@@ -394,7 +394,7 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
             // setLinkOpened(true);
             if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offer' || socialMediaType === 'Food Menu' && userPdf !== null) {
 
-                const trimmedUserPdf = userPdf.replace(/\.pdf$/, '');
+                const trimmedUserPdf = userPdf;
                 if (!userDirectMode) {
 
                     window.location.href = trimmedUserPdf;
