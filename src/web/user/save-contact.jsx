@@ -3,13 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/save-contact.css';
 import newUserImage from '../assets/new-user.png';
 import ShareContactModal from './share-contact';
-
+export default function SaveContact( userData) {
+  console.log(userData);
 const contact = {
-  firstName: "John",
-  lastName: "Doe",
-  phoneNumber: "+1234567890",
-  email: "john.doe@example.com",
-  organization: "Example Inc."
+  firstName: userData?.name,
+  phoneNumber: userData?.phone,
+  email: userData?.email,
+  organization: userData?.organization,
 };
 
 function jsonToVCard(contact) {
@@ -38,7 +38,7 @@ function downloadVCard(contact) {
   URL.revokeObjectURL(url);
 }
 
-export default function SaveContact() {
+
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
 

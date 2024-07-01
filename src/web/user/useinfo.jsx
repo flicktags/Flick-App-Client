@@ -304,7 +304,7 @@ const UserInfo = () => {
               <p>{userData?.organization}</p>
             </div>
             <div className='save-contact-section'>
-            <SaveContact/>
+            <SaveContact userData={userData}/>
             </div>
           </div>
         </div>
