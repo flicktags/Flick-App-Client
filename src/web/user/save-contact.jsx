@@ -4,27 +4,46 @@ import '../styles/save-contact.css';
 import newUserImage from '../assets/new-user.png';
 import ShareContactModal from './share-contact';
 
+const contact = {
+  firstName: "John",
+  lastName: "Doe",
+  phoneNumber: "+1234567890",
+  email: "john.doe@example.com",
+  organization: "Example Inc."
+};
+
+function jsonToVCard(contact) {
+  return `
+BEGIN:VCARD
+VERSION:3.0
+FN:${contact.firstName} ${contact.lastName}
+N:${contact.lastName};${contact.firstName};;;
+TEL;TYPE=CELL:${contact.phoneNumber}
+EMAIL:${contact.email}
+ORG:${contact.organization}
+END:VCARD
+  `.trim();
+}
+
+function downloadVCard(contact) {
+  const vCardData = jsonToVCard(contact);
+  const blob = new Blob([vCardData], { type: 'text/vcard' });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${contact.firstName}_${contact.lastName}.vcf`;
+  a.click();
+
+  URL.revokeObjectURL(url);
+}
+
 export default function SaveContact() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleSaveContact = async () => {
-    const contactDetails = {
-      title: 'Contact',
-      text: 'Name: John Doe\nPhone: +1234567890',
-      url: ''
-    };
-
-    if (navigator.canShare && navigator.canShare(contactDetails)) {
-      try {
-        await navigator.share(contactDetails);
-      } catch (error) {
-        console.error('Error sharing contact', error);
-      }
-    } else {
-      // Fallback for browsers that do not support the Web Share API
-      alert('Web Share API is not supported in your browser. Please use the contact app manually.');
-    }
+  const handleSaveContact = () => {
+    downloadVCard(contact);
   };
 
   const handleShareContact = () => {
