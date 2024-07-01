@@ -391,19 +391,29 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
     };
     const handleClick = (e) => {
         // e.preventDefault();
+     
         if (!linkOpened) {
             // setLinkOpened(true);
             if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offer' || socialMediaType === 'Food Menu' && userPdf !== null) {
 
                 const trimmedUserPdf = userPdf;
+                console.log("Opening PDF Link:", trimmedUserPdf);
+                alert('Opening PDF Link:', trimmedUserPdf,"o");
                 if (!userDirectMode) {
-
-                    window.location.href = trimmedUserPdf;
+                    const newWindow = window.open(trimmedUserPdf, '_blank');
+                    if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+                        // If the window did not open, fallback to download
+                        console.log("Fallback to download");
+                        const link = document.createElement('a');
+                        link.href = trimmedUserPdf;
+                        link.download = trimmedUserPdf.split('/').pop();
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                    }
                 } else {
-
                     window.location.href = trimmedUserPdf;
                 }
-
             }
             else if (socialMediaType === 'WhatsApp' || socialMediaType === 'Whatsapp Business') {
                 window.location.href = `https://wa.me/${socialMedialink}`;
