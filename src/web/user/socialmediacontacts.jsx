@@ -394,7 +394,7 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
                 const trimmedUserPdf = userPdf.replace(/\.pdf$/, '');
                 if (!userDirectMode) {
 
-                    window.open(trimmedUserPdf, '_blank');
+                    window.location.href = trimmedUserPdf;
                 } else {
 
                     window.location.href = trimmedUserPdf;
