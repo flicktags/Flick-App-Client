@@ -325,7 +325,7 @@ import icon54 from '../assets/icons/printing.png';
 const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, socialMediaDirectMode, socialMediaName }) => {
     const [linkOpened, setLinkOpened] = useState(false);
 
-    const userPdf = "http://res.cloudinary.com/diwspe6yi/image/upload/v1719600518/flick-app-userpdf/mvkslbor82pj50rring7.pdf"
+    const userPdf = "www.google.com"
     const socialMediaIcons = {
         'Facebook': icon,
         'facebook': icon,
