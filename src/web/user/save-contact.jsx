@@ -4,14 +4,15 @@ import '../styles/save-contact.css';
 import newUserImage from '../assets/new-user.png';
 import ShareContactModal from './share-contact';
 export default function SaveContact( userData) {
-  console.log(userData);
-const contact = {
-  firstName: userData?.name,
-  phoneNumber: userData?.phone,
-  email: userData?.email,
-  organization: userData?.organization,
-};
+  
 
+const contact = {
+  firstName: userData?.userData?.name,
+  phoneNumber: userData?.userData?.phone,
+  email: userData?.userData?.email,
+  organization: userData?.userData?.organization,
+};
+console.log(contact);
 function jsonToVCard(contact) {
   return `
 BEGIN:VCARD

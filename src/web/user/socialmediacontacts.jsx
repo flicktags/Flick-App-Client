@@ -326,7 +326,7 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
     const [linkOpened, setLinkOpened] = useState(false);
      const [userPdf,setPdf]=useState("");
       useEffect(() => {
-        console.log('User PDF Updated:', userPDF);
+        // console.log('User PDF Updated:', userPDF);
         setPdf(userPDF);
     }, [userPDF]);
     const socialMediaIcons = {
