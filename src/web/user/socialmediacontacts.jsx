@@ -325,9 +325,6 @@ import icon54 from '../assets/icons/printing.png';
 const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, socialMediaDirectMode, socialMediaName,userPdf }) => {
     const [linkOpened, setLinkOpened] = useState(false);
 
-
-  
-
     const socialMediaIcons = {
         'Facebook': icon,
         'facebook': icon,
@@ -389,35 +386,28 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
 
     };
     const handleClick = (e) => {
-        e.preventDefault();
-        console.log("Chlla 1", userPdf);
+        // e.preventDefault();
         if (!linkOpened) {
-            console.log("Chlla 2");
             setLinkOpened(true);
-            if ((['Resume', 'Catalogue', 'Portfolio', 'Offer', 'Food Menu'].includes(socialMediaType)) && userPdf !== null) {
-                console.log("Chlla 3", userPdf);
+            if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offer' || socialMediaType === 'Food Menu' && userPdf !== null) {
+
                 const trimmedUserPdf = userPdf.replace(/\.pdf$/, '');
                 if (!userDirectMode) {
-                    const newWindow = window.open(trimmedUserPdf, '_blank');
-                    if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
-                        // If the window did not open, fallback to download
-                        console.log("Chlla 4 - Fallback to download");
-                        const link = document.createElement('a');
-                        link.href = trimmedUserPdf;
-                        link.download = trimmedUserPdf.split('/').pop();
-                        document.body.appendChild(link);
-                        link.click();
-                        document.body.removeChild(link);
-                    }
+
+                    window.open(trimmedUserPdf, '_blank');
                 } else {
+
                     window.location.href = trimmedUserPdf;
                 }
-            } else if (['WhatsApp', 'Whatsapp Business'].includes(socialMediaType)) {
+
+            }
+            else if (socialMediaType === 'WhatsApp' || socialMediaType === 'Whatsapp Business') {
                 window.location.href = `https://wa.me/${socialMedialink}`;
             } else if (socialMediaType === 'Phone') {
-                window.open(`tel:${socialMedialink}`);
-            } else {
-                window.location.href = socialMedialink;
+                window.open(`tel:${socialMedialink}`)
+            }
+            else {
+                window.location.href = `${socialMedialink}`;
             }
         }
     };
