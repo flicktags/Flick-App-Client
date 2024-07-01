@@ -325,7 +325,7 @@ import icon54 from '../assets/icons/printing.png';
 const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, socialMediaDirectMode, socialMediaName }) => {
     const [linkOpened, setLinkOpened] = useState(false);
 
-    const userPdf = "www.google.com"
+    const userPdf = "https://www.google.com/"
     const socialMediaIcons = {
         'Facebook': icon,
         'facebook': icon,
