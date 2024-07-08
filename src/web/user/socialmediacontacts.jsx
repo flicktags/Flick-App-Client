@@ -393,7 +393,7 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
         // e.preventDefault();
         if (!linkOpened) {
             // setLinkOpened(true);
-            if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offer' || socialMediaType === 'Food Menu' && userPdf !== null) {
+            if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offers' || socialMediaType === 'Food Menu' && userPdf !== null) {
 
                 const trimmedUserPdf = userPdf;
                 if (!userDirectMode) {
