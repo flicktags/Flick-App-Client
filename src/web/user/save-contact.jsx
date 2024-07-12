@@ -86,7 +86,7 @@ END:VCARD
         )}
       </div>
      
-        <ShareContactModal isOpen={isModalOpen} onClose={handleCloseModal} />
+        <ShareContactModal isOpen={isModalOpen} onClose={handleCloseModal} userName={userData?.userData?.name}/>
     
     </div>
   );

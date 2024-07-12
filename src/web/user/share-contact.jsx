@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/share-contact-modal.css';
 import { saveShareContact } from '../../services/user-conntact-sharinng';
-const ShareContactModal = ({ isOpen, onClose }) => {
+const ShareContactModal = ({ isOpen, onClose,userName }) => {
   const [formData, setFormData] = useState({
     email: '',
     name: '',
@@ -49,7 +49,7 @@ const ShareContactModal = ({ isOpen, onClose }) => {
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <div className="modal-header">Share Contact</div>
+        <div className="modal-header">Share Information with {userName} </div>
         <form className="modal-body" onSubmit={handleSubmit}>
           <input
             type="email"  

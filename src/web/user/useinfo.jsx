@@ -323,6 +323,7 @@ const UserInfo = () => {
                     userPDF={socialMedia?.userPdf}
                     socialMediaDirectMode={socialMedia.socialMediaDirectMode}
                     cat={socialMedia.category}
+                  
                   />
                 ))}
             </div>
