@@ -394,7 +394,7 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
         e.preventDefault();
         if (!linkOpened) {
             // setLinkOpened(true);
-            if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offers' || socialMediaType === 'Food Menu' && userPdf) {
+            if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offers' || socialMediaType === 'Food Menu' && userPdf !=null) {
 
                 const trimmedUserPdf = userPdf;
                 if (!userDirectMode) {
@@ -402,7 +402,6 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
                     // window.open(trimmedUserPdf);
                     console.log(`Navigating to PDF: ${trimmedUserPdf}`);
                     window.open(trimmedUserPdf, '_blank'); // Use window.open for better handling
-
                     // window.location.href = `${trimmedUserPdf}`;
 
 
@@ -423,11 +422,11 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
             } else if (socialMediaType === 'Email' || socialMediaType === 'Outlook') {
                 window.location.href = `mailto:${socialMedialink}`;
             }
-            else if (socialMediaType == 'Portfolio')
-            {
-                window.location.href = `${userPDF}`;
+            // else if (socialMediaType == 'Portfolio')
+            // {
+            //     window.location.href = `${userPDF}`;
 
-            }
+            // }
             else {
                 window.location.href = `${socialMedialink}`;
             }
