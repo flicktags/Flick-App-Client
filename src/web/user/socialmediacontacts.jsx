@@ -396,7 +396,8 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
             // setLinkOpened(true);
             if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offers' || socialMediaType === 'Food Menu' && userPdf !=null) {
 
-                const trimmedUserPdf = userPdf.replace("http://", "https://");
+                // const trimmedUserPdf = userPdf.replace("http://", "https://");
+                const trimmedUserPdf = userPdf;
                 if (!userDirectMode) {
                     console.log(`Navigating to PDF: ${trimmedUserPdf}`);
                     // window.location.href = trimmedUserPdf;
