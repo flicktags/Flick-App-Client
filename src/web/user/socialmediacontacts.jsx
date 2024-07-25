@@ -421,7 +421,7 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
             }
             else if (socialMediaType == 'Portfolio')
             {
-                window.location.href = `${userPdf}`;
+                window.location.href = `${userPDF}`;
 
             }
             else {
