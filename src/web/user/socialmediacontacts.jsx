@@ -400,12 +400,14 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
                 if (!userDirectMode) {
                     // window.location.href = trimmedUserPdf;
                     // window.open(trimmedUserPdf);
+                    console.log(`Navigating to PDF: ${trimmedUserPdf}`);
                     window.location.href = `${trimmedUserPdf}`;
 
 
                 } else {
                     // window.location.href = trimmedUserPdf;
                     // window.open(trimmedUserPdf);
+                    console.log(`Navigating to PDF: ${trimmedUserPdf}`);
                     window.location.href = `${trimmedUserPdf}`;
 
                 }
