@@ -398,13 +398,12 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
 
                 const trimmedUserPdf = userPdf;
                 if (!userDirectMode) {
+                    // window.location.href = trimmedUserPdf;
+                    window.location = trimmedUserPdf;
 
-                    window.location.href = trimmedUserPdf;
                 } else {
-
                     window.location.href = trimmedUserPdf;
                 }
-
             }
             else if (socialMediaType === 'WhatsApp' || socialMediaType === 'Whatsapp Business') {
                 window.location.href = `https://wa.me/${socialMedialink}`;
