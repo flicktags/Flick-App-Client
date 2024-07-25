@@ -398,18 +398,18 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
 
                 const trimmedUserPdf = userPdf;
                 if (!userDirectMode) {
-                    // window.location.href = trimmedUserPdf;
-                    // window.open(trimmedUserPdf);
                     console.log(`Navigating to PDF: ${trimmedUserPdf}`);
-                    window.open(trimmedUserPdf, '_blank'); // Use window.open for better handling
+                    window.location.href = trimmedUserPdf;
+                    // window.open(trimmedUserPdf);
+                    // window.open(trimmedUserPdf, '_blank'); // Use window.open for better handling
                     // window.location.href = `${trimmedUserPdf}`;
 
 
                 } else {
-                    // window.location.href = trimmedUserPdf;
-                    // window.open(trimmedUserPdf);
                     console.log(`Navigating to PDF: ${trimmedUserPdf}`);
-                    window.open(trimmedUserPdf, '_blank'); // Use window.open for better handling
+                    window.location.href = trimmedUserPdf;
+                    // window.open(trimmedUserPdf);
+                    // window.open(trimmedUserPdf, '_blank'); // Use window.open for better handling
 
                     // window.location.href = `${trimmedUserPdf}`;
 
