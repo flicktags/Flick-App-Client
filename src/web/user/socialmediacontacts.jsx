@@ -409,6 +409,8 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
                 window.location.href = `https://wa.me/${socialMedialink}`;
             } else if (socialMediaType === 'Phone') {
                 window.open(`tel:${socialMedialink}`)
+            } else if (socialMediaType === 'Email' || socialMediaType === 'Outlook') {
+                window.location.href = `mailto:${socialMedialink}`;
             }
             else {
                 window.location.href = `${socialMedialink}`;
