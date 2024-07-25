@@ -396,21 +396,21 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
             // setLinkOpened(true);
             if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offers' || socialMediaType === 'Food Menu' && userPdf !=null) {
 
-                // const trimmedUserPdf = userPdf.replace("http://", "https://");
-                const trimmedUserPdf = userPdf;
+                const trimmedUserPdf = userPdf.replace("http://", "https://");
+                // const trimmedUserPdf = userPdf;
                 if (!userDirectMode) {
                     console.log(`Navigating to PDF: ${trimmedUserPdf}`);
-                    window.location.href = trimmedUserPdf;
+                    // window.location.href = trimmedUserPdf;
                     // window.open(trimmedUserPdf);
-                    // window.open(trimmedUserPdf, '_blank'); // Use window.open for better handling
+                    window.open(trimmedUserPdf, '_blank'); // Use window.open for better handling
                     // window.location.href = `${trimmedUserPdf}`;
 
 
                 } else {
                     console.log(`Navigating to PDF: ${trimmedUserPdf}`);
-                    window.location.href = trimmedUserPdf;
+                    // window.location.href = trimmedUserPdf;
                     // window.open(trimmedUserPdf);
-                    // window.open(trimmedUserPdf, '_blank'); // Use window.open for better handling
+                    window.open(trimmedUserPdf, '_blank'); // Use window.open for better handling
 
                     // window.location.href = `${trimmedUserPdf}`;
 
