@@ -409,8 +409,8 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
             else if (socialMediaType === 'WhatsApp' || socialMediaType === 'Whatsapp Business') {
                 window.location.href = `https://wa.me/${socialMedialink}`;
             } else if (socialMediaType === 'Phone') {
-                // window.open(`tel:${socialMedialink}`)
-                `tel:${socialMedialink}`
+                window.open(`tel:${socialMedialink, '_self'}`);
+                // `tel:${socialMedialink}`
             } else if (socialMediaType === 'Email' || socialMediaType === 'Outlook') {
                 window.location.href = `mailto:${socialMedialink}`;
             }
