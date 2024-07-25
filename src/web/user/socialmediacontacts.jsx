@@ -399,17 +399,17 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
                 const trimmedUserPdf = userPdf.replace("http://", "https://");
                 if (!userDirectMode) {
                     console.log(`Navigating to PDF: ${trimmedUserPdf}`);
-                    window.location.href = trimmedUserPdf;
+                    // window.location.href = trimmedUserPdf;
                     // window.open(trimmedUserPdf);
-                    // window.open(trimmedUserPdf, '_blank'); // Use window.open for better handling
+                    window.open(trimmedUserPdf, '_blank'); // Use window.open for better handling
                     // window.location.href = `${trimmedUserPdf}`;
 
 
                 } else {
                     console.log(`Navigating to PDF: ${trimmedUserPdf}`);
-                    window.location.href = trimmedUserPdf;
+                    // window.location.href = trimmedUserPdf;
                     // window.open(trimmedUserPdf);
-                    // window.open(trimmedUserPdf, '_blank'); // Use window.open for better handling
+                    window.open(trimmedUserPdf, '_blank'); // Use window.open for better handling
 
                     // window.location.href = `${trimmedUserPdf}`;
 
