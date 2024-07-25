@@ -419,6 +419,11 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
             } else if (socialMediaType === 'Email' || socialMediaType === 'Outlook') {
                 window.location.href = `mailto:${socialMedialink}`;
             }
+            else if (socialMediaType == 'Portfolio')
+            {
+                window.location.href = `${userPdf}`;
+
+            }
             else {
                 window.location.href = `${socialMedialink}`;
             }
