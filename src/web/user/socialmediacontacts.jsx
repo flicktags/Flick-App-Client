@@ -389,6 +389,7 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
         'Catalogue': icon54,
 
     };
+    // testing github access
     const handleClick = (e) => {
         // e.preventDefault();
         if (!linkOpened) {
