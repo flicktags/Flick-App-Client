@@ -399,12 +399,11 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
                 const trimmedUserPdf = userPdf;
                 if (!userDirectMode) {
                     // window.location.href = trimmedUserPdf;
-                    window.open(trimmedUserPdf, '_blank');
-
-
+                    window.open(trimmedUserPdf);
+                    
                 } else {
                     // window.location.href = trimmedUserPdf;
-                    window.open(trimmedUserPdf, '_blank');
+                    window.open(trimmedUserPdf);
 
                 }
             }
