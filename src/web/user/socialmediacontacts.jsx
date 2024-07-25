@@ -399,10 +399,13 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
                 const trimmedUserPdf = userPdf;
                 if (!userDirectMode) {
                     // window.location.href = trimmedUserPdf;
-                    window.location = trimmedUserPdf;
+                    window.open(trimmedUserPdf, '_blank');
+
 
                 } else {
-                    window.location.href = trimmedUserPdf;
+                    // window.location.href = trimmedUserPdf;
+                    window.open(trimmedUserPdf, '_blank');
+
                 }
             }
             else if (socialMediaType === 'WhatsApp' || socialMediaType === 'Whatsapp Business') {
