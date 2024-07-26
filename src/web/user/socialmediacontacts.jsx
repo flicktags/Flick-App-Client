@@ -391,7 +391,7 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
     };
     // testing github access
     const handleClick = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         if (!linkOpened) {
             // setLinkOpened(true);
             if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offers' || socialMediaType === 'Food Menu' && userPdf !=null) {
