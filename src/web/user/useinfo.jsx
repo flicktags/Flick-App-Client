@@ -292,9 +292,6 @@ const UserInfo = () => {
     return (
      
       <div>
-         <div className='userbannerContainer'>
-        <img src={userData?.userBannerImage || userimg} alt='User Banner' className='userbannerimage' />
-      </div>
         <div className='overlay'>
           <div className='modal'>
             <div className='userimgcontainer'>
