@@ -81,7 +81,7 @@ p {
 } */
 .userimgcontainer {
   position: absolute;
-  bottom: -40px; /* Half of the container's height */
+  top: 120px; 
   left: 10px; /* Adjust the left padding from the screen edge */
   width: 80px;
   height: 80px;
