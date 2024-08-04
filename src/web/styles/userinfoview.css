@@ -108,7 +108,7 @@ p {
 /* User Image Container */
 .userimgcontainer {
   position: absolute;
-  bottom: -40px; /* Moves the bottom edge of the container 40px below the bottom of the userbannerContainer */
+  bottom: -10px; /* Moves the bottom edge of the container 40px below the bottom of the userbannerContainer */
   left: 10px; /* Padding from the screen edge */
   width: 80px;
   height: 80px;
