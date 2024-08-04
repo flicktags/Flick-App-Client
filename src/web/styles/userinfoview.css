@@ -56,7 +56,7 @@ p {
 
 .userbannerContainer {
   width: 100%;
-  height: 30vh; /* 25% to 30% of screen height */
+  height: 25vh; /* 25% to 30% of screen height */
   position: relative;
 }
 

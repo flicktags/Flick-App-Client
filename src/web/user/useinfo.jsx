@@ -293,7 +293,7 @@ const UserInfo = () => {
      
       <div>
          <div className='userbannerContainer'>
-        <img src={userData?.userImage || userimg} alt='User Banner' className='userbannerimage' />
+        <img src={userData?.userBannerImage || userimg} alt='User Banner' className='userbannerimage' />
       </div>
         <div className='overlay'>
           <div className='modal'>
