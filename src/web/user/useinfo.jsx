@@ -129,7 +129,7 @@ const UserInfo = () => {
         <div className='overlay'>
           <div className='modal'>
             <div className='userimgcontainer'>
-              <img src={userData?.userBannerImage || userimg} alt='' className='userimg' title='Click to view full image' />
+              <img src={userData?.userImage || userimg} alt='' className='userimg' title='Click to view full image' />
             </div>
             <div className='usrdta'>
 
@@ -295,7 +295,7 @@ const UserInfo = () => {
         <div className='overlay'>
           <div className='modal'>
             <div className='userimgcontainer'>
-              <img src={userData?.userBannerImage || userimg} alt='' className='userimg' title='Click to view full image' />
+              <img src={userData?.userImage || userimg} alt='' className='userimg' title='Click to view full image' />
             </div>
             <div className='usrdta'>
 
