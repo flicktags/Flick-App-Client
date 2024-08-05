@@ -325,6 +325,7 @@ import icon54 from '../assets/icons/printing.png';
 const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, socialMediaDirectMode, socialMediaName, userPDF}) => {
     const [linkOpened, setLinkOpened] = useState(false);
      const [userPdf,setPdf]=useState("");
+     const listItems = ['Item 1', 'Item 2', 'Item 3', /* ... */];
       useEffect(() => {
         // console.log('User PDF Updated:', userPDF);
         setPdf(userPDF);
@@ -455,9 +456,11 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
                 rel={socialMediaType === 'Resume' ? "noopener noreferrer" : undefined}
                 onClick={handleClick}
             >
+                
                 <div className='contactsoverly'>
                     <div className='contacstscontainer'>
                         <div>
+                            
                             <div className='socialMediaIcon'>
                                 <img
                                     src={socialMediaIcons[socialMediaType]}
@@ -466,8 +469,11 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
                                 />
                                 <p className="socialmedianame">{socialMediaName}</p>
                             </div>
+                           
+                            
                         </div>
                     </div>
+                    
                 </div>
             </a>
         );

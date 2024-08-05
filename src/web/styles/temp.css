@@ -1,46 +1,35 @@
+/* UserInfo.css */
 @import './fonts.css';
-
 @font-face {
   font-family: caros-black;
   src: url('../assets/fonts/Nunito-BlackItalic.ttf');
 }
-
 @font-face {
   font-family: caros-light;
   src: url('../assets/fonts/carosmedium.otf');
 }
+.username {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+
+}
 
 .usrdta {
-  margin-left: 60px;
-  margin-top: -5%;
   font-family: 'Myfont', carosmedium, sans-serif;
+  font-size: 10px;
 }
-
-.uaername {
-  font-size: 15px;
-  font-weight: bold;
-}
-
-.profession {
-  margin-right: 120px;
-  margin-top: -4%;
-  text-align: left;
-}
-
-.organization {
-  margin-right: 130px;
-  margin-top: -6%;
-  text-align: left;
-}
-
-h1 {
-  font-family: caros-black;
-}
+ h1{
+  font-family:caros-black;
+ }
 
 p {
-  font-family: caros-light;
+  font-family:caros-light;
+  
   font-size: 14px;
   opacity: 0.5;
+ 
 }
 
 .overlay {
@@ -51,39 +40,31 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 0px;
+  margin-top: 35px;
 }
 
 .modal {
   background-color: white;
   width: 300px;
-  padding: 0px;
-  margin-top: 0px;
-  text-align: center;
-}
-
-.divider {
-  background-color: white;
-  width: 300px;
-  padding: 0px;
-  margin-top: 0px;
+  padding: 15px;
+  margin-top: 75px;
   border-radius: 10px;
-  border: 2px solid rgba(255, 255, 255, 0);
+  border: 2px solid rgba(255, 255, 255, 0.5); 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
 
 .userimgcontainer {
   position: absolute;
-  top: 167px;
-  left: 35%;
+  top: 115px; 
+  left: 50%;
   transform: translateX(-50%);
-  margin-top: 35%;
+  margin-top: 7px;
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  border: 4px solid #ccc;
-  box-shadow: 0 2px 2px rgba(235, 183, 183, 0.9);
+  border: 4px solid #ccc; 
+  box-shadow: 0 2px 2px rgba(235, 183, 183, 0.9); 
 }
 
 .userimg {
@@ -93,12 +74,11 @@ p {
   object-fit: cover;
   overflow: hidden;
 }
-
 .userimgcontainer:hover .userimg {
   transform: scale(1.8);
-  filter: grayscale(0%);
+  filter:grayscale(0%);
 }
-
+ 
 .contactsoverly {
   top: 0;
   left: 0;
@@ -111,8 +91,6 @@ p {
   flex-direction: row;
   margin-bottom: 15px;
 }
-
-/* Styling for each contact item */
 
 .contacstscontainer {
   flex-wrap: wrap;
@@ -129,93 +107,74 @@ p {
   text-align: center;
 }
 
-
-
 .iconImage {
-  width: 30px;
-  height: 30px;
+  width: 30px; 
+  height: 30px; 
+  
 }
 
 .socialMediaIcon {
+ 
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
   gap: 20px;
 }
-
 .centered-text {
-  text-align: center;
-  margin-top: 50vh;
+  text-align: center; 
+  margin-top: 50vh; 
   transform: translateY(-50%);
   font-size: large;
-  font-family: caros-light;
+  font-family:caros-light;
 }
-
-.socialmedianame {
+.socialmedianame{
   font-size: large;
   color: black;
   word-wrap: break-word;
-  font-family: caros-light;
+  font-family:caros-light;
 }
-
 .canceltext-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh; 
 }
-
-.auto_cancel {
+.auto_cancel{
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
   height: 100vh;
 }
-
-.cancel_data {
+.cancel_data{
   font-size: large;
   color: black;
   word-wrap: break-word;
-  text-align: center;
+  text-align: 'center';
 }
-
+/* Justify text */
 .canceltext {
   text-align: justify;
 }
-
-h1 {
-  font-family: caros-light;
-  text-align: left;
+h1{
+  font-family:caros-light;
+  text-align: center;
 }
-
-.spinner {
+.spinner{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   margin-top: 10rem;
 }
-
+/* Media Query for Mobile Devices */
 @media (max-width: 600px) {
   .modal {
-    width: 75%;
+    width: 75%; 
   }
-
+  
   .contacstscontainer {
-    width: 75%;
-  }
-  .userimgcontainer {
-    position: absolute;
-    top: 167px;
-    left: 15%;
-    transform: translateX(-50%);
-    margin-top: 7px;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 4px solid #ccc;
-    box-shadow: 0 2px 2px rgba(235, 183, 183, 0.9);
+    width: 75%; 
   }
 }

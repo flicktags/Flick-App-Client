@@ -78,11 +78,12 @@ END:VCARD
       <div className="content-row">
         <button className="save-contact-button" onClick={handleSaveContact}>Save Contact</button>
         {userData?.userData?.subscriptionType === 'pro' && (
-          <div className="image-container">
-            <button className="image-button" onClick={handleShareContact}>
-              <img src={newUserImage} className="share-contact-image" alt="User" />
+         
+            <button className="image-container" onClick={handleShareContact}>
+              {/* <img src={newUserImage} className="share-contact-image" alt="User" /> */}
+              Excahge Contact
             </button>
-          </div>
+         
         )}
       </div>
      
