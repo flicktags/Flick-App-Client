@@ -243,8 +243,8 @@ body, html {
   }
   
   .userimg {
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
     border-radius: 40px;
     object-fit: cover;
     overflow: hidden;
@@ -455,8 +455,8 @@ h1 {
     left: 12%;
     transform: translateX(-50%);
     margin-top: 7px;
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     border: 3px solid #fffdfd;
     box-shadow: 0 1px 1px rgba(153, 151, 151, 0.9);
