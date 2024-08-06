@@ -360,8 +360,6 @@ const UserInfo = () => {
       alert('User ID is empty');
       return;
     }
-
-    
      
       fetchUserData();
    
@@ -456,7 +454,7 @@ const UserInfo = () => {
     return (
       <div class="canceltext-container">
         <div class="canceltext">
-          <h1>Your request has been canceled by the user. Please try again</h1>
+          <h1>Your request has been cancelled by the user. Please try again</h1>
         </div>
       </div>
     );
@@ -464,120 +462,226 @@ const UserInfo = () => {
   if (fetchedData?.selectedCatgBtnOptionValue === 'Business' || fetchedData?.selectedCatgBtnOptionValue === 'business') {
 
     return (
-      <div>
-        <div className='overlay'>
-          <div className='modal'>
-            <div className='userimgcontainer'>
-              <img src={userData?.userImage || userimg} alt='' className='userimg' title='Click to view full image' />
-            </div>
-            <div className='usrdta'>
-
-              <h1>{userData?.name}</h1>
-              <p className='profession'>{userData?.profession}</p>
-              <p>{userData?.organization}</p>
-            </div>
-          </div>
+      <div class="container">
+      <div class="top-section">
+        <div class='userbannerContainer'>
+          <img src={userData?.userBannerImage || banerImage} alt='' className='userbannerimage' title='Click to view full image' />
         </div>
-        <div>
-          <div>
-            <div>
-              {userData?.socialMedia
-                .filter((socialMedia) => socialMedia.category == 'Business' && socialMedia.isActive == true)
-                .map((socialMedia) => (
-                  <SocialMediaContact
-                    key={socialMedia._id}
-                    socialMediaType={socialMedia.socialMediaType}
-                    socialMediaName={socialMedia.socialMediaName}
-                    socialMedialink={socialMedia.socialMediaLink}
-                    userDirectMode={userData.directMode}
-                    userPdf={socialMedia?.userPdf}
-                    socialMediaDirectMode={socialMedia.socialMediaDirectMode}
-                    cat={socialMedia.category}
-                  />
-                ))}
+        <div class='userimgcontainer'>
+              <img src={userData?.userImage || banerImage} alt='' className='userimg' title='Click to view full image' />
             </div>
+        <div class='overlay'>
+          <div class='modal'>  
+            <div class='usrdta'>
+              <h1 class='uaername'>{userData?.name}</h1>
+              <p class='profession'>{userData?.profession}</p>
+              <p class='organization'>{userData?.organization}</p>
+            </div>
+            <div class='save-contact-section'>
+              <SaveContact userData={userData}/>
+            </div>
+            {/* <div class='divider'></div> */}
+            <div></div>
           </div>
         </div>
       </div>
+      <div class='contactsoverly'>
+        {userData?.socialMedia
+          .filter((socialMedia) => socialMedia.category == 'Business' && socialMedia.isActive == true)
+          .map((socialMedia) => (
+            <SocialMediaContact
+              key={socialMedia._id}
+              socialMediaType={socialMedia.socialMediaType}
+              socialMediaName={socialMedia.socialMediaName}
+              socialMedialink={socialMedia.socialMediaLink}
+              userDirectMode={userData.directMode}
+              userPDF={socialMedia?.userPdf}
+              socialMediaDirectMode={socialMedia.socialMediaDirectMode}
+              cat={socialMedia.category}
+            />
+          ))}
+      </div>
+      <div class='poweredby'>
+      <h1 class='poweredbytext'>
+        Powered by <a href='https://www.flicktags.com' class='flick-text' target='_blank' rel='noopener noreferrer'>Flick</a>
+      </h1>
+    </div>
+    </div>
+      // <div>
+      //       <div className='userbannerContainer'>
+      //         <img src={userData?.userBannerImage || userimg} alt='' className='userbannerimage' title='Click to view full image' />
+      //       </div> 
+      //   <div className='overlay'>
+      //     <div className='modal'>
+      //       <div className='userimgcontainer'>
+      //         <img src={userData?.userImage || userimg} alt='' className='userimg' title='Click to view full image' />
+      //       </div>
+      //       <div className='usrdta'>
+
+      //         <h1>{userData?.name}</h1>
+      //         <p className='profession'>{userData?.profession}</p>
+      //         <p>{userData?.organization}</p>
+      //       </div>
+      //     </div>
+      //   </div>
+      //   <div>
+      //     <div>
+      //       <div>
+      //         {userData?.socialMedia
+                // .filter((socialMedia) => socialMedia.category == 'Business' && socialMedia.isActive == true)
+      //           .map((socialMedia) => (
+      //             <SocialMediaContact
+      //               key={socialMedia._id}
+      //               socialMediaType={socialMedia.socialMediaType}
+      //               socialMediaName={socialMedia.socialMediaName}
+      //               socialMedialink={socialMedia.socialMediaLink}
+      //               userDirectMode={userData.directMode}
+      //               userPdf={socialMedia?.userPdf}
+      //               socialMediaDirectMode={socialMedia.socialMediaDirectMode}
+      //               cat={socialMedia.category}
+      //             />
+      //           ))}
+      //       </div>
+      //     </div>
+      //   </div>
+      // </div>
     );
   }
   if (fetchedData?.selectedCatgBtnOptionValue == 'public') {
 
     return (
-      <div>
-        <div className='overlay'>
-          <div className='modal'>
-            <div className='userimgcontainer'>
-              <img src={userData?.userImage || userimg} alt='' className='userimg' title='Click to view full image' />
-            </div>
-            <div className='usrdta'>
-
-              <h1>{userData?.name}</h1>
-              <p className='profession'>{userData?.profession}</p>
-              <p>{userData?.organization}</p>
-            </div>
-          </div>
+      <div class="container">
+  <div class="top-section">
+    <div class='userbannerContainer'>
+      <img src={userData?.userBannerImage || banerImage} alt='' className='userbannerimage' title='Click to view full image' />
+    </div>
+    <div class='userimgcontainer'>
+          <img src={userData?.userImage || banerImage} alt='' className='userimg' title='Click to view full image' />
         </div>
-        <div>
-          <div>
-            <div>
-              {userData?.socialMedia
-                .filter((socialMedia) => socialMedia.category === 'Public' && socialMedia.isActive == true)
-                .map((socialMedia) => (
-                  <SocialMediaContact
-                    key={socialMedia._id}
-                    socialMediaType={socialMedia.socialMediaType}
-                    socialMediaName={socialMedia.socialMediaName}
-                    socialMedialink={socialMedia.socialMediaLink}
-                    userPdf={socialMedia?.userPdf}
-                    userDirectMode={userData.directMode}
-                    socialMediaDirectMode={socialMedia.socialMediaDirectMode}
-                    cat={socialMedia.category}
-                  />
-                ))}
-            </div>
-          </div>
+    <div class='overlay'>
+      <div class='modal'>  
+        <div class='usrdta'>
+          <h1 class='uaername'>{userData?.name}</h1>
+          <p class='profession'>{userData?.profession}</p>
+          <p class='organization'>{userData?.organization}</p>
         </div>
+        <div class='save-contact-section'>
+          <SaveContact userData={userData}/>
+        </div>
+        {/* <div class='divider'></div> */}
+        <div></div>
       </div>
+    </div>
+  </div>
+  <div class='contactsoverly'>
+    {userData?.socialMedia
+        .filter((socialMedia) => socialMedia.category === 'Public' && socialMedia.isActive == true)
+        .map((socialMedia) => (
+        <SocialMediaContact
+          key={socialMedia._id}
+          socialMediaType={socialMedia.socialMediaType}
+          socialMediaName={socialMedia.socialMediaName}
+          socialMedialink={socialMedia.socialMediaLink}
+          userDirectMode={userData.directMode}
+          userPDF={socialMedia?.userPdf}
+          socialMediaDirectMode={socialMedia.socialMediaDirectMode}
+          cat={socialMedia.category}
+        />
+      ))}
+  </div>
+  <div class='poweredby'>
+  <h1 class='poweredbytext'>
+    Powered by <a href='https://www.flicktags.com' class='flick-text' target='_blank' rel='noopener noreferrer'>Flick</a>
+  </h1>
+</div>
+</div>
+      // <div>
+      //   <div className='userbannerContainer'>
+      //         <img src={userData?.userBannerImage || userimg} alt='' className='userbannerimage' title='Click to view full image' />
+      //       </div>
+      //   <div className='overlay'>
+      //     <div className='modal'>
+      //       <div className='userimgcontainer'>
+      //         <img src={userData?.userImage || userimg} alt='' className='userimg' title='Click to view full image' />
+      //       </div>
+      //       <div className='usrdta'>
+
+      //         <h1>{userData?.name}</h1>
+      //         <p className='profession'>{userData?.profession}</p>
+      //         <p>{userData?.organization}</p>
+      //       </div>
+      //     </div>
+      //   </div>
+      //   <div>
+      //     <div>
+      //       <div>
+      //         {userData?.socialMedia
+                // .filter((socialMedia) => socialMedia.category === 'Public' && socialMedia.isActive == true)
+      //           .map((socialMedia) => (
+      //             <SocialMediaContact
+      //               key={socialMedia._id}
+      //               socialMediaType={socialMedia.socialMediaType}
+      //               socialMediaName={socialMedia.socialMediaName}
+      //               socialMedialink={socialMedia.socialMediaLink}
+      //               userPdf={socialMedia?.userPdf}
+      //               userDirectMode={userData.directMode}
+      //               socialMediaDirectMode={socialMedia.socialMediaDirectMode}
+      //               cat={socialMedia.category}
+      //             />
+      //           ))}
+      //       </div>
+      //     </div>
+      //   </div>
+      // </div>
     );
   }
   if (fetchedData?.selectedCatgBtnOptionValue == 'all') {
     return (
-      <div>
-        <div className='overlay'>
-          <div className='modal'>
-            <div className='userimgcontainer'>
-              <img src={userData?.userImage || userimg} alt='' className='userimg' title='Click to view full image' />
-            </div>
-            <div className='usrdta'>
-
-              <h1>{userData?.name}</h1>
-              <p className='profession'>{userData?.profession}</p>
-              <p>{userData?.organization}</p>
-            </div>
-          </div>
+      <div class="container">
+  <div class="top-section">
+    <div class='userbannerContainer'>
+      <img src={userData?.userBannerImage || banerImage} alt='' className='userbannerimage' title='Click to view full image' />
+    </div>
+    <div class='userimgcontainer'>
+          <img src={userData?.userImage || banerImage} alt='' className='userimg' title='Click to view full image' />
         </div>
-        <div>
-          <div>
-            <div>
-              {userData?.socialMedia
-                .filter((socialMedia) => socialMedia)
-                .map((socialMedia) => (
-                  <SocialMediaContact
-                    key={socialMedia._id}
-                    socialMediaType={socialMedia.socialMediaType}
-                    socialMediaName={socialMedia.socialMediaName}
-                    socialMedialink={socialMedia.socialMediaLink}
-                    userDirectMode={userData.directMode}
-                    userPdf={socialMedia?.userPdf}
-                    socialMediaDirectMode={socialMedia.socialMediaDirectMode}
-                    cat={socialMedia.category}
-                  />
-                ))}
-            </div>
-          </div>
+    <div class='overlay'>
+      <div class='modal'>  
+        <div class='usrdta'>
+          <h1 class='uaername'>{userData?.name}</h1>
+          <p class='profession'>{userData?.profession}</p>
+          <p class='organization'>{userData?.organization}</p>
         </div>
+        <div class='save-contact-section'>
+          <SaveContact userData={userData}/>
+        </div>
+        {/* <div class='divider'></div> */}
+        <div></div>
       </div>
+    </div>
+  </div>
+  <div class='contactsoverly'>
+    {userData?.socialMedia
+      .filter((socialMedia) => socialMedia.isActive)
+      .map((socialMedia) => (
+        <SocialMediaContact
+          key={socialMedia._id}
+          socialMediaType={socialMedia.socialMediaType}
+          socialMediaName={socialMedia.socialMediaName}
+          socialMedialink={socialMedia.socialMediaLink}
+          userDirectMode={userData.directMode}
+          userPDF={socialMedia?.userPdf}
+          socialMediaDirectMode={socialMedia.socialMediaDirectMode}
+          cat={socialMedia.category}
+        />
+      ))}
+  </div>
+  <div class='poweredby'>
+  <h1 class='poweredbytext'>
+    Powered by <a href='https://www.flicktags.com' class='flick-text' target='_blank' rel='noopener noreferrer'>Flick</a>
+  </h1>
+</div>
+</div>
     );
   }
 
@@ -628,49 +732,124 @@ const UserInfo = () => {
 
 
   if (userData?.isSHareByCatgOn == false) {
+
+  //   return (
+     
+  //     <div>
+  //        <div className='userbannerContainer'>
+  //             <img src={userData?.userBannerImage || userimg} alt='' className='userbannerimage' title='Click to view full image' />
+  //           </div>
+  //       <div className='overlay'>
+  //         <div className='modal'>
+  //           <div className='userimgcontainer'>
+  //             <img src={userData?.userImage || userimg} alt='' className='userimg' title='Click to view full image' />
+  //           </div>
+  //           <div className='usrdta'>
+
+  //             <h1 className='uaername'>{userData?.name}</h1>
+  //             <p className='profession'>{userData?.profession}</p>
+  //             <p className='organization'>{userData?.organization}</p>
+  //           </div>
+  //           <div className='save-contact-section'>
+  //           <SaveContact userData={userData}/>
+  //           </div>
+  //           <div className='divider'></div>
+  //         </div>
+  //       </div>
+  //       <div>
+  //         <div>
+  //           <div>
+  //             {userData?.socialMedia
+  //               .filter((socialMedia) => socialMedia.isActive)
+  //               .map((socialMedia) => (
+  //                 <SocialMediaContact
+  //                   key={socialMedia._id}
+  //                   socialMediaType={socialMedia.socialMediaType}
+  //                   socialMediaName={socialMedia.socialMediaName}
+  //                   socialMedialink={socialMedia.socialMediaLink}
+  //                   userDirectMode={userData.directMode}
+  //                   userPDF={socialMedia?.userPdf}
+  //                   socialMediaDirectMode={socialMedia.socialMediaDirectMode}
+  //                   cat={socialMedia.category}
+                  
+  //                 />
+  //               ))}
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   );
+  // } here is the code of SocialMediaContact return (
+  //           <a
+  //               target={socialMediaType === 'Resume' ? "_blank" : "_self"}
+  //               rel={socialMediaType === 'Resume' ? "noopener noreferrer" : undefined}
+  //               onClick={handleClick}
+  //           >
+                
+  //               <div className='contactsoverly'>
+  //                   <div className='contacstscontainer'>
+  //                       <div>
+                            
+  //                           <div className='socialMediaIcon'>
+  //                               <img
+  //                                   src={socialMediaIcons[socialMediaType]}
+  //                                   alt={''}
+  //                                   className='iconImage'
+  //                               />
+  //                               <p className="socialmedianame">{socialMediaName}</p>
+  //                           </div>               
+  //                       </div>
+  //                   </div>             
+  //               </div>
+  //           </a>
+  //       ); 
     return (
      
-      <div>
-        
-        <div className='overlay'>
-          <div className='modal'>
-            <div className='userimgcontainer'>
-              <img src={userData?.userImage || userimg} alt='' className='userimg' title='Click to view full image' />
-            </div>
-            <div className='usrdta'>
-
-              <h1 className='uaername'>{userData?.name}</h1>
-              <p className='profession'>{userData?.profession}</p>
-              <p className='organization'>{userData?.organization}</p>
-            </div>
-            <div className='save-contact-section'>
-            <SaveContact userData={userData}/>
-            </div>
-            <div className='divider'></div>
-          </div>
+      <div class="container">
+  <div class="top-section">
+    <div class='userbannerContainer'>
+      <img src={userData?.userBannerImage || banerImage} alt='' className='userbannerimage' title='Click to view full image' />
+    </div>
+    <div class='userimgcontainer'>
+          <img src={userData?.userImage || banerImage} alt='' className='userimg' title='Click to view full image' />
         </div>
-        <div>
-          <div>
-            <div>
-              {userData?.socialMedia
-                .filter((socialMedia) => socialMedia.isActive)
-                .map((socialMedia) => (
-                  <SocialMediaContact
-                    key={socialMedia._id}
-                    socialMediaType={socialMedia.socialMediaType}
-                    socialMediaName={socialMedia.socialMediaName}
-                    socialMedialink={socialMedia.socialMediaLink}
-                    userDirectMode={userData.directMode}
-                    userPDF={socialMedia?.userPdf}
-                    socialMediaDirectMode={socialMedia.socialMediaDirectMode}
-                    cat={socialMedia.category}
-                  
-                  />
-                ))}
-            </div>
-          </div>
+    <div class='overlay'>
+      <div class='modal'>  
+        <div class='usrdta'>
+          <h1 class='uaername'>{userData?.name}</h1>
+          <p class='profession'>{userData?.profession}</p>
+          <p class='organization'>{userData?.organization}</p>
         </div>
+        <div class='save-contact-section'>
+          <SaveContact userData={userData}/>
+        </div>
+        {/* <div class='divider'></div> */}
+        <div></div>
       </div>
+    </div>
+  </div>
+  <div class='contactsoverly'>
+    {userData?.socialMedia
+      .filter((socialMedia) => socialMedia.isActive)
+      .map((socialMedia) => (
+        <SocialMediaContact
+          key={socialMedia._id}
+          socialMediaType={socialMedia.socialMediaType}
+          socialMediaName={socialMedia.socialMediaName}
+          socialMedialink={socialMedia.socialMediaLink}
+          userDirectMode={userData.directMode}
+          userPDF={socialMedia?.userPdf}
+          socialMediaDirectMode={socialMedia.socialMediaDirectMode}
+          cat={socialMedia.category}
+        />
+      ))}
+  </div>
+  <div class='poweredby'>
+  <h1 class='poweredbytext'>
+    Powered by <a href='https://www.flicktags.com' class='flick-text' target='_blank' rel='noopener noreferrer'>Flick</a>
+  </h1>
+</div>
+</div>
     );
   }
 };

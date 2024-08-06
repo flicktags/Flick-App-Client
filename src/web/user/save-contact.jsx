@@ -14,6 +14,8 @@ export default function SaveContact(userData) {
     setUserId(userIdFromStorage);
   }, []);
 
+  const backgroundColor = userData?.userData?.ColorCode || '#0a8db1'; // Default to black if colorCode is null
+
   const contact = {
     firstName: userData?.userData?.name,
     lastName: " ",
@@ -76,12 +78,18 @@ END:VCARD
   return (
     <div className="main-container">
       <div className="content-row">
-        <button className="save-contact-button" onClick={handleSaveContact}>Save Contact</button>
+        {/* <button className="save-contact-button" onClick={handleSaveContact}>Save Contact</button> */}
+        <button
+      className="save-contact-button"
+      onClick={handleSaveContact}
+      style={{ backgroundColor, color: 'white' }} // Set background color and text color
+    >
+      Save Contact
+    </button>
         {userData?.userData?.subscriptionType === 'pro' && (
-         
-            <button className="image-container" onClick={handleShareContact}>
+            <button className="image-container" onClick={handleShareContact} style={{ backgroundColor, color: 'white' }} >
               {/* <img src={newUserImage} className="share-contact-image" alt="User" /> */}
-              Excahge Contact
+              Exchange Contact
             </button>
          
         )}

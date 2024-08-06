@@ -1,3 +1,9 @@
+/* @font-face {
+  font-family: caros-light;
+  src: url('../assets/fonts/caroslight.otf');
+}
+
+
 .save-contact-button {
   background-color: rgb(2,26, 75);
   color: white;
@@ -20,8 +26,8 @@
 .content-row {
   display: flex;
   align-items: center;
-  gap: 5px;
-  width: 97%;
+  gap: 10px; 
+  width: 100%; 
 }
 
 .image-container {
@@ -32,7 +38,7 @@
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
-  width: 55%;
+  width: 70%;
   font-size: 10px;
   padding: 12px 20px;
 }
@@ -54,24 +60,96 @@
   transition: transform 0.3s;
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 .image-container {
-  width: 55%;
-  font-size: 10px;
+  min-width: fit-content; 
+
+  font-size: clamp(14px, 1.5vw + 0.4rem, 14px); 
+  font-family: 'Myfont', carosmedium, sans-serif;
   padding: 12px 20px;
     
   }
   .save-contact-button {
-    width: 50%;
-    font-size: 11px;
+    min-width: fit-content; 
+
+    font-size: clamp(14px, 1.5vw + 0.4rem, 14px); 
     padding: 12px 20px;
+    font-family: 'Myfont', carosmedium, sans-serif;
+
   }
   
   .content-row {
     flex-direction:row;
     align-items: center;
   }
-  
- 
+} */
+
+@font-face {
+  font-family: caros-light;
+  src: url('../assets/fonts/caroslight.otf');
+}
+
+/* Button Styles */
+.save-contact-button, .image-container {
+  background-color: rgb(2,26, 75);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  min-width: fit-content;    /* Adjust size based on content */
+  font-size: clamp(14px, 1.5vw + 0.4rem, 16px); /* Responsive font size */
+  padding: 12px 20px;
+  display: inline-flex;      /* Ensure buttons are treated as inline flex items */
+  align-items: center;       /* Center text vertically */
+  justify-content: center;   /* Center text horizontally */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.image-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.save-contact-button:hover {
+  background-color: rgb(2,26, 75);
+}
+
+.share-contact-image {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s;
+}
+
+/* Container for Buttons */
+.main-container {
+  display: flex;
+  justify-content: center;    /* Center horizontally */
+  align-items: center;        /* Center vertically if needed */
+  width: 100%;                /* Ensure full width */
+}
+
+/* Row Container */
+.content-row {
+  display: flex;
+  justify-content: center;    /* Center buttons horizontally */
+  align-items: center;        /* Center buttons vertically if needed */
+  gap: 10px;                  /* Space between buttons */
+  width: 100%;                /* Ensure it spans full width */
+}
+
+@media (max-width: 700px) {
+  .content-row {
+    flex-direction: row;  /* Stack buttons vertically for smaller screens */
+    align-items: center;    /* Center buttons horizontally */
+    gap: 10px;              /* Space between buttons */
+  }
+
+  .save-contact-button, .image-container {
+    min-width: fit-content; /* Allow buttons to grow based on content */
+    font-size: clamp(16px, 1.5vw + 0.4rem, 16px); /* Responsive font size */
+    padding: 10px 20px;     /* Adjust padding */
+    font-family: 'Myfont', carosmedium, sans-serif;
+  }
 }

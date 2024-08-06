@@ -1,6 +1,6 @@
 @import './fonts.css';
 
-@font-face {
+/* @font-face {
   font-family: caros-black;
   src: url('../assets/fonts/Nunito-BlackItalic.ttf');
 }
@@ -10,28 +10,290 @@
   src: url('../assets/fonts/carosmedium.otf');
 }
 
+@font-face {
+  font-family: caros-light;
+  src: url('../assets/fonts/caroslight.otf');
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; 
+}
+
+.top-section {
+  flex: 0 0 40%; 
+  overflow: hidden; 
+}
+
+.userbannerContainer {
+  width: 100%;
+  height: 25vh; 
+  position: relative;
+}
+
+.userbannerimage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  top: -40px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
+  background-color: transparent;
+}
 .usrdta {
   margin-left: 60px;
-  margin-top: -5%;
+  margin-top: -2%;
   font-family: 'Myfont', carosmedium, sans-serif;
 }
 
 .uaername {
-  font-size: 15px;
-  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: -10px;
+
 }
 
 .profession {
+  width: 100%;
   margin-right: 120px;
-  margin-top: -4%;
+  font-size: 1.0rem;
   text-align: left;
+  font-family: 'Myfont', caroslight, sans-serif;
+
 }
 
 .organization {
+  font-size: 1.0rem;
+  width: 100%;
   margin-right: 130px;
-  margin-top: -6%;
+  margin-top: -10px;
   text-align: left;
 }
+
+
+.modal {
+  position: relative;
+  background-color: red;
+  top: -100px;
+}
+
+.divider {
+  background-color: red;
+  width: 90%;
+  padding: 0px;
+  margin-top: 15px;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.contactsoverly {
+  flex: 1; 
+  width: 100vw;
+  background-color: red;
+  overflow-y: auto; 
+  padding: 10px; 
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+}
+
+.contacstscontainer {
+  background-color: white;
+  width: 90%;
+  padding: 5px;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.iconImage {
+  width: 30px;
+  height: 30px;
+}
+
+.socialMediaIcon {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  flex-direction: row;
+  gap: 10px; 
+}
+
+.socialmedianame {
+  font-size: large;
+  color: black;
+  word-wrap: break-word;
+  font-family: caros-light;
+}
+
+@media (max-width: 600px) {
+  .modal {
+    width: 75%;
+  }
+
+  .contacstscontainer {
+    width: 85%;
+  }
+
+  .userimgcontainer {
+    position: absolute;
+    bottom: 0px; 
+    left: 50%; 
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 4px solid #ccc;
+    box-shadow: 0 2px 2px rgba(235, 183, 183, 0.9);
+  }
+  
+  .userimg {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    overflow: hidden;
+  }
+  
+  .userimgcontainer:hover .userimg {
+    transform: scale(1.5);
+    filter: grayscale(0%);
+  }
+} */
+
+
+@font-face {
+  font-family: caros-black;
+  src: url('../assets/fonts/Nunito-BlackItalic.ttf');
+}
+
+@font-face {
+  font-family: caros-medium;
+  src: url('../assets/fonts/carosmedium.otf');
+}
+
+@font-face {
+  font-family: caros-light;
+  src: url('../assets/fonts/caroslight.otf');
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; 
+}
+
+.top-section {
+  flex: 0 0 40%; 
+  /* overflow: hidden;  */
+}
+
+/* .userbannerContainer {
+  width: 100%;
+  height: 25vh; 
+  position: relative;
+  } */
+  
+  
+  .userbannerContainer {
+    width: 100%;
+    height: 25vh;
+    position: relative;
+  }
+  
+  .userbannerimage {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover;
+    }
+  .overlay {
+    position: relative;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    margin-bottom: 15px;
+  }
+  
+  .userimg {
+    width: 90px;
+    height: 90px;
+    border-radius: 40px;
+    object-fit: cover;
+    overflow: hidden;
+  }
+  
+  .userimgcontainer {
+  position: absolute;
+  top: 2vh;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 3%;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 4px solid #cccccc;
+  box-shadow: 0 4px 4px rgba(131, 128, 128, 0.9);
+}
+  
+  .userimgcontainer:hover .userimg {
+    transform: scale(1.5);
+    filter: grayscale(0%);
+  }
+  
+  .usrdta {
+    margin-left: 60px;
+    margin-top: -2%;
+    font-family: 'Myfont', carosmedium, sans-serif;
+  }
+  
+  .uaername {
+    font-size: 1.5rem;
+    margin-bottom: -10px;
+  }
+  
+  .profession {
+    width: 100%;
+    margin-right: 120px;
+    font-size: 1.0rem;
+    text-align: left;
+    font-family: 'Myfont', caroslight, sans-serif;
+  }
+  
+  .organization {
+    font-size: 1.0rem;
+    width: 100%;
+    margin-right: 130px;
+    margin-top: -10px;
+    text-align: left;
+  }
 
 h1 {
   font-family: caros-black;
@@ -43,120 +305,100 @@ p {
   opacity: 0.5;
 }
 
-.overlay {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 0px;
-}
-
-.modal {
-  background-color: white;
-  width: 300px;
-  padding: 0px;
-  margin-top: 0px;
-  text-align: center;
-}
 
 .divider {
-  background-color: white;
-  width: 300px;
+  color: grey;
+  width: 90%;
   padding: 0px;
-  margin-top: 0px;
+  margin-top: 15px;
   border-radius: 10px;
   border: 2px solid rgba(255, 255, 255, 0);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
 
-.userimgcontainer {
-  position: absolute;
-  top: 167px;
-  left: 35%;
-  transform: translateX(-50%);
-  margin-top: 35%;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  border: 4px solid #ccc;
-  box-shadow: 0 2px 2px rgba(235, 183, 183, 0.9);
-}
-
-.userimg {
-  width: 80px;
-  height: 80px;
-  border-radius: 40px;
-  object-fit: cover;
-  overflow: hidden;
-}
-
-.userimgcontainer:hover .userimg {
-  transform: scale(1.8);
-  filter: grayscale(0%);
-}
 
 .contactsoverly {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  flex: 0.95; /* Takes up the remaining height */
+  width: 100vw;
+  background-color: transparent;
+  overflow-y: auto; /* Enable scrolling */
+  padding: 3px; /* Optional padding */
+  box-sizing: border-box;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-  flex-direction: row;
-  margin-bottom: 15px;
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center children horizontally */
+  text-align: left; /* Align text to the left */
 }
-
-/* Styling for each contact item */
 
 .contacstscontainer {
-  flex-wrap: wrap;
-  display: flex;
-  justify-content: start;
-  align-items: center;
   background-color: white;
-  width: 300px; 
-  height: 52px;
-  padding: 5px;
+  width: 90%; /* Adjust width as needed */
+  padding: 5px; /* Increased padding for better spacing */
   border-radius: 10px;
-  border: 2px solid rgba(255, 255, 255, 0.5); 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-  text-align: center;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px; /* Space between items */
+  display: flex; /* Use flexbox to layout children */
+  align-items: center; /* Align items vertically centered */
 }
-
-
 
 .iconImage {
   width: 30px;
   height: 30px;
+  margin-right: 10px; /* Space between icon and text */
 }
 
 .socialMediaIcon {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-  gap: 20px;
-}
-
-.centered-text {
-  text-align: center;
-  margin-top: 50vh;
-  transform: translateY(-50%);
-  font-size: large;
-  font-family: caros-light;
+  align-items: center; /* Align items vertically centered */
+  gap: 10px; /* Space between icon and name */
+  width: 100%; /* Full width of the container */
 }
 
 .socialmedianame {
-  font-size: large;
+  font-size: medium;
   color: black;
   word-wrap: break-word;
   font-family: caros-light;
+  text-align: left; /* Ensure text is aligned to the left */
+  flex: 1; /* Allow the name to take up the remaining space */
+}
+
+/* .poweredby {
+  width: 100vw;
+  align-content: center;
+  font-family: 'Myfont', carosmedium, sans-serif;
+}
+
+.poweredbytext {
+  font-size: 0.2rem;
+  margin-bottom: -10px;
+} */
+
+.poweredby {
+  flex: 0.05; /* Takes up the remaining 5% of the height */
+  width: 100vw;
+  display: flex;
+  justify-content: center; /* Center the text horizontally */
+  align-items: center; /* Center the text vertically */
+  font-family: 'Myfont', carosmedium, sans-serif;
+}
+
+.poweredbytext {
+  font-size: 0.8rem; /* Adjust font size as needed */
+  margin: 0; /* Remove margin */
+  text-align: center; /* Center the text */
+}
+
+.flick-text {
+  color: rgb(13, 148, 201); /* Set text color to blue */
+  font-weight: bold; /* Make the font bold */
+  text-decoration: none; /* Remove underline */
+}
+
+.flick-text:hover {
+  text-decoration: underline; /* Add underline on hover */
 }
 
 .canceltext-container {
@@ -198,24 +440,25 @@ h1 {
   margin-top: 10rem;
 }
 
+
 @media (max-width: 600px) {
   .modal {
     width: 75%;
   }
 
   .contacstscontainer {
-    width: 75%;
+    width: 85%;
   }
   .userimgcontainer {
     position: absolute;
-    top: 167px;
-    left: 15%;
+    top: 20%;
+    left: 12%;
     transform: translateX(-50%);
     margin-top: 7px;
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
-    border: 4px solid #ccc;
-    box-shadow: 0 2px 2px rgba(235, 183, 183, 0.9);
+    border: 3px solid #fffdfd;
+    box-shadow: 0 1px 1px rgba(153, 151, 151, 0.9);
   }
 }
