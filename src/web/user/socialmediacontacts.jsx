@@ -393,11 +393,20 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
     // testing github access
     const handleClick = (e) => {
         // e.preventDefault();
+        let trimmedUserPdf = null; // Initialize the variable
+
         if (!linkOpened) {
             // setLinkOpened(true);
             if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offers' || socialMediaType === 'Food Menu' && userPdf !=null) {
 
-                const trimmedUserPdf = userPdf.replace("http://", "https://");
+                if(userPdf !==null){
+                    trimmedUserPdf = userPdf.replace("http://", "https://");
+
+                }
+                else{
+                    trimmedUserPdf = socialMedialink.replace("http://", "https://");
+
+                }
                 // const trimmedUserPdf = userPdf;
                 if (!userDirectMode) {
                     console.log(`Navigating to PDF: ${trimmedUserPdf}`);
