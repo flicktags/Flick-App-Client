@@ -51,14 +51,7 @@ const ShareContactModal = ({ isOpen, onClose,userName }) => {
       <div className="modal-content">
         <div className="modal-header">Share Information with {userName} </div>
         <form className="modal-body" onSubmit={handleSubmit}>
-          <input
-            type="email"  
-            name="email"
-            placeholder="Email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
+          
           <input
             type="text"
             name="name"
@@ -76,12 +69,18 @@ const ShareContactModal = ({ isOpen, onClose,userName }) => {
             required
           />
           <input
+            type="email"  
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+          />   
+          <input
             type="text"
             name="jobTitle"
             placeholder="Job Title"
             value={formData.jobTitle}
             onChange={handleChange}
-            required
           />
           <input
             type="text"
@@ -89,7 +88,6 @@ const ShareContactModal = ({ isOpen, onClose,userName }) => {
             placeholder="Company"
             value={formData.company}
             onChange={handleChange}
-            required
           />
           <input
             type="text"
