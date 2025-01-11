@@ -400,7 +400,7 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
 
         if (!linkOpened) {
             // setLinkOpened(true);
-            if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offers' || socialMediaType === 'Food Menu' && userPdf !=null) {
+            if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offers' || socialMediaType === 'Food Menu' || socialMediaType === 'Newspaper' && userPdf !=null) {
 
                 if(userPdf !==null){
                     trimmedUserPdf = userPdf.replace("http://", "https://");
