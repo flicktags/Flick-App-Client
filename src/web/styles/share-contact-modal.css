@@ -20,8 +20,88 @@
   }
   
   .modal-header {
-    font-size: 20px;
-    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem; /* Base font size */
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap; /* Prevent wrapping */
+    margin-bottom: 0.1rem;
+  }
+  
+  .dynamic-text {
+    display: inline-block;
+    white-space: nowrap; /* Prevent wrapping */
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: clip; /* Do not add ellipses */
+    max-width: fit-content; /* Shrink dynamically to fit content */
+    font-size: inherit; /* Dynamically scale with parent */
+    transform: scale(1); /* Default scaling */
+    transform-origin: left center;
+    margin-left: 0.25rem; /* Adjust as needed for spacing */
+
+  }
+  
+  .modal-header {
+    font-size: clamp(15px, 2vw, 1.5rem); /* Dynamically adjust font size */
+  }
+
+  
+
+  .encryption-notice {
+    text-align: center; /* Center the entire block */
+    margin-top: 0.5rem; /* Add spacing from other elements */
+    font-family: Arial, sans-serif; /* Clean, modern font */
+  }
+  
+  .encryption-header {
+    display: flex;
+    align-items: center; /* Vertically align text and icon */
+    justify-content: center; /* Center align the content */
+    font-size: 1rem;
+    font-weight: 600; /* Slightly bold for emphasis */
+    color: #4caf50; /* Green for a secure and trusted appearance */
+  }
+  
+  .lock-icon {
+    width: 14px; /* Adjust the size as needed */
+    height: 14px;
+    margin-right: 0.5rem; /* Spacing between icon and text */
+  }
+  
+  .encryption-description {
+    display: inline-block; /* Ensure it shrinks dynamically */
+    white-space: nowrap; /* Prevent wrapping */
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: clip; /* No ellipses for overflow */
+    max-width: fit-content; /* Restrict width to the parent container (modal) */
+    font-size: 0.775rem; /* Smaller, secondary text */
+    color: #666; /* Neutral gray for subtle emphasis */
+    margin-top: 0.25rem; /* Slight spacing below the main header */
+    margin-bottom: 0.5rem; /* Add some space below */
+    transform: scale(1); /* Default scaling */
+    transform-origin: left center; /* Transform origin for resizing */
+  }
+
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .lds-roller {
+    color: #1c4c5b;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
   
   .modal-body {
