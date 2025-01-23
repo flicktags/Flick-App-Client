@@ -323,6 +323,11 @@ import icon53 from '../assets/icons/portfolio.png';
 import icon54 from '../assets/icons/printing.png';
 import icon55 from '../assets/icons/newspaper.png';
 
+import icon56 from '../assets/icons/spa.png';
+import icon57 from '../assets/icons/laundry.png';
+import icon58 from '../assets/icons/bar.png';
+
+
 
 const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, socialMediaDirectMode, socialMediaName, userPDF}) => {
     const [linkOpened, setLinkOpened] = useState(false);
@@ -392,6 +397,11 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
         'Catalogue': icon54,
         'Newspaper': icon55,
 
+        'Spa': icon56,
+        'Laundry': icon57,
+        'Bar': icon58,
+        
+
     };
     // testing github access
     const handleClick = (e) => {
@@ -400,7 +410,7 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
 
         if (!linkOpened) {
             // setLinkOpened(true);
-            if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offers' || socialMediaType === 'Food Menu' || socialMediaType === 'Newspaper' && userPdf !=null) {
+            if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offers' || socialMediaType === 'Food Menu' || socialMediaType === 'Newspaper' || socialMediaType === 'Spa' || socialMediaType === 'Laundry' || socialMediaType === 'Bar' && userPdf !=null) {
 
                 if(userPdf !==null){
                     trimmedUserPdf = userPdf.replace("http://", "https://");
