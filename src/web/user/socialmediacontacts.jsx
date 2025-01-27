@@ -327,6 +327,12 @@ import icon56 from '../assets/icons/spa.png';
 import icon57 from '../assets/icons/laundry.png';
 import icon58 from '../assets/icons/bar.png';
 
+import icon59 from '../assets/icons/gym.png';
+import icon60 from '../assets/icons/roomservice.png';
+import icon61 from '../assets/icons/lounge.png';
+import icon62 from '../assets/icons/servicetimings.png';
+
+
 
 
 const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, socialMediaDirectMode, socialMediaName, userPDF}) => {
@@ -400,6 +406,12 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
         'Spa': icon56,
         'Laundry': icon57,
         'Bar': icon58,
+
+        'Gym': icon59,
+        'Roomservice': icon60,
+        'Lounge': icon61,
+        'ServiceTimings': icon62,
+
         
 
     };
