@@ -422,7 +422,7 @@ const SocialMediaContact = ({ socialMediaType, socialMedialink, userDirectMode, 
 
         if (!linkOpened) {
             // setLinkOpened(true);
-            if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offers' || socialMediaType === 'Food Menu' || socialMediaType === 'Newspaper' || socialMediaType === 'Spa' || socialMediaType === 'Laundry' || socialMediaType === 'Bar' && userPdf !=null) {
+            if (socialMediaType === 'Resume' || socialMediaType === 'Catalogue' || socialMediaType === 'Portfolio' || socialMediaType === 'Offers' || socialMediaType === 'Food Menu' || socialMediaType === 'Newspaper' || socialMediaType === 'Spa' || socialMediaType === 'Laundry' || socialMediaType === 'Bar' || socialMediaType === 'Gym' || socialMediaType === 'Roomservice' || socialMediaType === 'Lounge' || socialMediaType === 'ServiceTimings' && userPdf !=null) {
 
                 if(userPdf !==null){
                     trimmedUserPdf = userPdf.replace("http://", "https://");
