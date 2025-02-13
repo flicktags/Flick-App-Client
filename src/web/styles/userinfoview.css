@@ -351,7 +351,7 @@ p {
   border-radius: 10px;
   border: 2px solid rgba(255, 255, 255, 0.5);
   box-shadow: 0 4px 8px rgba(141, 139, 139, 0.743);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   display: flex;
   align-items: center;
   opacity: 0; /* Start invisible */

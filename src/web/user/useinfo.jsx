@@ -436,7 +436,7 @@ const UserInfo = () => {
       return { color: userData.profileTextColor };
     } else {
       console.log("Text color is not in the field");
-      return { color: "white" };
+      return { color: "black" };
     }
   };
 
@@ -959,7 +959,7 @@ const UserInfo = () => {
                   textColor={
                     userData?.profileTextColor
                       ? userData.profileTextColor
-                      : "white"
+                      : "black"
                   } // ✅ Added textColor here
                 />
               ))}
