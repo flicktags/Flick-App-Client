@@ -269,18 +269,11 @@ body, html {
     font-family: 'Myfont', carosmedium, sans-serif;
   }
   
-  /* .uaername {
+  .uaername {
     font-size: 1.5rem;
     font-family: poppins;
     font-weight:600;
 
-  } */
-  .uaername {
-    font-size: clamp(1rem, 5vw, 1.5rem); /* Shrinks dynamically */
-    font-family: Poppins, sans-serif;
-    font-weight: 600;
-    white-space: nowrap; /* Keeps it on one line */
-    max-width: fit-content; /* Shrinks width dynamically */
   }
   
   .profession {
