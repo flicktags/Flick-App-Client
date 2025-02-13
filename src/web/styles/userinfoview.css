@@ -199,12 +199,13 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
+
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  height: 100vh; 
+  height: 100vh;
 }
 
 .top-section {
@@ -212,24 +213,18 @@ body, html {
   /* overflow: hidden;  */
 }
 
-/* .userbannerContainer {
-  width: 100%;
-  height: 25vh; 
-  position: relative;
-  } */
-  
-  
   .userbannerContainer {
     width: 100%;
-    height: 25vh;
+    height: 20vh; /* Maintain the height for the banner */
     position: relative;
+    overflow: hidden; /* Prevent overflow */
   }
   
   .userbannerimage {
     width: 100%;
-    height: 100%; 
-    object-fit: cover;
-    }
+    height: 100%;
+    object-fit:fill; /* Change to contain to keep the whole image visible */
+  }
   .overlay {
     position: relative;
     top: 0px;
@@ -276,23 +271,28 @@ body, html {
   
   .uaername {
     font-size: 1.5rem;
-    margin-bottom: -10px;
+    font-family: poppins;
+    font-weight:600;
+
   }
   
   .profession {
     width: 100%;
     margin-right: 120px;
     font-size: 1.0rem;
+    margin-top: -15px;
     text-align: left;
-    font-family: 'Myfont', caroslight, sans-serif;
+    font-family: poppins;
   }
   
   .organization {
     font-size: 1.0rem;
     width: 100%;
     margin-right: 130px;
-    margin-top: -10px;
+    margin-top: -15px;
     text-align: left;
+    font-family: poppins;
+
   }
 
 h1 {
@@ -331,21 +331,34 @@ p {
   text-align: left; /* Align text to the left */
 }
 
-.contacstscontainer {
-  background-color: white;
-  width: 90%; /* Adjust width as needed */
-  padding: 5px; /* Increased padding for better spacing */
-  border-radius: 10px;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  margin-bottom: 10px; /* Space between items */
-  display: flex; /* Use flexbox to layout children */
-  align-items: center; /* Align items vertically centered */
+@keyframes fadeInSlideUp {
+  0% {
+    transform: translateY(20px); /* Start slightly below */
+    opacity: 0; /* Start invisible */
+  }
+  100% {
+    transform: translateY(0); /* End at the original position */
+    opacity: 1; /* Fully visible */
+  }
 }
 
+.contacstscontainer {
+  /* background-color: rgba(255, 255, 255, 0.2); */
+  width: 90%;
+  padding: 5px;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.743);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  opacity: 0; /* Start invisible */
+  animation: fadeInSlideUp 0.8s ease-out forwards; /* Animation */
+  /* Remove animation-delay from CSS here */
+}
 .iconImage {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   margin-right: 10px; /* Space between icon and text */
 }
 
@@ -357,24 +370,14 @@ p {
 }
 
 .socialmedianame {
-  font-size: medium;
-  color: black;
+  font-size:large;
+  color: rgb(251, 251, 251);
   word-wrap: break-word;
-  font-family: caros-light;
+  font-family: poppins;
+  font-weight: 500;
   text-align: left; /* Ensure text is aligned to the left */
   flex: 1; /* Allow the name to take up the remaining space */
 }
-
-/* .poweredby {
-  width: 100vw;
-  align-content: center;
-  font-family: 'Myfont', carosmedium, sans-serif;
-}
-
-.poweredbytext {
-  font-size: 0.2rem;
-  margin-bottom: -10px;
-} */
 
 .poweredby {
   flex: 0.05; /* Takes up the remaining 5% of the height */

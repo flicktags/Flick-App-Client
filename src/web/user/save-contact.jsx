@@ -74,29 +74,64 @@ END:VCARD
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
+  const textForGroundColor = () => {
+    if (userData?.userData?.profileTextColor) {
+      console.log("Using profileTextColor test:", userData.userData.profileTextColor);
+      return userData.userData.profileTextColor; // Return only the color code
+    } else {
+      console.log("Text color is not in the field");
+      return "white"; // Default to white
+    }
+  };
 
   return (
     <div className="main-container">
       <div className="content-row">
-        {/* <button className="save-contact-button" onClick={handleSaveContact}>Save Contact</button> */}
         <button
-      className="save-contact-button"
-      onClick={handleSaveContact}
-      style={{ backgroundColor, color: 'white' }} // Set background color and text color
-    >
-      Save Contact
-    </button>
+          className="save-contact-button"
+          onClick={handleSaveContact}
+          style={{ backgroundColor, color: textForGroundColor() }} // Use only the color value
+        >
+          Save Contact
+        </button>
+  
         {userData?.userData?.subscriptionType === 'pro' && (
-            <button className="image-container" onClick={handleShareContact} style={{ backgroundColor, color: 'white' }} >
-              {/* <img src={newUserImage} className="share-contact-image" alt="User" /> */}
-              Exchange Contact
-            </button>
-         
+          <button
+            className="image-container"
+            onClick={handleShareContact}
+            style={{ backgroundColor, color: textForGroundColor() }} // Apply textForGroundColor() here as well
+          >
+            Exchange Contact
+          </button>
         )}
       </div>
-     
-        <ShareContactModal isOpen={isModalOpen} onClose={handleCloseModal} userName={userData?.userData?.name}/>
-    
+  
+      <ShareContactModal isOpen={isModalOpen} onClose={handleCloseModal} userName={userData?.userData?.name} />
     </div>
   );
+
+  // return (
+  //   <div className="main-container">
+  //     <div className="content-row">
+  //       {/* <button className="save-contact-button" onClick={handleSaveContact}>Save Contact</button> */}
+  //       <button
+  //     className="save-contact-button"
+  //     onClick={handleSaveContact}
+  //     style={{ backgroundColor, color: textForGroundColor() }} // Set background color and text color
+  //   >
+  //     Save Contact
+  //   </button>
+  //       {userData?.userData?.subscriptionType === 'pro' && (
+  //           <button className="image-container" onClick={handleShareContact} style={{ backgroundColor, color: 'white' }} >
+  //             {/* <img src={newUserImage} className="share-contact-image" alt="User" /> */}
+  //             Exchange Contact
+  //           </button>
+         
+  //       )}
+  //     </div>
+     
+  //       <ShareContactModal isOpen={isModalOpen} onClose={handleCloseModal} userName={userData?.userData?.name}/>
+    
+  //   </div>
+  // );
 }
