@@ -269,16 +269,24 @@ body, html {
     font-family: 'Myfont', carosmedium, sans-serif;
   }
   
-  .uaername {
+  /* .uaername {
     font-size: 1.5rem;
     font-family: poppins;
     font-weight:600;
 
+  } */
+  .uaername {
+    font-size: clamp(1rem, 5vw, 1.5rem); /* Shrinks dynamically */
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    white-space: nowrap; /* Keeps it on one line */
+    max-width: fit-content; /* Shrinks width dynamically */
   }
   
   .profession {
     width: 100%;
     margin-right: 120px;
+    opacity: 1.0;
     font-size: 1.0rem;
     margin-top: -15px;
     text-align: left;
@@ -288,6 +296,7 @@ body, html {
   .organization {
     font-size: 1.0rem;
     width: 100%;
+    opacity: 1.0;
     margin-right: 130px;
     margin-top: -15px;
     text-align: left;
@@ -348,7 +357,7 @@ p {
   padding: 5px;
   border-radius: 10px;
   border: 2px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.743);
+  box-shadow: 0 4px 8px rgba(141, 139, 139, 0.743);
   margin-bottom: 8px;
   display: flex;
   align-items: center;
@@ -375,6 +384,7 @@ p {
   word-wrap: break-word;
   font-family: poppins;
   font-weight: 500;
+  opacity: 1.0;
   text-align: left; /* Ensure text is aligned to the left */
   flex: 1; /* Allow the name to take up the remaining space */
 }
