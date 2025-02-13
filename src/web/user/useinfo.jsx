@@ -966,7 +966,7 @@ const UserInfo = () => {
           </div>
         </div>
         <div class="poweredby">
-          <h1 class="poweredbytext">
+          <h1 class="poweredbytext" style={textForGroundColor()}>
             Powered by{" "}
             <a
               href="https://www.flicktags.com"
