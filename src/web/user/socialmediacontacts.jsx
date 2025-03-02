@@ -284,7 +284,7 @@ import icon15 from "../assets/icons/snapchat.png";
 import icon16 from "../assets/icons/linkedin.png";
 import icon17 from "../assets/icons/instagram.png";
 import icon18 from "../assets/icons/tripadvisor.png";
-import icon19 from "../assets/icons/soundcloud.png";
+// import icon19 from "../assets/icons/soundcloud.png";
 import icon20 from "../assets/icons/reddit.png";
 import icon21 from "../assets/icons/phone.png";
 import icon22 from "../assets/icons/paypal.png";
@@ -331,6 +331,15 @@ import icon60 from "../assets/icons/roomservice.png";
 import icon61 from "../assets/icons/lounge.png";
 import icon62 from "../assets/icons/servicetimings.png";
 
+import icon63 from "../assets/icons/bahrainmap.png";
+import icon64 from "../assets/icons/bahrainpin.png";
+import icon65 from "../assets/icons/calendar.png";
+import icon66 from "../assets/icons/celebration.png";
+
+
+
+
+
 const SocialMediaContact = ({
   socialMediaType,
   socialMedialink,
@@ -341,9 +350,9 @@ const SocialMediaContact = ({
   containerBackgroundColor,
   textColor,
 }) => {
-  const [linkOpened, setLinkOpened] = useState(false);
+  const [linkOpened] = useState(false);
   const [userPdf, setPdf] = useState("");
-  const listItems = ["Item 1", "Item 2", "Item 3" /* ... */];
+  // const listItems = ["Item 1", "Item 2", "Item 3" /* ... */];
   useEffect(() => {
     // console.log('User PDF Updated:', userPDF);
     setPdf(userPDF);
@@ -370,7 +379,7 @@ const SocialMediaContact = ({
     linkedin: icon16,
     Instagram: icon17,
     Tripadvisor: icon18,
-    SoundCloud: icon19,
+    // SoundCloud: icon19,
     Reddit: icon20,
     Phone: icon21,
     Paypal: icon22,
@@ -407,15 +416,18 @@ const SocialMediaContact = ({
     Portfolio: icon53,
     Catalogue: icon54,
     Newspaper: icon55,
-
     Spa: icon56,
     Laundry: icon57,
     Bar: icon58,
-
     Gym: icon59,
     Roomservice: icon60,
     Lounge: icon61,
     ServiceTimings: icon62,
+    aboutbahrain:icon63,
+    placestovisit: icon64,
+    eventsinbahrain: icon65,
+    celebrations: icon66
+    
   };
   // testing github access
   const handleClick = (e) => {
@@ -489,7 +501,7 @@ const SocialMediaContact = ({
         target={socialMediaType === "Resume" ? "_blank" : "_self"}
         rel={socialMediaType === "Resume" ? "noopener noreferrer" : undefined}
         onClick={handleClick}
-      >
+       >
         <div className="contactsoverly">
           <div
             className="contacstscontainer"
