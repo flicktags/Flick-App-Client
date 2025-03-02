@@ -7,7 +7,7 @@ import ShareContactModal from './share-contact';
 export default function SaveContact(userData) {
   const [userId, setUserId] = useState('');
   const navigate = useNavigate();
-   console.log(userData?.userData?.subscriptionType);
+  //  console.log(userData?.userData?.subscriptionType);
   useEffect(() => {
     // Fetch user id from localStorage
     const userIdFromStorage = localStorage.getItem('userid');
@@ -76,10 +76,10 @@ END:VCARD
   };
   const textForGroundColor = () => {
     if (userData?.userData?.profileTextColor) {
-      console.log("Using profileTextColor test:", userData.userData.profileTextColor);
+      // console.log("Using profileTextColor test:", userData.userData.profileTextColor);
       return userData.userData.profileTextColor; // Return only the color code
     } else {
-      console.log("Text color is not in the field");
+      // console.log("Text color is not in the field");
       return "white"; // Default to white
     }
   };

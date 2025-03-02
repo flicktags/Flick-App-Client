@@ -34,7 +34,7 @@
 import { generateKeyAndIV, encryptData } from "./encryption";
 
 async function saveShareContact(dataWithUserid) {
-  console.log("===", dataWithUserid);
+  // console.log("===", dataWithUserid);
   try {
     const { keyMaterial, iv } = generateKeyAndIV(dataWithUserid.userId);
 
@@ -49,7 +49,7 @@ async function saveShareContact(dataWithUserid) {
       iv: btoa(String.fromCharCode(...new Uint8Array(iv))), // Include the IV
     };
 
-    console.log("Encrypted Data:", encryptedData);
+    // console.log("Encrypted Data:", encryptedData);
 
     const response = await fetch(`https://flickapp.vercel.app/user/user-info/share`, {
       method: "POST",
@@ -64,7 +64,7 @@ async function saveShareContact(dataWithUserid) {
     }
 
     const responseData = await response.json();
-    console.log("===", responseData);
+    // console.log("===", responseData);
     return responseData;
   } catch (error) {
     throw new Error("There was a problem with the save operation: " + error.message);

@@ -381,32 +381,32 @@ const UserInfo = () => {
         fetchDataWithDelay();
       }
     } catch (error) {
-      console.error("Error fetching user details:", error);
+      // console.error("Error fetching user details:", error);
     }
   };
 
   const containerStyle = () => {
     if (userData?.profileBGImage) {
-      console.log("Using profileBGImage:", userData.profileBGImage);
+      // console.log("Using profileBGImage:", userData.profileBGImage);
       return {
         backgroundImage: `url(${userData.profileBGImage})`,
         backgroundSize: "cover", // Optional: adjusts the size of the background image
         backgroundPosition: "center", // Optional: centers the image
       };
     } else if (userData?.mainProfileColorCode) {
-      console.log("Using mainProfileColorCode:", userData.mainProfileColorCode);
+      // console.log("Using mainProfileColorCode:", userData.mainProfileColorCode);
       return { backgroundColor: userData.mainProfileColorCode };
     } else if (userData?.profileStartColor && userData?.profileEndColor) {
-      console.log(
-        "Using gradient:",
-        userData.profileStartColor,
-        userData.profileEndColor
-      );
+      // console.log(
+      //   "Using gradient:",
+      //   userData.profileStartColor,
+      //   userData.profileEndColor
+      // );
       return {
         background: `linear-gradient(${userData.profileStartColor}, ${userData.profileEndColor})`,
       };
     } else {
-      console.log("All values are null, using default white background");
+      // console.log("All values are null, using default white background");
       return { backgroundColor: "white" };
     }
   };
@@ -432,10 +432,10 @@ const UserInfo = () => {
 
   const textForGroundColor = () => {
     if (userData?.profileTextColor) {
-      console.log("Using profileTextColor:", userData.profileTextColor);
+      // console.log("Using profileTextColor:", userData.profileTextColor);
       return { color: userData.profileTextColor };
     } else {
-      console.log("Text color is not in the field");
+      // console.log("Text color is not in the field");
       return { color: "black" };
     }
   };
@@ -481,7 +481,7 @@ const UserInfo = () => {
         await new Promise((resolve) => setTimeout(resolve, 6000));
       }
     } catch (error) {
-      console.error("Error fetching category data:", error);
+      // console.error("Error fetching category data:", error);
     } finally {
       stopTimer();
       setLoading(false);
@@ -818,11 +818,11 @@ const UserInfo = () => {
           }
         );
 
-        console.log("Notification sent successfully to token:", token);
-        console.log("Response:", response.data);
+        // console.log("Notification sent successfully to token:", token);
+        // console.log("Response:", response.data);
       }
     } catch (error) {
-      console.error("Error sending notification:", error);
+      // console.error("Error sending notification:", error);
     }
   }
 

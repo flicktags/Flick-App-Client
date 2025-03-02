@@ -458,13 +458,13 @@ const SocialMediaContact = ({
         }
         // const trimmedUserPdf = userPdf;
         if (!userDirectMode) {
-          console.log(`Navigating to PDF: ${trimmedUserPdf}`);
+          // console.log(`Navigating to PDF: ${trimmedUserPdf}`);
           window.location.href = trimmedUserPdf;
           // window.open(trimmedUserPdf);
           // window.open(trimmedUserPdf, '_blank'); // Use window.open for better handling
           // window.location.href = `${trimmedUserPdf}`;
         } else {
-          console.log(`Navigating to PDF: ${trimmedUserPdf}`);
+          // console.log(`Navigating to PDF: ${trimmedUserPdf}`);
           window.location.href = trimmedUserPdf;
           // window.open(trimmedUserPdf);
           // window.open(trimmedUserPdf, '_blank'); // Use window.open for better handling

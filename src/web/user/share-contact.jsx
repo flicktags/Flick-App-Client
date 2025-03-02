@@ -60,7 +60,7 @@ const ShareContactModal = ({ isOpen, onClose, userName }) => {
 
         }
       } catch (error) {
-        console.error("Error saving contact:", error);
+        // console.error("Error saving contact:", error);
         alert("Network Error");
       }
     } else {

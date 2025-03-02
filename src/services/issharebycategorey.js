@@ -12,7 +12,7 @@ async function fetchData(userid) {
     }
 }
 async function saveDataTodefault({userid,value}) {
-console.log("===",value);
+// console.log("===",value);
     try {
       const response = await fetch(`https://flickapp.vercel.app/user/updatesharebycategoreyoption/${userid}`, {
         method: 'PUT',
