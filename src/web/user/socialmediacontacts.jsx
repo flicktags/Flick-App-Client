@@ -360,7 +360,7 @@ const SocialMediaContact = ({
   const socialMediaIcons = {
     Facebook: icon,
     facebook: icon,
-    YouTube: icon2,
+    youtube: icon2,
     Yelp: icon3,
     X: icon4,
     WhatsApp: icon5,
