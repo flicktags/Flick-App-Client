@@ -15,7 +15,6 @@ export default function SaveContact(userData) {
   }, []);
 
   const backgroundColor = userData?.userData?.ColorCode || '#0a8db1'; // Default to black if colorCode is null
-
   const contact = {
     firstName: userData?.userData?.name,
     lastName: " ",
@@ -25,7 +24,6 @@ export default function SaveContact(userData) {
     website: `https://www.flicktagsonline.com/${userId}`,
     company: userData?.userData?.organization ,
     title: userData?.userData?.profession,
-    
   };
 
 
@@ -95,7 +93,7 @@ END:VCARD
           Save Contact
         </button>
   
-        {userData?.userData?.subscriptionType === 'pro' && (
+        {userData?.userData?.subscriptionType === 'pro' && userData?.userData?.isExchangeContactEnabled &&  (
           <button
             className="image-container"
             onClick={handleShareContact}
