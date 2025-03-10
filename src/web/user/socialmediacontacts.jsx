@@ -449,6 +449,11 @@ const SocialMediaContact = ({
         socialMediaType === "Gym" ||
         socialMediaType === "Roomservice" ||
         socialMediaType === "Lounge" ||
+        socialMediaType === "aboutbahrain" ||
+        socialMediaType === "placestovisit" ||
+        socialMediaType === "eventsinbahrain" ||
+        socialMediaType === "celebrations" ||
+
         (socialMediaType === "ServiceTimings" && userPdf != null)
       ) {
         if (userPdf !== null) {
