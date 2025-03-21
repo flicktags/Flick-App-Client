@@ -335,6 +335,9 @@ import icon63 from "../assets/icons/bahrainmap.png";
 import icon64 from "../assets/icons/bahrainpin.png";
 import icon65 from "../assets/icons/calendar.png";
 import icon66 from "../assets/icons/celebration.png";
+import icon67 from "../assets/icons/directory.png";
+import icon68 from "../assets/icons/swimming.png";
+
 
 
 
@@ -426,7 +429,10 @@ const SocialMediaContact = ({
     aboutbahrain:icon63,
     placestovisit: icon64,
     eventsinbahrain: icon65,
-    celebrations: icon66
+    celebrations: icon66,
+    directory: icon67,
+    swimming: icon68
+    
     
   };
   // testing github access
@@ -453,6 +459,8 @@ const SocialMediaContact = ({
         socialMediaType === "placestovisit" ||
         socialMediaType === "eventsinbahrain" ||
         socialMediaType === "celebrations" ||
+        socialMediaType === "directory" ||
+        socialMediaType === "swimming" ||
 
         (socialMediaType === "ServiceTimings" && userPdf != null)
       ) {
