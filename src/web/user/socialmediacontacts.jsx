@@ -338,21 +338,20 @@ import icon66 from "../assets/icons/celebration.png";
 import icon67 from "../assets/icons/directory.png";
 import icon68 from "../assets/icons/swimming.png";
 
-
-
-
-
-
 const SocialMediaContact = ({
   socialMediaType,
   socialMedialink,
+  socialMediaName,
+  socialMediaCustomLogo,
   userDirectMode,
   socialMediaDirectMode,
-  socialMediaName,
   userPDF,
   containerBackgroundColor,
   textColor,
+  
+  
 }) => {
+  // console.log("custom logo:", socialMediaCustomLogo);
   const [linkOpened] = useState(false);
   const [userPdf, setPdf] = useState("");
   // const listItems = ["Item 1", "Item 2", "Item 3" /* ... */];
@@ -426,14 +425,12 @@ const SocialMediaContact = ({
     Roomservice: icon60,
     Lounge: icon61,
     ServiceTimings: icon62,
-    aboutbahrain:icon63,
+    aboutbahrain: icon63,
     placestovisit: icon64,
     eventsinbahrain: icon65,
     celebrations: icon66,
     directory: icon67,
-    swimming: icon68
-    
-    
+    swimming: icon68,
   };
   // testing github access
   const handleClick = (e) => {
@@ -461,7 +458,6 @@ const SocialMediaContact = ({
         socialMediaType === "celebrations" ||
         socialMediaType === "directory" ||
         socialMediaType === "swimming" ||
-
         (socialMediaType === "ServiceTimings" && userPdf != null)
       ) {
         if (userPdf !== null) {
@@ -471,18 +467,9 @@ const SocialMediaContact = ({
         }
         // const trimmedUserPdf = userPdf;
         if (!userDirectMode) {
-          // console.log(`Navigating to PDF: ${trimmedUserPdf}`);
           window.location.href = trimmedUserPdf;
-          // window.open(trimmedUserPdf);
-          // window.open(trimmedUserPdf, '_blank'); // Use window.open for better handling
-          // window.location.href = `${trimmedUserPdf}`;
         } else {
-          // console.log(`Navigating to PDF: ${trimmedUserPdf}`);
           window.location.href = trimmedUserPdf;
-          // window.open(trimmedUserPdf);
-          // window.open(trimmedUserPdf, '_blank'); // Use window.open for better handling
-
-          // window.location.href = `${trimmedUserPdf}`;
         }
       } else if (
         socialMediaType === "WhatsApp" ||
@@ -494,11 +481,6 @@ const SocialMediaContact = ({
       } else if (socialMediaType === "Email" || socialMediaType === "Outlook") {
         window.location.href = `mailto:${socialMedialink}`;
       }
-      // else if (socialMediaType == 'Portfolio')
-      // {
-      //     window.location.href = `${userPDF}`;
-
-      // }
       else {
         window.location.href = `${socialMedialink}`;
       }
@@ -509,33 +491,72 @@ const SocialMediaContact = ({
     handleClick();
     return null;
   } else if (!userDirectMode) {
-    return (
-      <a
-        target={socialMediaType === "Resume" ? "_blank" : "_self"}
-        rel={socialMediaType === "Resume" ? "noopener noreferrer" : undefined}
-        onClick={handleClick}
-       >
-        <div className="contactsoverly">
-          <div
-            className="contacstscontainer"
-            style={{ backgroundColor: containerBackgroundColor }}
-          >
-            <div>
-              <div className="socialMediaIcon">
-                <img
-                  src={socialMediaIcons[socialMediaType]}
-                  alt={""}
-                  className="iconImage"
-                />
-                <p className="socialmedianame" style={{ color: textColor }}>
-                  {socialMediaName}
-                </p>
+    const iconToShow =
+    socialMediaCustomLogo && socialMediaCustomLogo.trim() !== ""
+      ? socialMediaCustomLogo
+      : socialMediaIcons[socialMediaType];
+      return (
+        <a
+          target={socialMediaType === "Resume" ? "_blank" : "_self"}
+          rel={socialMediaType === "Resume" ? "noopener noreferrer" : undefined}
+          onClick={handleClick}
+        >
+          <div className="contactsoverly">
+            <div
+              className="contacstscontainer"
+              style={{ backgroundColor: containerBackgroundColor }}
+            >
+              <div>
+                <div className="socialMediaIcon">
+                  <img
+                    src={socialMediaCustomLogo || socialMediaIcons[socialMediaType]} // Use custom logo if available
+                    alt={socialMediaName}
+                    className="iconImage"
+                  />
+                  <p className="socialmedianame" style={{ color: textColor }}>
+                    {socialMediaName}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </a>
-    );
+        </a>
+      );
+
+
+
+
+
+
+
+
+
+      // <a
+      //   target={socialMediaType === "Resume" ? "_blank" : "_self"}
+      //   rel={socialMediaType === "Resume" ? "noopener noreferrer" : undefined}
+      //   onClick={handleClick}
+      //  >
+      //   <div className="contactsoverly">
+      //     <div
+      //       className="contacstscontainer"
+      //       style={{ backgroundColor: containerBackgroundColor }}
+      //     >
+      //       <div>
+      //         <div className="socialMediaIcon">
+      //           <img
+      //             src={socialMediaIcons[socialMediaType]}
+      //             alt={""}
+      //             className="iconImage"
+      //           />
+      //           <p className="socialmedianame" style={{ color: textColor }}>
+      //             {socialMediaName}
+      //           </p>
+      //         </div>
+      //       </div>
+      //     </div>
+      //   </div>
+      // </a>
+    // );
   }
   return null;
 };

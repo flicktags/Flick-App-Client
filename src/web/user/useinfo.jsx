@@ -487,7 +487,7 @@ const UserInfo = () => {
       setLoading(false);
     }
   };
-  if (cancel == true) {
+  if (cancel === true) {
     return (
       <div className="auto_cancel">
         <h1>Apologies</h1>
@@ -499,7 +499,7 @@ const UserInfo = () => {
     );
   }
 
-  if (fetchedData?.selectedCatgBtnOptionValue == "default") {
+  if (fetchedData?.selectedCatgBtnOptionValue === "default") {
     return (
       <div className="spinner">
         <GridLoader color={"#aeb5cf"} loading={loading} size={30} />
@@ -508,7 +508,7 @@ const UserInfo = () => {
       </div>
     );
   }
-  if (fetchedData?.selectedCatgBtnOptionValue == "canceled") {
+  if (fetchedData?.selectedCatgBtnOptionValue === "canceled") {
     return (
       <div class="canceltext-container">
         <div class="canceltext">
@@ -563,8 +563,8 @@ const UserInfo = () => {
           {userData?.socialMedia
             .filter(
               (socialMedia) =>
-                socialMedia.category == "Business" &&
-                socialMedia.isActive == true
+                socialMedia.category === "Business" &&
+                socialMedia.isActive === true
             )
             .map((socialMedia) => (
               <SocialMediaContact
@@ -572,6 +572,7 @@ const UserInfo = () => {
                 socialMediaType={socialMedia.socialMediaType}
                 socialMediaName={socialMedia.socialMediaName}
                 socialMedialink={socialMedia.socialMediaLink}
+                socialMediaCustomLogo={socialMedia.socialMediaCustomLogo}
                 userDirectMode={userData.directMode}
                 userPDF={socialMedia?.userPdf}
                 socialMediaDirectMode={socialMedia.socialMediaDirectMode}
@@ -634,7 +635,7 @@ const UserInfo = () => {
       // </div>
     );
   }
-  if (fetchedData?.selectedCatgBtnOptionValue == "public") {
+  if (fetchedData?.selectedCatgBtnOptionValue === "public") {
     return (
       <div className="container" style={containerStyle()}>
         <div class="top-section">
@@ -675,7 +676,7 @@ const UserInfo = () => {
             .filter(
               (socialMedia) =>
                 socialMedia.category === "Public" &&
-                socialMedia.isActive == true
+                socialMedia.isActive === true
             )
             .map((socialMedia) => (
               <SocialMediaContact
@@ -683,6 +684,7 @@ const UserInfo = () => {
                 socialMediaType={socialMedia.socialMediaType}
                 socialMediaName={socialMedia.socialMediaName}
                 socialMedialink={socialMedia.socialMediaLink}
+                socialMediaCustomLogo={socialMedia.socialMediaCustomLogo}
                 userDirectMode={userData.directMode}
                 userPDF={socialMedia?.userPdf}
                 socialMediaDirectMode={socialMedia.socialMediaDirectMode}
@@ -707,7 +709,7 @@ const UserInfo = () => {
       </div>
     );
   }
-  if (fetchedData?.selectedCatgBtnOptionValue == "all") {
+  if (fetchedData?.selectedCatgBtnOptionValue === "all") {
     return (
       <div className="container" style={containerStyle()}>
         <div class="top-section">
@@ -753,6 +755,7 @@ const UserInfo = () => {
                 socialMediaType={socialMedia.socialMediaType}
                 socialMediaName={socialMedia.socialMediaName}
                 socialMedialink={socialMedia.socialMediaLink}
+                socialMediaCustomLogo={socialMedia.socialMediaCustomLogo}
                 userDirectMode={userData.directMode}
                 userPDF={socialMedia?.userPdf}
                 socialMediaDirectMode={socialMedia.socialMediaDirectMode}
@@ -947,6 +950,7 @@ const UserInfo = () => {
                   socialMediaType={socialMedia.socialMediaType}
                   socialMediaName={socialMedia.socialMediaName}
                   socialMedialink={socialMedia.socialMediaLink}
+                  socialMediaCustomLogo={socialMedia.socialMediaCustomLogo}
                   userDirectMode={userData.directMode}
                   userPDF={socialMedia?.userPdf}
                   socialMediaDirectMode={socialMedia.socialMediaDirectMode}
