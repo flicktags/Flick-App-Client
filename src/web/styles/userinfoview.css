@@ -195,6 +195,11 @@ body, html {
   src: url('../assets/fonts/caroslight.otf');
 }
 
+@font-face {
+  font-family: noto-kufi;
+  src: url('../assets/fonts/notokufiarabicm.ttf');
+}
+
 body, html {
   margin: 0;
   padding: 0;
@@ -207,11 +212,23 @@ body, html {
   flex-direction: column;
   height: 100vh;
 }
+.userbannerContainer::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px; /* Adjust the height of the blur effect */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)); /* Gradient for smooth transition */
+    backdrop-filter: blur(5px); /* Apply blur effect */
+    pointer-events: none; /* Ensure it doesn't interfere with interactions */
+}
 
 .top-section {
   flex: 0 0 40%; 
   /* overflow: hidden;  */
 }
+
 
   .userbannerContainer {
     width: 100%;
@@ -223,8 +240,19 @@ body, html {
   .userbannerimage {
     width: 100%;
     height: 100%;
-    object-fit:fill; /* Change to contain to keep the whole image visible */
+    object-fit:fill; 
   }
+  .userbannerContainer::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px; /* Adjust the height of the blur effect */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.364)); /* Gradient for smooth transition */
+    backdrop-filter: blur(2px); /* Apply blur effect */
+    pointer-events: none; /* Ensure it doesn't interfere with interactions */
+}
   .overlay {
     position: relative;
     top: 0px;
@@ -236,8 +264,79 @@ body, html {
     background-color: transparent;
     margin-bottom: 15px;
   }
+  .overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px; 
+    background: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.364)); /* Gradient for smooth transition */
+    backdrop-filter: blur(2px); 
+    pointer-events: none; 
+}
   
-  .userimg {
+
+.userimg {
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.userimgcontainer {
+  position: absolute;
+  top: 2vh;
+  inset-inline-start: -5%; /* Works for both LTR and RTL */
+  transform: translateX(0);
+  margin-top: 3%;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 4px solid #cccccc;
+  box-shadow: 0 4px 4px rgba(131, 128, 128, 0.9);
+}
+
+.userimgcontainer:hover .userimg {
+  transform: scale(1.5);
+  filter: grayscale(0%);
+}
+
+.usrdta {
+  margin-inline-start: 60px;
+  margin-top: -2%;
+  font-family: 'Myfont', carosmedium, sans-serif;
+}
+
+.uaername {
+  font-size: 1.5rem;
+  font-family: poppins;
+  font-weight: 600;
+  text-align: start; /* logical direction */
+}
+
+.profession {
+  width: 100%;
+  opacity: 1.0;
+  font-size: 1.0rem;
+  margin-top: -15px;
+  text-align: start; /* replaces text-align: left */
+  margin-inline-end: 120px; /* replaces margin-right */
+  font-family: poppins;
+}
+
+.organization {
+  font-size: 1.0rem;
+  width: 100%;
+  opacity: 1.0;
+  margin-top: -15px;
+  text-align: start; /* replaces text-align: left */
+  margin-inline-end: 130px; /* replaces margin-right */
+  font-family: poppins;
+}
+  
+  /* .userimg {
     width: 80px;
     height: 80px;
     border-radius: 40px;
@@ -249,7 +348,8 @@ body, html {
   position: absolute;
   top: 2vh;
   left: 50%;
-  transform: translateX(-50%);
+  inset-inline-start: 12%; 
+  transform: translateX(0); 
   margin-top: 3%;
   width: 80px;
   height: 80px;
@@ -264,7 +364,7 @@ body, html {
   }
   
   .usrdta {
-    margin-left: 60px;
+    margin-inline-start: 60px;
     margin-top: -2%;
     font-family: 'Myfont', carosmedium, sans-serif;
   }
@@ -295,16 +395,30 @@ body, html {
     text-align: left;
     font-family: poppins;
 
-  }
+  } */
 
 h1 {
   font-family: caros-black;
 }
 
+/* h1:lang(en) {
+  font-family: caros-black;
+} */
+
+h1:lang(ar) {
+  font-family: noto-kufi;
+  font-size: 20px;
+}
+
 p {
   font-family: caros-light;
   font-size: 14px;
-  opacity: 0.5;
+  opacity: 0.9;
+}
+p:lang(ar)  {
+  font-family: noto-kufi;
+  font-size: 14px;
+  opacity: 0.8;
 }
 
 
@@ -375,11 +489,21 @@ p {
   font-size:large;
   color: rgb(251, 251, 251);
   word-wrap: break-word;
-  font-family: poppins;
   font-weight: 500;
   opacity: 1.0;
   text-align: left; /* Ensure text is aligned to the left */
   flex: 1; /* Allow the name to take up the remaining space */
+}
+.socialmedianame:lang(en) {
+  font-family: poppins;
+  font-size: 18px;
+}
+
+.socialmedianame:lang(ar) {
+  font-family: noto-kufi;
+  font-size: 16px;
+  font-weight: bold;
+
 }
 
 .poweredby {

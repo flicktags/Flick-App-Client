@@ -1,20 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import '../styles/save-contact.css';
-import newUserImage from '../assets/new-user.png';
-import ShareContactModal from './share-contact';
+import { useTranslation } from "react-i18next";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import "../styles/save-contact.css";
+import newUserImage from "../assets/new-user.png";
+import ShareContactModal from "./share-contact";
 
 export default function SaveContact(userData) {
-  const [userId, setUserId] = useState('');
+  const [userId, setUserId] = useState("");
+  const { t } = useTranslation();
   const navigate = useNavigate();
   //  console.log(userData?.userData?.subscriptionType);
   useEffect(() => {
     // Fetch user id from localStorage
-    const userIdFromStorage = localStorage.getItem('userid');
+    const userIdFromStorage = localStorage.getItem("userid");
     setUserId(userIdFromStorage);
   }, []);
 
-  const backgroundColor = userData?.userData?.ColorCode || '#0a8db1'; // Default to black if colorCode is null
+  const backgroundColor = userData?.userData?.ColorCode || "#0a8db1"; // Default to black if colorCode is null
   const contact = {
     firstName: userData?.userData?.name,
     lastName: " ",
@@ -22,14 +24,11 @@ export default function SaveContact(userData) {
     email: userData?.userData?.email,
     organization: userData?.userData?.organization,
     website: `https://www.flicktagsonline.com/${userId}`,
-    company: userData?.userData?.organization ,
+    company: userData?.userData?.organization,
     title: userData?.userData?.profession,
   };
 
-
-
   function jsonToVCard(contact) {
-
     return `
 BEGIN:VCARD
 VERSION:3.0
@@ -48,10 +47,10 @@ END:VCARD
 
   function downloadVCard(contact) {
     const vCardData = jsonToVCard(contact);
-    const blob = new Blob([vCardData], { type: 'text/vcard' });
+    const blob = new Blob([vCardData], { type: "text/vcard" });
     const url = URL.createObjectURL(blob);
 
-    const a = document.createElement('a');
+    const a = document.createElement("a");
     a.href = url;
     a.download = `${contact.firstName}_${contact.lastName}.vcf`;
     a.click();
@@ -88,23 +87,28 @@ END:VCARD
         <button
           className="save-contact-button"
           onClick={handleSaveContact}
-          style={{ backgroundColor, color: textForGroundColor() }} // Use only the color value
+          style={{ backgroundColor, color: textForGroundColor() }}
         >
-          Save Contact
+          {t("saveContact")}
         </button>
-  
-        {userData?.userData?.subscriptionType === 'pro' && userData?.userData?.isExchangeContactEnabled &&  (
-          <button
-            className="image-container"
-            onClick={handleShareContact}
-            style={{ backgroundColor, color: textForGroundColor() }} // Apply textForGroundColor() here as well
-          >
-            Exchange Contact
-          </button>
-        )}
+
+        {userData?.userData?.subscriptionType === "pro" &&
+          userData?.userData?.isExchangeContactEnabled && (
+            <button
+              className="image-container"
+              onClick={handleShareContact}
+              style={{ backgroundColor, color: textForGroundColor() }} // Apply textForGroundColor() here as well
+            >
+              {t("exchangeContact")}
+            </button>
+          )}
       </div>
-  
-      <ShareContactModal isOpen={isModalOpen} onClose={handleCloseModal} userName={userData?.userData?.name} />
+
+      <ShareContactModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        userName={userData?.userData?.name}
+      />
     </div>
   );
 
@@ -124,12 +128,12 @@ END:VCARD
   //             {/* <img src={newUserImage} className="share-contact-image" alt="User" /> */}
   //             Exchange Contact
   //           </button>
-         
+
   //       )}
   //     </div>
-     
+
   //       <ShareContactModal isOpen={isModalOpen} onClose={handleCloseModal} userName={userData?.userData?.name}/>
-    
+
   //   </div>
   // );
 }

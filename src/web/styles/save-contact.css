@@ -89,6 +89,11 @@
   src: url('../assets/fonts/caroslight.otf');
 }
 
+@font-face {
+  font-family: noto-kufi;
+  src: url('../assets/fonts/notokufiarabicm.ttf');
+}
+
 /* Button Styles */
 .save-contact-button, .image-container {
   background-color: rgb(190, 192, 196);
@@ -102,6 +107,17 @@
   justify-content: center;   /* Center text horizontally */
   cursor: pointer;
   transition: background-color 0.3s;
+}
+
+.save-contact-button:lang(en),
+.image-container:lang(en) {
+  font-family: caros-light;
+}
+
+.save-contact-button:lang(ar),
+.image-container:lang(ar) {
+  font-family: noto-kufi;
+  font-size: 14px;
 }
 
 .image-button {

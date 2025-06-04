@@ -342,11 +342,63 @@ import { GridLoader } from "react-spinners";
 import SaveContact from "./save-contact";
 import "../styles/userinfoview.css";
 const UserInfo = () => {
+  const [isArabic, setIsArabic] = useState(localStorage.getItem("language") === "ar");
   const [userData, setUserData] = useState(null);
   const [fetchedData, setFetchedData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [cancel, setCancel] = useState(false);
   const [value, setValue] = useState(true);
+
+
+  useEffect(() => {
+    document.documentElement.dir = isArabic ? "rtl" : "ltr";
+    document.documentElement.lang = isArabic ? "ar" : "en";
+  }, [isArabic]);
+
+  // Listen for custom language change event
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      const lang = localStorage.getItem("language");
+      setIsArabic(lang === "ar");
+    };
+
+    window.addEventListener("languageChange", handleLanguageChange);
+    return () => window.removeEventListener("languageChange", handleLanguageChange);
+  }, []);
+
+  // Debug Arabic data
+  // useEffect(() => {
+  //   if (userData) {
+  //     console.log('User Data:', {
+  //       name: userData.name,
+  //       nameArabic: userData.nameArabic,
+  //       profession: userData.profession,
+  //       professionArabic: userData.professionArabic,
+  //       socialMedia: userData.socialMedia.map(sm => ({
+  //         name: sm.socialMediaName,
+  //         nameArabic: sm.socialMediaNameArabic
+  //       }))
+  //     });
+  //   }
+  // }, [userData]);
+
+  // useEffect(() => {
+  //   document.documentElement.dir = isArabic ? "rtl" : "ltr";
+  //   document.documentElement.lang = isArabic ? "ar" : "en";
+  // }, [isArabic]);
+
+  // useEffect(() => {
+  //   const handleLanguageChange = () => {
+  //     const lang = localStorage.getItem("language");
+  //     setIsArabic(lang === "ar");
+  //   };
+
+  //   window.addEventListener("storage", handleLanguageChange);
+  //   return () => window.removeEventListener("storage", handleLanguageChange);
+  // }, []);
+
+
+
   const tokens = userData?.deviceToken;
   localStorage.setItem("tokens", JSON.stringify(tokens));
   const userid = window.location.pathname.slice(1);
@@ -365,6 +417,21 @@ const UserInfo = () => {
     fetchCategoryData();
   };
 
+
+  useEffect(() => {
+    // Listen for language change in localStorage
+    const onStorageChange = () => {
+      const lang = localStorage.getItem("language");
+      setIsArabic(lang === "ar");
+    };
+
+    window.addEventListener("storage", onStorageChange);
+
+    return () => {
+      window.removeEventListener("storage", onStorageChange);
+    };
+  }, []);
+
   const fetchUserData = async () => {
     try {
       const response = await fetch(
@@ -374,8 +441,6 @@ const UserInfo = () => {
 
       setUserData(data.data);
       if (data.data.isSHareByCatgOn == true) {
-        // If user is shareable by category, start fetching category data
-
         saveDataTodefault({ userid, value: false });
         // fetchCategoryData();
         fetchDataWithDelay();
@@ -387,49 +452,21 @@ const UserInfo = () => {
 
   const containerStyle = () => {
     if (userData?.profileBGImage) {
-      // console.log("Using profileBGImage:", userData.profileBGImage);
       return {
         backgroundImage: `url(${userData.profileBGImage})`,
         backgroundSize: "cover", // Optional: adjusts the size of the background image
         backgroundPosition: "center", // Optional: centers the image
       };
     } else if (userData?.mainProfileColorCode) {
-      // console.log("Using mainProfileColorCode:", userData.mainProfileColorCode);
       return { backgroundColor: userData.mainProfileColorCode };
     } else if (userData?.profileStartColor && userData?.profileEndColor) {
-      // console.log(
-      //   "Using gradient:",
-      //   userData.profileStartColor,
-      //   userData.profileEndColor
-      // );
       return {
         background: `linear-gradient(${userData.profileStartColor}, ${userData.profileEndColor})`,
       };
     } else {
-      // console.log("All values are null, using default white background");
       return { backgroundColor: "white" };
     }
   };
-
-  // const containerStyle = () => {
-  //   if (userData?.mainProfileColorCode) {
-  //     console.log("Using mainProfileColorCode:", userData.mainProfileColorCode);
-  //     return { backgroundColor: userData.mainProfileColorCode };
-  //   } else if (userData?.profileStartColor && userData?.profileEndColor) {
-  //     console.log(
-  //       "Using gradient:",
-  //       userData.profileStartColor,
-  //       userData.profileEndColor
-  //     );
-  //     return {
-  //       background: `linear-gradient(${userData.profileStartColor}, ${userData.profileEndColor})`,
-  //     };
-  //   }  else {
-  //     console.log("All values are null, using default black background");
-  //     return { backgroundColor: "white" };
-  //   }
-  // };
-
   const textForGroundColor = () => {
     if (userData?.profileTextColor) {
       // console.log("Using profileTextColor:", userData.profileTextColor);
@@ -540,7 +577,27 @@ const UserInfo = () => {
               title="Click to view full image"
             />
           </div>
-          <div class="overlay">
+
+          <div className="overlay">
+  <div className="modal">
+    <div className="usrdta">
+      <h1 className="uaername" style={textForGroundColor()}>
+      {isArabic && userData?.nameArabic ? userData.nameArabic : userData?.name}     
+      </h1>
+      <p className="profession">
+        {isArabic ? userData?.professionArabic : userData?.profession}
+      </p>
+      <p className="organization">
+        {isArabic ? userData?.organizationArabic : userData?.organization}
+      </p>
+    </div>
+    <div className="save-contact-section">
+      <SaveContact userData={userData} />
+    </div>
+    <div></div>
+  </div>
+</div>
+          {/* <div class="overlay">
             <div class="modal">
               <div class="usrdta">
                 <h1 className="uaername" style={textForGroundColor()}>
@@ -552,10 +609,10 @@ const UserInfo = () => {
               <div class="save-contact-section">
                 <SaveContact userData={userData} />
               </div>
-              {/* <div class='divider'></div> */}
+              {}
               <div></div>
             </div>
-          </div>
+          </div> */}
         </div>
         <div class="contactsoverly">
           {/* <div className="contactscontainer" style={contactContainerStyle()}> */}
@@ -655,7 +712,27 @@ const UserInfo = () => {
               title="Click to view full image"
             />
           </div>
-          <div class="overlay">
+          <div className="overlay">
+  <div className="modal">
+    <div className="usrdta">
+      <h1 className="uaername" style={textForGroundColor()}>
+      {isArabic && userData?.nameArabic ? userData.nameArabic : userData?.name}     
+      </h1>
+      <p className="profession">
+        {isArabic ? userData?.professionArabic : userData?.profession}
+      </p>
+      <p className="organization">
+        {isArabic ? userData?.organizationArabic : userData?.organization}
+      </p>
+    </div>
+    <div className="save-contact-section">
+      <SaveContact userData={userData} />
+    </div>
+    <div></div>
+  </div>
+</div>
+
+          {/* <div class="overlay">
             <div class="modal">
               <div class="usrdta">
                 <h1 class="uaername">{userData?.name}</h1>
@@ -665,10 +742,9 @@ const UserInfo = () => {
               <div class="save-contact-section">
                 <SaveContact userData={userData} />
               </div>
-              {/* <div class='divider'></div> */}
               <div></div>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="contactsoverly">
           {/* <div className="contactscontainer" style={contactContainerStyle()}> */}
@@ -729,7 +805,27 @@ const UserInfo = () => {
               title="Click to view full image"
             />
           </div>
-          <div class="overlay">
+          <div className="overlay">
+  <div className="modal">
+    <div className="usrdta">
+      <h1 className="uaername" style={textForGroundColor()}>
+      {isArabic && userData?.nameArabic ? userData.nameArabic : userData?.name}     
+      </h1>
+      <p className="profession">
+        {isArabic ? userData?.professionArabic : userData?.profession}
+      </p>
+      <p className="organization">
+        {isArabic ? userData?.organizationArabic : userData?.organization}
+      </p>
+    </div>
+    <div className="save-contact-section">
+      <SaveContact userData={userData} />
+    </div>
+    <div></div>
+  </div>
+</div>
+
+          {/* <div class="overlay">
             <div class="modal">
               <div class="usrdta">
                 <h1 class="uaername">{userData?.name}</h1>
@@ -739,10 +835,9 @@ const UserInfo = () => {
               <div class="save-contact-section">
                 <SaveContact userData={userData} />
               </div>
-              {/* <div class='divider'></div> */}
               <div></div>
             </div>
-          </div>
+          </div> */}
         </div>
         <div class="contactsoverly">
           {/* <div className="contactscontainer" style={contactContainerStyle()}> */}
@@ -919,7 +1014,27 @@ const UserInfo = () => {
               title="Click to view full image"
             />
           </div>
-          <div class="overlay">
+          <div className="overlay">
+  <div className="modal">
+    <div className="usrdta">
+      <h1 className="uaername" style={textForGroundColor()}>
+      {isArabic && userData?.nameArabic ? userData.nameArabic : userData?.name}
+      </h1>
+      <p className="profession" style={textForGroundColor()}>
+        {isArabic ? userData?.professionArabic : userData?.profession}
+      </p>
+      <p className="organization" style={textForGroundColor()}>
+        {isArabic ? userData?.organizationArabic : userData?.organization}
+      </p>
+    </div>
+    <div className="save-contact-section">
+      <SaveContact userData={userData} />
+    </div>
+    <div></div>
+  </div>
+</div>
+
+          {/* <div class="overlay">
             <div class="modal">
               <div class="usrdta">
                 <h1 className="uaername" style={textForGroundColor()}>
@@ -935,10 +1050,9 @@ const UserInfo = () => {
               <div class="save-contact-section">
                 <SaveContact userData={userData} />
               </div>
-              {/* <div class='divider'></div> */}
               <div></div>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="contactsoverly">
           <div className="contactscontainer">
@@ -948,7 +1062,12 @@ const UserInfo = () => {
                 <SocialMediaContact
                   key={socialMedia._id}
                   socialMediaType={socialMedia.socialMediaType}
-                  socialMediaName={socialMedia.socialMediaName}
+                  // socialMediaName={socialMedia.socialMediaName}
+                  socialMediaName={
+                    isArabic && socialMedia.socialMediaNameArabic
+                      ? socialMedia.socialMediaNameArabic
+                      : socialMedia.socialMediaName
+                  }
                   socialMedialink={socialMedia.socialMediaLink}
                   socialMediaCustomLogo={socialMedia.socialMediaCustomLogo}
                   userDirectMode={userData.directMode}
