@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'CarosMedium';
+    src: url('./carosmedium.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'CarosBlack';
+    src: url('./carosblack.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'NotoKufi';
+    src: url('./notokufiarabicm.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
