@@ -410,6 +410,8 @@ h1:lang(ar) {
   font-size: 20px;
 }
 
+
+
 p {
   font-family: caros-light;
   font-size: 14px;
@@ -507,28 +509,36 @@ p:lang(ar)  {
 }
 
 .poweredby {
-  flex: 0.05; /* Takes up the remaining 5% of the height */
+  flex: 0.05;
   width: 100vw;
   display: flex;
-  justify-content: center; /* Center the text horizontally */
-  align-items: center; /* Center the text vertically */
+  justify-content: center;
+  align-items: center;
   font-family: 'Myfont', carosmedium, sans-serif;
 }
 
+/* Apply consistent font size for both languages */
 .poweredbytext {
-  font-size: 0.8rem; /* Adjust font size as needed */
-  margin: 0; /* Remove margin */
-  text-align: center; /* Center the text */
+  font-size: 0.8rem !important; /* Force consistent size */
+  margin: 0;
+  text-align: center;
+  font-family: inherit; /* Use parent font family */
+}
+
+/* Arabic-specific font family */
+[dir="rtl"] .poweredbytext {
+  font-family: 'noto-kufi', sans-serif;
 }
 
 .flick-text {
-  color: rgb(6, 105, 144); /* Set text color to blue */
-  font-weight: bold; /* Make the font bold */
-  text-decoration: none; /* Remove underline */
+  color: rgb(6, 105, 144);
+  font-weight: bold;
+  text-decoration: none;
+  font-size: inherit; /* Inherit from parent */
 }
 
 .flick-text:hover {
-  text-decoration: underline; /* Add underline on hover */
+  text-decoration: underline;
 }
 
 .canceltext-container {

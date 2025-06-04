@@ -342,13 +342,14 @@ import { GridLoader } from "react-spinners";
 import SaveContact from "./save-contact";
 import "../styles/userinfoview.css";
 const UserInfo = () => {
-  const [isArabic, setIsArabic] = useState(localStorage.getItem("language") === "ar");
+  const [isArabic, setIsArabic] = useState(
+    localStorage.getItem("language") === "ar"
+  );
   const [userData, setUserData] = useState(null);
   const [fetchedData, setFetchedData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [cancel, setCancel] = useState(false);
   const [value, setValue] = useState(true);
-
 
   useEffect(() => {
     document.documentElement.dir = isArabic ? "rtl" : "ltr";
@@ -363,41 +364,9 @@ const UserInfo = () => {
     };
 
     window.addEventListener("languageChange", handleLanguageChange);
-    return () => window.removeEventListener("languageChange", handleLanguageChange);
+    return () =>
+      window.removeEventListener("languageChange", handleLanguageChange);
   }, []);
-
-  // Debug Arabic data
-  // useEffect(() => {
-  //   if (userData) {
-  //     console.log('User Data:', {
-  //       name: userData.name,
-  //       nameArabic: userData.nameArabic,
-  //       profession: userData.profession,
-  //       professionArabic: userData.professionArabic,
-  //       socialMedia: userData.socialMedia.map(sm => ({
-  //         name: sm.socialMediaName,
-  //         nameArabic: sm.socialMediaNameArabic
-  //       }))
-  //     });
-  //   }
-  // }, [userData]);
-
-  // useEffect(() => {
-  //   document.documentElement.dir = isArabic ? "rtl" : "ltr";
-  //   document.documentElement.lang = isArabic ? "ar" : "en";
-  // }, [isArabic]);
-
-  // useEffect(() => {
-  //   const handleLanguageChange = () => {
-  //     const lang = localStorage.getItem("language");
-  //     setIsArabic(lang === "ar");
-  //   };
-
-  //   window.addEventListener("storage", handleLanguageChange);
-  //   return () => window.removeEventListener("storage", handleLanguageChange);
-  // }, []);
-
-
 
   const tokens = userData?.deviceToken;
   localStorage.setItem("tokens", JSON.stringify(tokens));
@@ -416,7 +385,6 @@ const UserInfo = () => {
     await delay(1000);
     fetchCategoryData();
   };
-
 
   useEffect(() => {
     // Listen for language change in localStorage
@@ -579,24 +547,34 @@ const UserInfo = () => {
           </div>
 
           <div className="overlay">
-  <div className="modal">
-    <div className="usrdta">
-      <h1 className="uaername" style={textForGroundColor()}>
-      {isArabic && userData?.nameArabic ? userData.nameArabic : userData?.name}     
-      </h1>
-      <p className="profession">
-        {isArabic ? userData?.professionArabic : userData?.profession}
-      </p>
-      <p className="organization">
-        {isArabic ? userData?.organizationArabic : userData?.organization}
-      </p>
-    </div>
-    <div className="save-contact-section">
-      <SaveContact userData={userData} />
-    </div>
-    <div></div>
-  </div>
-</div>
+            <div className="modal">
+              <div className="usrdta">
+                <h1 className="uaername" style={textForGroundColor()}>
+                  {isArabic && userData?.nameArabic
+                    ? userData.nameArabic
+                    : userData?.name}
+                </h1>
+                <p className="profession" style={textForGroundColor()}>
+                  {isArabic &&
+                  userData?.professionArabic &&
+                  userData.professionArabic !== "null"
+                    ? userData.professionArabic
+                    : userData?.profession}
+                </p>
+                <p className="organization" style={textForGroundColor()}>
+                  {isArabic &&
+                  userData?.organizationArabic &&
+                  userData.organizationArabic !== "null"
+                    ? userData.organizationArabic
+                    : userData?.organization}
+                </p>
+              </div>
+              <div className="save-contact-section">
+                <SaveContact userData={userData} />
+              </div>
+              <div></div>
+            </div>
+          </div>
           {/* <div class="overlay">
             <div class="modal">
               <div class="usrdta">
@@ -638,12 +616,13 @@ const UserInfo = () => {
             ))}
           {/* </div> */}
         </div>
-        <div class="poweredby">
-          <h1 class="poweredbytext">
-            Powered by{" "}
+
+         <div className="poweredby">
+          <h1 className="poweredbytext" style={textForGroundColor()}>
+            {isArabic ? "مدعوم من" : "Powered by"}{" "}
             <a
               href="https://www.flicktags.com"
-              class="flick-text"
+              className="flick-text"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -712,25 +691,35 @@ const UserInfo = () => {
               title="Click to view full image"
             />
           </div>
-          <div className="overlay">
-  <div className="modal">
-    <div className="usrdta">
-      <h1 className="uaername" style={textForGroundColor()}>
-      {isArabic && userData?.nameArabic ? userData.nameArabic : userData?.name}     
-      </h1>
-      <p className="profession">
-        {isArabic ? userData?.professionArabic : userData?.profession}
-      </p>
-      <p className="organization">
-        {isArabic ? userData?.organizationArabic : userData?.organization}
-      </p>
-    </div>
-    <div className="save-contact-section">
-      <SaveContact userData={userData} />
-    </div>
-    <div></div>
-  </div>
-</div>
+         <div className="overlay">
+            <div className="modal">
+              <div className="usrdta">
+                <h1 className="uaername" style={textForGroundColor()}>
+                  {isArabic && userData?.nameArabic
+                    ? userData.nameArabic
+                    : userData?.name}
+                </h1>
+                <p className="profession" style={textForGroundColor()}>
+                  {isArabic &&
+                  userData?.professionArabic &&
+                  userData.professionArabic !== "null"
+                    ? userData.professionArabic
+                    : userData?.profession}
+                </p>
+                <p className="organization" style={textForGroundColor()}>
+                  {isArabic &&
+                  userData?.organizationArabic &&
+                  userData.organizationArabic !== "null"
+                    ? userData.organizationArabic
+                    : userData?.organization}
+                </p>
+              </div>
+              <div className="save-contact-section">
+                <SaveContact userData={userData} />
+              </div>
+              <div></div>
+            </div>
+          </div>
 
           {/* <div class="overlay">
             <div class="modal">
@@ -769,12 +758,12 @@ const UserInfo = () => {
             ))}
           {/* </div> */}
         </div>
-        <div class="poweredby">
-          <h1 class="poweredbytext">
-            Powered by{" "}
+        <div className="poweredby">
+          <h1 className="poweredbytext" style={textForGroundColor()}>
+            {isArabic ? "مدعوم من" : "Powered by"}{" "}
             <a
               href="https://www.flicktags.com"
-              class="flick-text"
+              className="flick-text"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -806,24 +795,34 @@ const UserInfo = () => {
             />
           </div>
           <div className="overlay">
-  <div className="modal">
-    <div className="usrdta">
-      <h1 className="uaername" style={textForGroundColor()}>
-      {isArabic && userData?.nameArabic ? userData.nameArabic : userData?.name}     
-      </h1>
-      <p className="profession">
-        {isArabic ? userData?.professionArabic : userData?.profession}
-      </p>
-      <p className="organization">
-        {isArabic ? userData?.organizationArabic : userData?.organization}
-      </p>
-    </div>
-    <div className="save-contact-section">
-      <SaveContact userData={userData} />
-    </div>
-    <div></div>
-  </div>
-</div>
+            <div className="modal">
+              <div className="usrdta">
+                <h1 className="uaername" style={textForGroundColor()}>
+                  {isArabic && userData?.nameArabic
+                    ? userData.nameArabic
+                    : userData?.name}
+                </h1>
+                <p className="profession" style={textForGroundColor()}>
+                  {isArabic &&
+                  userData?.professionArabic &&
+                  userData.professionArabic !== "null"
+                    ? userData.professionArabic
+                    : userData?.profession}
+                </p>
+                <p className="organization" style={textForGroundColor()}>
+                  {isArabic &&
+                  userData?.organizationArabic &&
+                  userData.organizationArabic !== "null"
+                    ? userData.organizationArabic
+                    : userData?.organization}
+                </p>
+              </div>
+              <div className="save-contact-section">
+                <SaveContact userData={userData} />
+              </div>
+              <div></div>
+            </div>
+          </div>
 
           {/* <div class="overlay">
             <div class="modal">
@@ -859,12 +858,12 @@ const UserInfo = () => {
             ))}
           {/* </div> */}
         </div>
-        <div class="poweredby">
-          <h1 class="poweredbytext">
-            Powered by{" "}
+        <div className="poweredby">
+          <h1 className="poweredbytext" style={textForGroundColor()}>
+            {isArabic ? "مدعوم من" : "Powered by"}{" "}
             <a
               href="https://www.flicktags.com"
-              class="flick-text"
+              className="flick-text"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -1015,24 +1014,34 @@ const UserInfo = () => {
             />
           </div>
           <div className="overlay">
-  <div className="modal">
-    <div className="usrdta">
-      <h1 className="uaername" style={textForGroundColor()}>
-      {isArabic && userData?.nameArabic ? userData.nameArabic : userData?.name}
-      </h1>
-      <p className="profession" style={textForGroundColor()}>
-        {isArabic ? userData?.professionArabic : userData?.profession}
-      </p>
-      <p className="organization" style={textForGroundColor()}>
-        {isArabic ? userData?.organizationArabic : userData?.organization}
-      </p>
-    </div>
-    <div className="save-contact-section">
-      <SaveContact userData={userData} />
-    </div>
-    <div></div>
-  </div>
-</div>
+            <div className="modal">
+              <div className="usrdta">
+                <h1 className="uaername" style={textForGroundColor()}>
+                  {isArabic && userData?.nameArabic
+                    ? userData.nameArabic
+                    : userData?.name}
+                </h1>
+                <p className="profession" style={textForGroundColor()}>
+                  {isArabic &&
+                  userData?.professionArabic &&
+                  userData.professionArabic !== "null"
+                    ? userData.professionArabic
+                    : userData?.profession}
+                </p>
+                <p className="organization" style={textForGroundColor()}>
+                  {isArabic &&
+                  userData?.organizationArabic &&
+                  userData.organizationArabic !== "null"
+                    ? userData.organizationArabic
+                    : userData?.organization}
+                </p>
+              </div>
+              <div className="save-contact-section">
+                <SaveContact userData={userData} />
+              </div>
+              <div></div>
+            </div>
+          </div>
 
           {/* <div class="overlay">
             <div class="modal">
@@ -1088,12 +1097,12 @@ const UserInfo = () => {
               ))}
           </div>
         </div>
-        <div class="poweredby">
-          <h1 class="poweredbytext" style={textForGroundColor()}>
-            Powered by{" "}
+        <div className="poweredby">
+          <h1 className="poweredbytext" style={textForGroundColor()}>
+            {isArabic ? "مدعوم من" : "Powered by"}{" "}
             <a
               href="https://www.flicktags.com"
-              class="flick-text"
+              className="flick-text"
               target="_blank"
               rel="noopener noreferrer"
             >
