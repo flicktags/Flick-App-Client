@@ -288,7 +288,7 @@ body, html {
 .userimgcontainer {
   position: absolute;
   top: 2vh;
-  inset-inline-start: -5%; /* Works for both LTR and RTL */
+  inset-inline-start: -8%; /* Works for both LTR and RTL */
   transform: translateX(0);
   margin-top: 3%;
   width: 80px;
