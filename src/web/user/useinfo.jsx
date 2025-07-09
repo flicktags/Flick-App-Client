@@ -418,7 +418,7 @@ const UserInfo = () => {
 
   // 🔹 NEW FUNCTION: Track profile view
   const trackProfileView = async (userIdToTrack) => {
-    const apiUrl = `http://flickapp.vercel.app/user/track/profile-view/${userIdToTrack}`; // your real production API URL
+    const apiUrl = `https://flickapp.vercel.app/user/track/profile-view/${userIdToTrack}`; // your real production API URL
     // console.log("Tracking API called:", apiUrl); // <-- For debugging URL
 
     try {
