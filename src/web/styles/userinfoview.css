@@ -199,6 +199,13 @@ body, html {
   font-family: noto-kufi;
   src: url('../assets/fonts/notokufiarabicm.ttf');
 }
+.arabic-font {
+  font-family: noto-kufi;
+}
+
+.english-font {
+  font-family: caros-light;
+}
 
 body, html {
   margin: 0;
@@ -457,6 +464,14 @@ p:lang(ar)  {
   100% {
     transform: translateY(0); /* End at the original position */
     opacity: 1; /* Fully visible */
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 
