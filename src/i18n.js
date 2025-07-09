@@ -17,7 +17,11 @@ const resources = {
       "profession": "Profession",
       "organization": "Organization",
       "saveContact": "Save Contact",
-      "exchangeContact": "Exchange Contact"
+      "exchangeContact": "Exchange Contact",
+      "sharefeedback": "Share your Feedback",
+      "optionalname": "Your Name (Optional)",
+                        "yourfeedback": "your Feedback",
+                        "sendfeedback": "Send Feedback"
 
     }
   },
@@ -33,7 +37,13 @@ const resources = {
       "profession": "مهنة",
       "organization": "منظمة",
       "saveContact": "حفظ جهة الاتصال",
-      "exchangeContact": "تبادل جهة الاتصال"
+      "exchangeContact": "تبادل جهة الاتصال",
+            "sharefeedback": "شاركنا تعليقك",
+                  "optionalname": "الإسم (اختياري)",
+                  "yourfeedback": "تعليقك",
+                  "sendfeedback": "إرسال تعليقك"
+
+
 
     }
   }
