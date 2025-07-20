@@ -347,9 +347,11 @@ const SocialMediaContact = ({
   socialMediaDirectMode,
   userPDF,
   containerBackgroundColor,
-  textColor,
-  
-  
+  textColor = "black", // ✅ DEFAULT RIGHT HERE
+  containerClassName,
+  iconClassName,
+  nameClassName,
+  wrapperClassName,
 }) => {
   // console.log("custom logo:", socialMediaCustomLogo);
   const [linkOpened] = useState(false);
@@ -480,8 +482,7 @@ const SocialMediaContact = ({
         window.open(`tel:${socialMedialink}`);
       } else if (socialMediaType === "Email" || socialMediaType === "Outlook") {
         window.location.href = `mailto:${socialMedialink}`;
-      }
-      else {
+      } else {
         window.location.href = `${socialMedialink}`;
       }
     }
@@ -492,16 +493,42 @@ const SocialMediaContact = ({
     return null;
   } else if (!userDirectMode) {
     const iconToShow =
-    socialMediaCustomLogo && socialMediaCustomLogo.trim() !== ""
-      ? socialMediaCustomLogo
-      : socialMediaIcons[socialMediaType];
-      return (
-        <a
-          target={socialMediaType === "Resume" ? "_blank" : "_self"}
-          rel={socialMediaType === "Resume" ? "noopener noreferrer" : undefined}
-          onClick={handleClick}
-        >
-          <div className="contactsoverly">
+      socialMediaCustomLogo && socialMediaCustomLogo.trim() !== ""
+        ? socialMediaCustomLogo
+        : socialMediaIcons[socialMediaType];
+    // console.log("✅ final textColor in SocialMediaContact:", textColor);
+
+    return (
+      <a
+        target={socialMediaType === "Resume" ? "_blank" : "_self"}
+        rel={socialMediaType === "Resume" ? "noopener noreferrer" : undefined}
+        onClick={handleClick}
+      >
+        <div className="contactsoverly">
+          <div
+            className={containerClassName || "contacstscontainer"}
+            style={{ backgroundColor: containerBackgroundColor }}
+          >
+            <div>
+              <div className={wrapperClassName || "socialMediaIcon"}>
+                <img
+                  src={
+                    socialMediaCustomLogo || socialMediaIcons[socialMediaType]
+                  }
+                  alt={socialMediaName}
+                  className={iconClassName || "iconImage"}
+                />
+                <p
+                  className={nameClassName || "socialmedianame"}
+                  style={{ color: textColor }} // ✅ no need for `|| 'black'` anymore
+                >
+                  {socialMediaName}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* <div className="contactsoverly">
             <div
               className="contacstscontainer"
               style={{ backgroundColor: containerBackgroundColor }}
@@ -519,44 +546,9 @@ const SocialMediaContact = ({
                 </div>
               </div>
             </div>
-          </div>
-        </a>
-      );
-
-
-
-
-
-
-
-
-
-      // <a
-      //   target={socialMediaType === "Resume" ? "_blank" : "_self"}
-      //   rel={socialMediaType === "Resume" ? "noopener noreferrer" : undefined}
-      //   onClick={handleClick}
-      //  >
-      //   <div className="contactsoverly">
-      //     <div
-      //       className="contacstscontainer"
-      //       style={{ backgroundColor: containerBackgroundColor }}
-      //     >
-      //       <div>
-      //         <div className="socialMediaIcon">
-      //           <img
-      //             src={socialMediaIcons[socialMediaType]}
-      //             alt={""}
-      //             className="iconImage"
-      //           />
-      //           <p className="socialmedianame" style={{ color: textColor }}>
-      //             {socialMediaName}
-      //           </p>
-      //         </div>
-      //       </div>
-      //     </div>
-      //   </div>
-      // </a>
-    // );
+          </div> */}
+      </a>
+    );
   }
   return null;
 };
