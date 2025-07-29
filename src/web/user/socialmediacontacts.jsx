@@ -265,6 +265,7 @@
 // // export default SocialMediaContact;
 
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "../styles/userinfoview.css";
 import icon from "../assets/icons/facebook.png";
 import icon2 from "../assets/icons/youtube.png";
@@ -348,6 +349,7 @@ const SocialMediaContact = ({
   userPDF,
   containerBackgroundColor,
   textColor = "black", // ✅ DEFAULT RIGHT HERE
+  userId, // ✅ <- accept this
   containerClassName,
   iconClassName,
   nameClassName,
@@ -435,7 +437,14 @@ const SocialMediaContact = ({
     swimming: icon68,
   };
   // testing github access
-  const handleClick = (e) => {
+  const handleClick = async (e) => {
+    try {
+    if (userId && socialMediaType) {
+      const postUrl = `https://flickapp.vercel.app/user/track/social-view/${userId}`;
+      await axios.post(postUrl, { socialMediaType });
+    }
+  } catch (error) {
+  }
     // e.preventDefault();
     let trimmedUserPdf = null; // Initialize the variable
 

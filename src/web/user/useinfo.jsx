@@ -148,6 +148,7 @@ const UserInfo = () => {
       );
       const data = await response.json();
       setUserData(data.data);
+
       trackProfileView(userid); // <-- Call here once
 
       if (data.data.isSHareByCatgOn === true) {
@@ -242,11 +243,11 @@ END:VCARD`.trim();
   };
 
   useEffect(() => {
-  const firstActiveType = contentTypes.find(ct => ct.isActive);
-  if (firstActiveType) {
-    setOpenSectionId(firstActiveType._id);
-  }
-}, [contentTypes]);
+    const firstActiveType = contentTypes.find((ct) => ct.isActive);
+    if (firstActiveType) {
+      setOpenSectionId(firstActiveType._id);
+    }
+  }, [contentTypes]);
 
   const ExpandableSection = ({
     title,
@@ -427,7 +428,7 @@ END:VCARD`.trim();
                   );
 
                   if (!itemsForType || itemsForType.length === 0) return null;
-                // console.log("🎯 profileTextColor:", userData?.profileTextColor);
+                  // console.log("🎯 profileTextColor:", userData?.profileTextColor);
 
                   return (
                     <ExpandableSection
@@ -460,12 +461,12 @@ END:VCARD`.trim();
                             socialMedia.socialMediaDirectMode
                           }
                           cat={socialMedia.category}
-                           textColor={
-                          userData?.profileTextColor &&
-                          userData?.profileTextColor !== ""
-                            ? userData?.profileTextColor
-                            : "black"
-                        }
+                          textColor={
+                            userData?.profileTextColor &&
+                            userData?.profileTextColor !== ""
+                              ? userData?.profileTextColor
+                              : "black"
+                          }
                           containerClassName="contacstscontainer-expandable"
                           iconClassName="iconImage-expandable"
                           nameClassName="socialmedianame-expandable"
@@ -570,7 +571,7 @@ END:VCARD`.trim();
             </div>
           </div>
         )}
-        
+
         {/* <div class="contactsoverly">
           {userData?.socialMedia
             .filter(
@@ -673,7 +674,7 @@ END:VCARD`.trim();
                   );
 
                   if (!itemsForType || itemsForType.length === 0) return null;
-                // console.log("🎯 profileTextColor:", userData?.profileTextColor);
+                  // console.log("🎯 profileTextColor:", userData?.profileTextColor);
 
                   return (
                     <ExpandableSection
@@ -706,12 +707,12 @@ END:VCARD`.trim();
                             socialMedia.socialMediaDirectMode
                           }
                           cat={socialMedia.category}
-                           textColor={
-                          userData?.profileTextColor &&
-                          userData?.profileTextColor !== ""
-                            ? userData?.profileTextColor
-                            : "black"
-                        }
+                          textColor={
+                            userData?.profileTextColor &&
+                            userData?.profileTextColor !== ""
+                              ? userData?.profileTextColor
+                              : "black"
+                          }
                           containerClassName="contacstscontainer-expandable"
                           iconClassName="iconImage-expandable"
                           nameClassName="socialmedianame-expandable"
@@ -981,7 +982,7 @@ END:VCARD`.trim();
                   );
 
                   if (!itemsForType || itemsForType.length === 0) return null;
-                // console.log("🎯 profileTextColor:", userData?.profileTextColor);
+                  // console.log("🎯 profileTextColor:", userData?.profileTextColor);
 
                   return (
                     <ExpandableSection
@@ -1014,12 +1015,12 @@ END:VCARD`.trim();
                             socialMedia.socialMediaDirectMode
                           }
                           cat={socialMedia.category}
-                           textColor={
-                          userData?.profileTextColor &&
-                          userData?.profileTextColor !== ""
-                            ? userData?.profileTextColor
-                            : "black"
-                        }
+                          textColor={
+                            userData?.profileTextColor &&
+                            userData?.profileTextColor !== ""
+                              ? userData?.profileTextColor
+                              : "black"
+                          }
                           containerClassName="contacstscontainer-expandable"
                           iconClassName="iconImage-expandable"
                           nameClassName="socialmedianame-expandable"
@@ -1362,7 +1363,7 @@ END:VCARD`.trim();
                   );
 
                   if (!itemsForType || itemsForType.length === 0) return null;
-                // console.log("🎯 profileTextColor:", userData?.profileTextColor);
+                  // console.log("🎯 profileTextColor:", userData?.profileTextColor);
 
                   return (
                     <ExpandableSection
@@ -1395,12 +1396,13 @@ END:VCARD`.trim();
                             socialMedia.socialMediaDirectMode
                           }
                           cat={socialMedia.category}
-                           textColor={
-                          userData?.profileTextColor &&
-                          userData?.profileTextColor !== ""
-                            ? userData?.profileTextColor
-                            : "black"
-                        }
+                          textColor={
+                            userData?.profileTextColor &&
+                            userData?.profileTextColor !== ""
+                              ? userData?.profileTextColor
+                              : "black"
+                          }
+                          userId={window.location.pathname.slice(1)} // ✅ This gives you the original userId
                           containerClassName="contacstscontainer-expandable"
                           iconClassName="iconImage-expandable"
                           nameClassName="socialmedianame-expandable"
@@ -1455,6 +1457,7 @@ END:VCARD`.trim();
                           socialMediaDirectMode={
                             socialMedia.socialMediaDirectMode
                           }
+                          userId={window.location.pathname.slice(1)} // ✅ This gives you the original userId
                           cat={socialMedia.category}
                           containerClassName="contacstscontainer-expandable"
                           iconClassName="iconImage-expandable"
@@ -1500,6 +1503,7 @@ END:VCARD`.trim();
                         ? userData.profileTextColor
                         : "black"
                     }
+                    userId={window.location.pathname.slice(1)} // ✅ This gives you the original userId
                   />
                 ))}
             </div>
